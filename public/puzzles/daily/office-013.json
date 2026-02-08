@@ -1,0 +1,62 @@
+{
+  "id": "office-013",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Parking Spot Standoff",
+  "setting": "Garrison & Associates Law Firm, parking garage, Wednesday 7:45 AM",
+  "premise": "Someone poured a bucket of paint in Reserved Spot #1, the managing partner's spot, ruining it overnight. The garage has no cameras but does have a keycard gate.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Leah Fontaine",
+      "role": "Senior Associate",
+      "motive": "Was denied a reserved parking spot despite being at the firm for eight years",
+      "alibi": "I left the office at 7 PM Tuesday and drove straight home. I watched a documentary until 10 PM and went to bed. My home security camera shows my car parked all night."
+    },
+    {
+      "id": "s2",
+      "name": "Carl Jennings",
+      "role": "Billing Clerk",
+      "motive": "The managing partner rejected his expense report and embarrassed him in front of coworkers",
+      "alibi": "I was at my bowling league Tuesday night from 7 to 10 PM. After that I went to the bar with my teammates. I got home around midnight."
+    },
+    {
+      "id": "s3",
+      "name": "Rosa Delgado",
+      "role": "Legal Secretary",
+      "motive": "Her car was scratched in the garage last month and she suspects the managing partner did it",
+      "alibi": "I take the bus, I don't even have a garage keycard. I left at 5 PM Tuesday and went home to cook dinner for my family."
+    },
+    {
+      "id": "s4",
+      "name": "Neil Ashworth",
+      "role": "Associate Attorney",
+      "motive": "The managing partner stole credit for his brief that won a major case",
+      "alibi": "I stayed late working on a motion until around 9 PM Tuesday. Then I drove home. I came back Wednesday morning at 7:30 and noticed the mess."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Paint Can Evidence",
+      "content": "The empty paint can was found in the garage stairwell trash bin. It's a common hardware store brand — no fingerprints were recovered due to the paint residue.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Keycard Gate Log",
+      "content": "The parking garage keycard log shows three after-hours entries Tuesday night: Neil at 5:02 PM (entry), Neil at 9:08 PM (exit), and one more entry at 11:47 PM using Carl's keycard.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Bowling Alley Timestamp",
+      "content": "The bowling alley's electronic scoring system shows Carl's last game ended at 9:34 PM. The bar he claims to have gone to is a forty-minute drive from the office garage.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-p9",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Elevator Music Menace",
+  "setting": "Skyridge Tower, building management office, Wednesday 8 AM",
+  "premise": "Someone reprogrammed the elevator music system to play 'Never Gonna Give You Up' on repeat. The building manager's computer is the only way to change the playlist, and it requires a login.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Kyle Barrett",
+      "role": "Tenant Relations Manager",
+      "motive": "Known prankster who rickrolled the company Slack channel twice last month",
+      "alibi": "I left the office at 5 PM Tuesday and went to my kickboxing class from 6 to 7 PM. The gym has my check-in record. After that I went home and stayed in."
+    },
+    {
+      "id": "s2",
+      "name": "Meg Thornton",
+      "role": "Building Engineer",
+      "motive": "Frustrated that her request to upgrade the elevator speakers was denied",
+      "alibi": "I was on call Tuesday night but stayed home. I got one maintenance call at 9 PM about a stuck window on the fourteenth floor, which I handled by phone."
+    },
+    {
+      "id": "s3",
+      "name": "Jerome Price",
+      "role": "Night Security Officer",
+      "motive": "Bored on the night shift and wanted something entertaining to listen to on his rounds",
+      "alibi": "I started my shift at 10 PM Tuesday and patrolled all night. I don't have the building manager's computer password. I wouldn't even know where to find it."
+    },
+    {
+      "id": "s4",
+      "name": "Ashley Nunes",
+      "role": "Building Manager's Assistant",
+      "motive": "The building manager took credit for her playlist curation work",
+      "alibi": "I left at 5:30 PM Tuesday. I had dinner with my roommate at 7 PM and we watched TV until 11 PM. I didn't come back to the building."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Computer Login Timestamp",
+      "content": "The building manager's computer shows a login at 8:42 PM Tuesday and a logout at 8:51 PM. The playlist was changed during this nine-minute session.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Lobby Camera",
+      "content": "The lobby security camera shows no one entering the building between 7 PM and 10 PM Tuesday through the main entrance. The only other entrance is the service door, which requires a building staff keycard.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Keycard Service Door Log",
+      "content": "The service door keycard log shows Meg's card was used at 8:35 PM Tuesday to enter and again at 8:55 PM to exit. Meg claims she stayed home all Tuesday night and only handled a maintenance call by phone.",
+      "order": 3
+    }
+  ]
+}

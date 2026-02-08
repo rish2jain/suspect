@@ -1,0 +1,62 @@
+{
+  "id": "office-004",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Parking Spot Swap",
+  "setting": "Hartwell & Associates Law Firm, parking garage, Thursday 7:30 AM",
+  "premise": "Someone swapped the reserved parking signs overnight, putting the intern's name on the managing partner's premium spot. The signs were last seen correct at 7 PM Wednesday.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Brenda Liu",
+      "role": "Paralegal",
+      "motive": "Bitter about losing her parking spot to the new partner last month",
+      "alibi": "I left at 6:30 PM and went to my evening yoga class at Harmony Studio from 7 to 8:30. Then I picked up groceries and was home by 9:15."
+    },
+    {
+      "id": "s2",
+      "name": "Owen Marsh",
+      "role": "Law Clerk",
+      "motive": "Best friends with the intern and thinks reserved spots are unfair",
+      "alibi": "I stayed late finishing a brief at my desk until around 8 PM. Then I packed up and drove straight home. I was in bed by 9:30."
+    },
+    {
+      "id": "s3",
+      "name": "Cathy Dunn",
+      "role": "Senior Associate",
+      "motive": "Running a prank war with the managing partner all month",
+      "alibi": "I left at 5 PM for a dentist appointment at 5:30. After that I went straight home and didn't leave again. I live thirty minutes from the office."
+    },
+    {
+      "id": "s4",
+      "name": "Elliot Vance",
+      "role": "IT Administrator",
+      "motive": "Annoyed that the partner blocked his request for better server room parking access",
+      "alibi": "I stayed late doing server maintenance until about 9 PM. Then I drove home from the parking garage. I was the last one to leave the building."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Black Ink Smudges",
+      "content": "Fresh black ink smudges were found on both parking signs. The firm's supply closet is missing one black permanent marker. Only a marker from that brand leaves this distinctive residue.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Night Guard's Report",
+      "content": "The night security guard started his shift at 9 PM and says no one entered the building after that. The garage is only accessible through the building lobby after hours.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Security Camera Footage",
+      "content": "The lobby camera shows Owen leaving the building at 7:55 PM with a bag. But the garage camera shows him walking back into the parking garage from the stairwell at 8:25 PM, not leaving in his car as he claimed.",
+      "order": 3
+    }
+  ]
+}

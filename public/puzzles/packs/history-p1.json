@@ -1,0 +1,62 @@
+{
+  "id": "history-p1",
+  "version": 1,
+  "genre": "history",
+  "difficulty": 1,
+  "title": "The Vanished Vase",
+  "setting": "Hartwell Museum of Antiquities, Greek wing, Wednesday 8 AM",
+  "premise": "A 2,400-year-old Athenian red-figure vase disappeared from its sealed display case overnight. The case's electronic lock was opened at 11:47 PM using a staff keycard. Security footage from the Greek wing was conveniently erased.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Dr. Evelyn Cross",
+      "role": "Head Curator",
+      "motive": "Facing pressure to deaccession pieces to fund building renovations and wanted leverage over the board",
+      "alibi": "I left the museum at 6 PM and drove straight to the Faculty Club dinner downtown. I was there from 7 PM until past midnight with six colleagues."
+    },
+    {
+      "id": "s2",
+      "name": "Marco Sifuentes",
+      "role": "Security Guard",
+      "motive": "Deeply in debt from gambling and was recently seen meeting a known antiquities fence",
+      "alibi": "I was on the night shift Tuesday but only covering the east wing. I clocked in at 10 PM and stayed at the east wing desk all night reviewing camera feeds."
+    },
+    {
+      "id": "s3",
+      "name": "Helen Yardley",
+      "role": "Conservation Specialist",
+      "motive": "Believes the vase is being damaged by poor climate controls and has petitioned to have it moved",
+      "alibi": "I worked late in the conservation lab until about 9 PM. Then I took the crosstown bus home. My transit card shows I tapped out at the Vine Street stop at 9:35 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Jonas Prichard",
+      "role": "Exhibitions Manager",
+      "motive": "Wants to replace permanent displays with traveling shows to boost attendance numbers",
+      "alibi": "I left work at 5:30 PM and went to my apartment. I ordered delivery at 8 PM and watched television all evening. I never returned to the museum Tuesday night."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Keycard Access Log",
+      "content": "The electronic lock on the Greek wing display case was opened at 11:47 PM using keycard #0041, which is assigned to Jonas Prichard. Only four staff keycards can open that case.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Lobby Camera Footage",
+      "content": "The lobby cameras were not erased. They show someone entering through the staff entrance at 11:30 PM and leaving at 12:15 AM carrying a large padded bag. The figure matches Jonas's height and build.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Delivery App Records",
+      "content": "Jonas's delivery order was placed at 8:02 PM and marked delivered at 8:31 PM. But the driver's GPS log shows the food was left at the door with no answer after three knocks -- Jonas was not home when it arrived.",
+      "order": 3
+    }
+  ]
+}

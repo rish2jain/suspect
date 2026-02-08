@@ -1,0 +1,5 @@
+{
+  "culprit": "s2",
+  "explanation": "Dev claims he was at home all evening. But Clue 2 reveals his video call client noticed he appeared to be at an office, not at home — fluorescent lights and a whiteboard were visible. Clue 3 confirms the deletion had to be done from on-site, meaning the culprit was physically in the office. Clue 1 shows only Dev and the vacationing IT director have admin credentials. Dev was at the office, used his admin access, and deleted the database at 9:42 PM — twelve minutes after ending his call.",
+  "funFact": "The average cost of a data breach for a law firm exceeds $4 million, which is why most firms now require multi-factor authentication for admin access."
+}

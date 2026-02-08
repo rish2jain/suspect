@@ -1,0 +1,62 @@
+{
+  "id": "history-p5",
+  "version": 1,
+  "genre": "history",
+  "difficulty": 3,
+  "title": "The Counterfeit Cameo",
+  "setting": "Hargrove Auction House, appraisal room, Saturday morning",
+  "premise": "A Victorian-era shell cameo brooch appraised at forty thousand dollars was swapped for a worthless replica before Saturday's auction. The switch happened sometime after Friday's final appraisal at 4 PM. The real cameo is missing.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Genevieve Rourke",
+      "role": "Senior Appraiser",
+      "motive": "Performed the original appraisal and could profit by selling the real one to a private collector",
+      "alibi": "I completed the final appraisal Friday at 4 PM and locked the piece in the display safe. I left the building at 4:30 and attended a gallery opening on Beacon Street from 6 to 9 PM."
+    },
+    {
+      "id": "s2",
+      "name": "Philip Dane",
+      "role": "Auction House Porter",
+      "motive": "Collects Victorian jewelry and knows a private buyer willing to pay cash with no questions asked",
+      "alibi": "I was the last staff member in the building Friday. I set the alarm at 7 PM and went straight to Murphy's Pub to watch the football match. I was there until closing at midnight."
+    },
+    {
+      "id": "s3",
+      "name": "Irene Valdez",
+      "role": "Consignment Coordinator",
+      "motive": "The cameo's seller promised her a private cash bonus if the piece fetched above estimate at auction",
+      "alibi": "I left work at 5 PM Friday. I was home all evening preparing auction catalog descriptions on my laptop. My email outbox shows I sent three catalog drafts between 7 and 10 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Malcolm Trent",
+      "role": "Freelance Photographer",
+      "motive": "Hired to photograph lots and had unsupervised access to the appraisal room while shooting Friday",
+      "alibi": "I finished photographing auction lots at 3 PM Friday and left before the final appraisal. I drove to my studio in Millbrook, forty minutes away, to process the images for the catalog."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Alarm System Log",
+      "content": "The building alarm was set at 7:02 PM Friday and disarmed at 6:15 AM Saturday by the morning manager. But the alarm log also shows a brief disarm-rearm cycle at 11:48 PM Friday using Philip's staff code.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Bartender's Account",
+      "content": "The bartender at Murphy's Pub confirms Philip arrived around 7:15 PM but says he left abruptly around 11 PM, well before closing. Philip told him he had forgotten something at work.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Pub Location Check",
+      "content": "Murphy's Pub is a six-minute drive from the auction house. Philip claimed he was at the pub until midnight, but Clues 1 and 2 show he left at 11 PM and used his alarm code at 11:48 PM. His alibi window has a gap he cannot explain.",
+      "order": 3
+    }
+  ]
+}

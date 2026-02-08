@@ -1,0 +1,62 @@
+{
+  "id": "office-006",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Decaf Deception",
+  "setting": "Apex Digital Agency, kitchen area, Monday 10 AM",
+  "premise": "Someone replaced the regular coffee beans in the office grinder with decaf. The switch happened between 8 AM and 9:30 AM Monday. The decaf bag was found stuffed behind the microwave.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Pete Callahan",
+      "role": "Creative Director",
+      "motive": "His doctor told him the whole team drinks too much caffeine",
+      "alibi": "I arrived at 8:15 and went straight to my corner office on the east side. I was on back-to-back video calls from 8:30 to 10:00. My calendar confirms it."
+    },
+    {
+      "id": "s2",
+      "name": "Aisha Mbeki",
+      "role": "Social Media Manager",
+      "motive": "Lost a bet with a friend that she could get the office off caffeine for one day",
+      "alibi": "I got in at 8:45 and made myself tea in the kitchen. Then I went to my desk and was on the phone with a client from 9:00 to 9:45. The client can confirm."
+    },
+    {
+      "id": "s3",
+      "name": "Rick Donovan",
+      "role": "Account Executive",
+      "motive": "Thinks decaf tastes better and has been lobbying for the switch",
+      "alibi": "I arrived at exactly 9:00 AM. I walked past the kitchen but didn't stop because I was running late for the 9:00 Monday standup in the west wing meeting room."
+    },
+    {
+      "id": "s4",
+      "name": "Tammy Nguyen",
+      "role": "Copywriter",
+      "motive": "Caffeine gives her migraines and she's tired of smelling it",
+      "alibi": "I was the first one in at 7:50 AM. I grabbed coffee from the kitchen and took it to my desk. I didn't go back to the kitchen until 10 when I noticed it tasted weird."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Kitchen Traffic",
+      "content": "The intern says the kitchen was empty when she grabbed water at 8:40 AM, but she noticed someone had left a grocery bag on the counter that wasn't there at 8:00 AM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Receipt Found",
+      "content": "A receipt from the Corner Grocery (across the street) for decaf beans was found in the recycling bin. It was timestamped 8:22 AM Monday morning.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Video Call Check",
+      "content": "IT pulled Pete's meeting records. His first video call Monday actually started at 9:15 AM, not 8:30 AM. There is a forty-five minute gap in his morning schedule.",
+      "order": 3
+    }
+  ]
+}

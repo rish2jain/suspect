@@ -1,0 +1,62 @@
+{
+  "id": "office-012",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Awards Trophy Swap",
+  "setting": "Redline Advertising, lobby display case, Monday 9 AM",
+  "premise": "The firm's prestigious Clio Award trophy has been replaced with a cheap plastic replica. The real trophy was last verified Friday at 5 PM when the cleaner polished the case.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Vera Sinclair",
+      "role": "Creative Director",
+      "motive": "Believes she deserved credit for the winning campaign, not the team lead",
+      "alibi": "I left Friday at 4 PM for a dentist appointment. I spent the whole weekend at my beach house in Montauk. I have gas station receipts from the drive out."
+    },
+    {
+      "id": "s2",
+      "name": "Elliot Graham",
+      "role": "Account Executive",
+      "motive": "Wanted to prank the firm before transferring to the Chicago office",
+      "alibi": "I was in the office until 6 PM Friday wrapping up account handoffs. Over the weekend I packed my apartment for the move. My roommate helped me Saturday and Sunday."
+    },
+    {
+      "id": "s3",
+      "name": "June Nakamura",
+      "role": "Receptionist",
+      "motive": "She holds the only spare key to the display case and resents being underpaid",
+      "alibi": "I closed up reception at 5:30 PM Friday and went to a concert downtown. Saturday and Sunday I visited my parents in New Jersey. I wasn't near the office."
+    },
+    {
+      "id": "s4",
+      "name": "Dominic Reese",
+      "role": "Building Maintenance",
+      "motive": "Has a side business selling memorabilia and collectibles online",
+      "alibi": "I did my Friday evening rounds at 7 PM and locked up by 8 PM. I don't work weekends. I was home watching the game Saturday with my neighbors."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Display Case Lock",
+      "content": "The display case lock shows no signs of being picked or forced. It was opened with a key. Only two keys exist: one in the managing director's safe, and June's spare at her reception desk.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Weekend Building Access",
+      "content": "The building's weekend sign-in log shows Elliot entered Saturday at 3:15 PM, stating he needed to 'pick up files.' He was the only weekend visitor.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Reception Desk Drawer",
+      "content": "The spare display case key is kept in June's locked desk drawer. Security footage from Friday at 5:55 PM shows Elliot lingering at the reception desk after June had already left.",
+      "order": 3
+    }
+  ]
+}

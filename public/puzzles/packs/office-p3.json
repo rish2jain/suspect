@@ -1,0 +1,62 @@
+{
+  "id": "office-p3",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Desk Rearrangement Mystery",
+  "setting": "Clearwater Analytics, second floor, Thursday 8:30 AM",
+  "premise": "Someone completely rearranged Brian's desk overnight -- monitors swapped, chair height changed, and everything mirrored left-to-right. Brian is left-handed and the setup is now optimized for a right-handed person.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Sandra Kline",
+      "role": "Data Analyst",
+      "motive": "Brian took credit for her pivot table formula in last week's meeting",
+      "alibi": "I left at 5 PM sharp and went to my pottery class at Clay Works Studio from 6 to 8 PM. The instructor marks attendance. I was home by 8:45."
+    },
+    {
+      "id": "s2",
+      "name": "Marcus Reed",
+      "role": "Operations Manager",
+      "motive": "Thinks Brian's messy desk violates the new clean-desk policy and wants to teach him a lesson",
+      "alibi": "I worked until 7 PM reorganizing the supply room. Then I drove to pick up my daughter from soccer practice at Westfield Park. Practice ends at 7:30."
+    },
+    {
+      "id": "s3",
+      "name": "Alyssa Kim",
+      "role": "UX Designer",
+      "motive": "Pranks Brian every year around his birthday as a running tradition",
+      "alibi": "I left at 4:30 for a dentist appointment at Bright Smile Dental across town. The appointment was at 5 PM and I went straight home afterward."
+    },
+    {
+      "id": "s4",
+      "name": "Jordan Beck",
+      "role": "Software Engineer",
+      "motive": "Sits next to Brian and is annoyed by his loud mechanical keyboard placement",
+      "alibi": "I stayed until about 6:30 PM debugging a deployment issue. I was the last developer on the floor. Then I walked to Rosario's Bar two blocks away to meet friends."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Security Camera (Lobby Only)",
+      "content": "The lobby camera shows Jordan leaving at 6:35 PM, Marcus leaving at 7:05 PM, and one person entering the building at 9:50 PM. Floor cameras were being updated and were offline.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Brian's Birthday",
+      "content": "Brian's birthday is not for another three months. It's currently mid-January and his birthday is in April.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Soccer Schedule Check",
+      "content": "Westfield Park's youth soccer league does not hold practice on Thursday evenings. Their practice schedule is Monday, Wednesday, and Saturday only.",
+      "order": 3
+    }
+  ]
+}

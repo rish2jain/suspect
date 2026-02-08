@@ -1,0 +1,62 @@
+{
+  "id": "office-p4",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Whiteboard Marker Heist",
+  "setting": "Horizon Dynamics, engineering floor, Friday 10 AM",
+  "premise": "Every single whiteboard marker on the engineering floor has vanished -- all forty-eight of them gone from six conference rooms. They were there at 5 PM Thursday but missing Friday morning. A ransom note demands 'better snacks in the vending machine.'",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Zoe Carpenter",
+      "role": "Product Owner",
+      "motive": "Led the unsuccessful vending machine petition last month and was publicly ignored",
+      "alibi": "I left at 5:15 Thursday. I had concert tickets for The Waves at the Riverside Amphitheater. Show started at 7 PM and didn't end until 10:30. I have the ticket stubs."
+    },
+    {
+      "id": "s2",
+      "name": "Ivan Petrov",
+      "role": "QA Engineer",
+      "motive": "Hates whiteboard brainstorming sessions and wants them replaced with digital tools",
+      "alibi": "I worked late until around 8 PM Thursday fixing test scripts. I was at my desk in the east wing the entire time. Then I took the elevator down and drove home."
+    },
+    {
+      "id": "s3",
+      "name": "Mel Washington",
+      "role": "Scrum Master",
+      "motive": "Thinks the engineering team wastes too much time doodling during meetings",
+      "alibi": "I left at 4:45 PM for a parent-teacher conference at Lincoln Middle School at 5:30. It ran long and I didn't leave the school until almost 7 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Carla Vega",
+      "role": "DevOps Engineer",
+      "motive": "Was recently scolded for doodling during a whiteboard session and found it humiliating",
+      "alibi": "I stayed until 6 PM doing a server migration. Then I went to my evening class at Metro Community College from 7 to 9 PM. I'm taking project management this semester."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Cleaning Crew Timing",
+      "content": "The cleaning crew services the engineering floor from 6:30 to 7:30 PM. They confirm the markers were still in all six rooms when they started at 6:30 but cannot confirm after that since they don't check supplies.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Ransom Note Analysis",
+      "content": "The ransom note was printed, not handwritten, but it was printed on the engineering floor's dedicated printer. The print log shows one job at 7:48 PM Thursday from a workstation in the east wing.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Concert Venue Check",
+      "content": "The Riverside Amphitheater's website shows The Waves concert was originally scheduled for Thursday but was postponed to the following week due to weather. No show took place Thursday night.",
+      "order": 3
+    }
+  ]
+}

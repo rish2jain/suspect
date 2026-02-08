@@ -1,0 +1,62 @@
+{
+  "id": "office-024",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Missing Meeting Notes",
+  "setting": "Clearpoint Health Systems, conference room, Friday 2 PM",
+  "premise": "Critical board meeting notes containing sensitive merger details were stolen from the locked filing cabinet in Conference Room A. The theft occurred between Thursday 6 PM and Friday 8 AM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Alan Prescott",
+      "role": "Chief Financial Officer",
+      "motive": "The notes contained evidence he inflated revenue numbers to the board",
+      "alibi": "I left at 5:30 PM Thursday and flew to Chicago for a conference. My flight departed at 7:45 PM and I checked into the Hilton downtown by midnight. I have boarding passes."
+    },
+    {
+      "id": "s2",
+      "name": "Monica Silva",
+      "role": "Executive Secretary",
+      "motive": "Was offered money by a competitor for insider information about the merger",
+      "alibi": "I stayed until 6:30 PM finishing correspondence, then went straight home. I was on a video call with my mother in Portugal from 7 PM until 10 PM. She can confirm the whole call."
+    },
+    {
+      "id": "s3",
+      "name": "Gary Linden",
+      "role": "Security Consultant",
+      "motive": "Wants to expose lax document security to justify expanding his contract",
+      "alibi": "I did my evening rounds from 6 PM to 10 PM, then went home. My route covers the entire building. I checked Conference Room A at 7 PM and everything looked normal."
+    },
+    {
+      "id": "s4",
+      "name": "Trish Yamamoto",
+      "role": "Legal Counsel",
+      "motive": "Opposed the merger and wanted to leak details to derail it",
+      "alibi": "I left the office at 5 PM and drove to my lake house an hour away. I was there all evening with no phone reception. I drove back to the office Friday morning."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Filing Cabinet Lock",
+      "content": "The filing cabinet was opened with a key, not forced. Only three people have keys: Alan, Monica, and the office manager who was on vacation all week.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Parking Lot Camera",
+      "content": "The parking lot camera shows Monica's car leaving at 6:35 PM Thursday and returning at 10:25 PM the same night. She re-entered the building at 10:28 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Video Call Records",
+      "content": "Monica's video platform account shows her call with her mother lasted from 7:00 PM to 8:15 PM — not until 10 PM as she claimed. The call ended nearly two hours earlier.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-017",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Coffee Machine Catastrophe",
+  "setting": "Belmont Insurance Group, kitchen, Monday 8:30 AM",
+  "premise": "The brand-new espresso machine was found filled with dish soap, ruining it completely. The soap was added sometime between Friday 5 PM close and Monday 7 AM open.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Patty Novak",
+      "role": "Claims Adjuster",
+      "motive": "Campaigned for a different coffee machine model and lost the vote",
+      "alibi": "I wasn't in the office all weekend. I drove up to Lake Marion on Friday evening for a camping trip with my husband. We got back Sunday night."
+    },
+    {
+      "id": "s2",
+      "name": "Andre Williams",
+      "role": "Mailroom Clerk",
+      "motive": "Angry that only managers get to use the espresso machine",
+      "alibi": "I came in Saturday morning at 9 AM to sort a backlog of packages. I worked in the mailroom until noon and then left. I never went near the kitchen."
+    },
+    {
+      "id": "s3",
+      "name": "Sonia Patel",
+      "role": "Accounting Manager",
+      "motive": "Thought the machine was an unnecessary expense and voted against purchasing it",
+      "alibi": "I was home all weekend with a bad cold. My neighbor brought me soup on Saturday afternoon and can confirm I was in bed. I didn't leave the house."
+    },
+    {
+      "id": "s4",
+      "name": "Jake Ellison",
+      "role": "Sales Representative",
+      "motive": "Lost a bet with coworkers and was dared to pull a prank",
+      "alibi": "I came in Sunday around 2 PM to grab a client folder I forgot on Friday. I was in and out in ten minutes. I went straight to my desk and then left."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Building Entry Log",
+      "content": "Weekend badge swipes show Andre entered Saturday at 9:02 AM and left at 12:15 PM. Jake entered Sunday at 2:08 PM and left at 2:22 PM. No other entries recorded.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Weekend Security Camera",
+      "content": "The hallway camera near the kitchen shows one person walking toward the kitchen at 9:35 AM on Saturday. The mailroom is in the opposite direction from the kitchen.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Lake Marion Road Closure",
+      "content": "The only road to Lake Marion was closed all weekend for bridge repairs starting Friday at noon. The closure was announced on the county website Thursday.",
+      "order": 3
+    }
+  ]
+}

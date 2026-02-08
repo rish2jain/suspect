@@ -1,0 +1,62 @@
+{
+  "id": "history-p4",
+  "version": 1,
+  "genre": "history",
+  "difficulty": 2,
+  "title": "The Altered Archive",
+  "setting": "Greystone County Records Office, basement archive, Thursday morning",
+  "premise": "Pages from three 19th-century property deed ledgers were carefully removed and replaced with altered copies overnight. The changes redirect historic land claims worth millions. The basement archive door uses a combination lock known only to staff.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Beverly Marsh",
+      "role": "County Archivist",
+      "motive": "Her family has a disputed land claim that would be resolved in their favor by the altered records",
+      "alibi": "I locked up the archive at 5 PM Wednesday and went home. I have the only key to the inner cage where the deed ledgers are stored. No one could access them without me."
+    },
+    {
+      "id": "s2",
+      "name": "Tom Fielding",
+      "role": "Records Clerk",
+      "motive": "Being paid by a real estate developer to alter historical property boundaries",
+      "alibi": "I left work at 5 PM with everyone else Wednesday. I went to my son's basketball game at Lincoln Middle School. The game started at 6 and ended around 7:30 PM."
+    },
+    {
+      "id": "s3",
+      "name": "Professor Joan Whitaker",
+      "role": "Genealogical Researcher",
+      "motive": "Wants to prove her academic theory about county land grants, even if the evidence must be manufactured",
+      "alibi": "I was at the archive Wednesday afternoon doing research until closing. I left when Beverly locked up at 5 PM. I went directly to a faculty dinner at Rossini's restaurant downtown."
+    },
+    {
+      "id": "s4",
+      "name": "Ray Coolidge",
+      "role": "Building Maintenance",
+      "motive": "Owes money to a local developer who wants the deed records changed to support a property claim",
+      "alibi": "I was in the building Wednesday evening doing routine HVAC maintenance from 6 to 9 PM. I worked on the third floor only and never went near the basement at all."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Paper Analysis",
+      "content": "The replacement pages use high-quality acid-free archival paper with artificial aging. A specialty paper supply company confirms a recent order shipped to a home address in Greystone County.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Security Patrol Report",
+      "content": "The night security officer reports the basement lights were on during his 10 PM round Wednesday, but off at his midnight round. No one should have been in the basement after 5 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "School Schedule Check",
+      "content": "Lincoln Middle School's athletics calendar shows no basketball games scheduled for Wednesday. The next game is Friday. Tom's son confirms his dad dropped him at a friend's house Wednesday at 5:30 PM and he did not see him again until 11 PM.",
+      "order": 3
+    }
+  ]
+}

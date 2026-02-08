@@ -1,0 +1,62 @@
+{
+  "id": "office-010",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Phantom Email",
+  "setting": "Crescent Media Group, open floor, Thursday 10 AM",
+  "premise": "An anonymous email was sent from the shared marketing account at 3:17 AM criticizing the CEO's new policy. The email went to every employee in the company.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Nadia Volkov",
+      "role": "Marketing Director",
+      "motive": "Publicly clashed with the CEO over the new policy last week",
+      "alibi": "I was asleep at home. My smart doorbell shows no activity at my front door between midnight and 6 AM. I had no reason to be up at 3 AM."
+    },
+    {
+      "id": "s2",
+      "name": "Jared Kim",
+      "role": "Night Shift Security",
+      "motive": "The new policy cuts overnight security staff from three to one",
+      "alibi": "I was doing my patrol rounds all night. I walked every floor between 2 AM and 4 AM. I don't even know the marketing account password."
+    },
+    {
+      "id": "s3",
+      "name": "Simone Adler",
+      "role": "HR Generalist",
+      "motive": "Has been fielding angry complaints about the policy for days",
+      "alibi": "I was home watching a late movie until 1 AM, then went straight to bed. My husband can confirm I was home all night."
+    },
+    {
+      "id": "s4",
+      "name": "Kent Bridges",
+      "role": "Marketing Coordinator",
+      "motive": "Passed over for a promotion he blames on the new restructuring policy",
+      "alibi": "I was at a friend's apartment across town for a game night. We played until about 2 AM, then I crashed on his couch until morning."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Email Server Metadata",
+      "content": "The IT team traced the email's origin IP address to the office VPN. It was sent from a device connected remotely, not from inside the building.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Security Patrol Log",
+      "content": "Jared's patrol log shows he scanned his checkpoint badge on every floor between 2:15 AM and 3:45 AM. All scans are verified by the security system timestamps.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "VPN Connection Records",
+      "content": "The office VPN log shows a connection from Kent's registered laptop at 3:12 AM Thursday, lasting nine minutes. Kent claims he was asleep at his friend's apartment by 2 AM.",
+      "order": 3
+    }
+  ]
+}

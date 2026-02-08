@@ -1,0 +1,62 @@
+{
+  "id": "office-p1",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Missing Office Plant",
+  "setting": "Maplewood Insurance, reception area, Monday 9 AM",
+  "premise": "Gerald the beloved office ficus tree vanished from the reception area over the weekend. Gerald has been the office mascot for eight years. Security cameras were down for maintenance Saturday.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Patty Lockwood",
+      "role": "Receptionist",
+      "motive": "Complained that Gerald was attracting gnats near her desk",
+      "alibi": "I was at my sister's lake cabin in Pine Ridge all weekend from Friday evening to Sunday night. We had no cell service out there."
+    },
+    {
+      "id": "s2",
+      "name": "Martin Hull",
+      "role": "Claims Adjuster",
+      "motive": "Wanted the corner where Gerald sits for a new display shelf",
+      "alibi": "I came into the office Saturday morning around 10 to catch up on paperwork. I worked at my desk on the third floor until about 2 PM."
+    },
+    {
+      "id": "s3",
+      "name": "Yolanda Reese",
+      "role": "Underwriter",
+      "motive": "Allergic to the fertilizer used on Gerald and asked for it to be removed twice",
+      "alibi": "I was home all weekend doing spring cleaning. My neighbor came over and helped me move furniture on Saturday afternoon. I never left my apartment at all."
+    },
+    {
+      "id": "s4",
+      "name": "Dean Kowalski",
+      "role": "Janitor",
+      "motive": "Gerald's falling leaves create extra cleanup work every single day",
+      "alibi": "I did my regular Saturday evening cleaning shift from 5 PM to 9 PM. I cleaned all four floors starting from the top like always."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Soil Trail",
+      "content": "Small traces of potting soil were found leading from the reception area to the service elevator, then to the loading dock at the back of the building.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "contradiction",
+      "title": "Building Sign-In Sheet",
+      "content": "The weekend sign-in log shows Martin signed in Saturday at 10:05 AM and out at 2:10 PM. Dean signed in at 5:00 PM and out at 9:05 PM. No one else signed in all weekend.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "witness",
+      "title": "Neighbor's Testimony",
+      "content": "Yolanda's neighbor confirms helping her move furniture Saturday from 1 PM to 4 PM. But the neighbor also saw Yolanda leaving her apartment building with car keys at 8 AM Saturday morning.",
+      "order": 3
+    }
+  ]
+}

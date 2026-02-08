@@ -1,0 +1,5 @@
+{
+  "culprit": "s4",
+  "explanation": "Alan claims he filed the memo at 5 PM, didn't read it, and left at 5:15 PM. But Clue 3 shows the email server logged him opening the memo attachment at 5:58 PM — well after he claims to have left. Clue 2 confirms the screenshot was taken at 6:02 PM on a phone connected to the office Wi-Fi, matching Alan's phone model. He stayed late, read the memo, learned his position was being cut, took a screenshot, and emailed it to the reporter at 10:47 PM from home as revealed in Clue 1.",
+  "funFact": "Workplace data leaks cost companies an average of $4.35 million per incident, according to IBM's annual cost of a data breach report."
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-p10",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Desk Name Plate Mix-Up",
+  "setting": "Carver & Associates Insurance, cubicle floor, Monday 9 AM",
+  "premise": "Every desk name plate on the third floor has been swapped around over the weekend. Forty employees are sitting at the wrong desks. Someone did this as a prank.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Benny Shaw",
+      "role": "Claims Adjuster",
+      "motive": "Lost the cubicle lottery and got the worst desk location near the bathroom",
+      "alibi": "I was at a wedding out of state all weekend. I drove four hours Friday after work and didn't get back until Sunday night. My car's toll records confirm the trip."
+    },
+    {
+      "id": "s2",
+      "name": "Claudia Voss",
+      "role": "Underwriting Assistant",
+      "motive": "Thought it would be a harmless team-building exercise to start the week",
+      "alibi": "I came into the office Saturday around 10 AM to water the office plants — I volunteered for the weekend plant care schedule. I was there about thirty minutes."
+    },
+    {
+      "id": "s3",
+      "name": "Pete Garrison",
+      "role": "Senior Adjuster",
+      "motive": "Angry about the new seating chart that moved him away from his team",
+      "alibi": "I was home all weekend doing yard work. My neighbor borrowed my lawnmower Saturday morning and returned it Sunday afternoon. I never left the neighborhood."
+    },
+    {
+      "id": "s4",
+      "name": "Olivia Chen",
+      "role": "Team Lead",
+      "motive": "Wanted to prove to management that the open floor plan is confusing and impractical",
+      "alibi": "I spent Saturday at my daughter's soccer tournament from 8 AM to 4 PM. Sunday I ran errands and did laundry. I have photos from the tournament on my phone."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Weekend Sign-In Sheet",
+      "content": "The building's weekend sign-in sheet shows only one visitor on Saturday: Claudia Voss at 9:55 AM. No one signed in on Sunday.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Time Estimate",
+      "content": "Facilities estimates swapping forty name plates would take a single person at least forty-five minutes. The name plates are screwed into desk panels and require a Phillips-head screwdriver.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Plant Care Duration",
+      "content": "Claudia says she was there for about thirty minutes to water plants. But the building security exit log shows she didn't leave until 11:42 AM — nearly two hours after signing in at 9:55 AM.",
+      "order": 3
+    }
+  ]
+}

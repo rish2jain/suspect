@@ -1,0 +1,62 @@
+{
+  "id": "office-014",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Secret Santa Spoiler",
+  "setting": "Crestview Publishing, main office, Friday 2 PM",
+  "premise": "Someone posted the entire Secret Santa assignment list on the office bulletin board, ruining the surprise for all forty employees. The list was in the locked HR filing cabinet.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Brenda Fox",
+      "role": "HR Coordinator",
+      "motive": "Frustrated that nobody appreciated the effort she put into organizing it",
+      "alibi": "I was in meetings all morning until noon. Then I had lunch with a client at the restaurant downstairs from 12:30 to 1:45 PM. The list was posted while I was eating."
+    },
+    {
+      "id": "s2",
+      "name": "Ivan Petrov",
+      "role": "Copy Editor",
+      "motive": "Got assigned the boss he hates and wanted the whole thing called off",
+      "alibi": "I was at my desk editing manuscripts all day. I didn't leave my chair between 10 AM and 2 PM except for a quick bathroom break around 11:30."
+    },
+    {
+      "id": "s3",
+      "name": "Tracy Woo",
+      "role": "Administrative Assistant",
+      "motive": "Wanted everyone to know she got stuck buying a gift for the intern she just met",
+      "alibi": "I was covering the front desk until 1 PM while the receptionist was out. Three visitors signed in during that time and can confirm I was there."
+    },
+    {
+      "id": "s4",
+      "name": "Derek Hale",
+      "role": "Facilities Technician",
+      "motive": "Thinks Secret Santa is 'corporate nonsense' and has said so loudly",
+      "alibi": "I was fixing the heating unit on the roof from 11 AM to 1:30 PM. My work order is timestamped and the rooftop door log shows when I went up and came down."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Bulletin Board Timing",
+      "content": "An employee noticed the list wasn't on the board at 12:15 PM when she pinned a flyer. Another employee saw it posted at 1:10 PM. The list appeared between those times.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Filing Cabinet Access",
+      "content": "The HR filing cabinet uses a four-digit combination lock. Only Brenda and her assistant Tracy know the code. The lock shows no signs of tampering.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Photocopier Log",
+      "content": "The office photocopier's digital log shows a copy job at 12:52 PM from Tracy's employee code. The original Secret Santa list was a single printed page — and the posted version is clearly a photocopy.",
+      "order": 3
+    }
+  ]
+}

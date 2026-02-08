@@ -1,0 +1,62 @@
+{
+  "id": "office-029",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Thermostat Tamperer",
+  "setting": "BrightPath Financial, main office, Thursday 7:30 AM",
+  "premise": "Someone cranked the office thermostat to 95 degrees overnight, warping furniture and damaging electronics. The thermostat panel in the utility hallway was manually changed at some point Wednesday evening.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Donna Mercer",
+      "role": "Branch Manager",
+      "motive": "Campaigning to relocate the office to a newer building and wants to prove this one is failing",
+      "alibi": "I left the office at 6 PM and drove to my daughter's dance recital at the community center. The recital started at 7 PM and ended at 9 PM. Then I drove straight home."
+    },
+    {
+      "id": "s2",
+      "name": "Craig Nolan",
+      "role": "Financial Advisor",
+      "motive": "Constantly complains the office is freezing and has argued about the thermostat for months",
+      "alibi": "I was at a client dinner at Harborview Grill from 7 PM until about 9:30 PM Wednesday. My client and I split the bill. I took a cab home afterward and was in bed by 10 PM."
+    },
+    {
+      "id": "s3",
+      "name": "Wendy Cho",
+      "role": "Compliance Officer",
+      "motive": "Being relocated to a smaller office and furious about the downgrade",
+      "alibi": "I stayed late reviewing regulatory filings until about 9 PM. Then I walked to the parking garage and drove home. I live about twenty minutes away. I went right to sleep."
+    },
+    {
+      "id": "s4",
+      "name": "Pete Sandoval",
+      "role": "Building Maintenance Tech",
+      "motive": "Was written up for thermostat complaints and wants to prove the system needs an upgrade he requested",
+      "alibi": "I finished my shift at 5 PM and went to the hardware store for a home project. I was there until 6 PM then went straight home. My wife and I watched TV all evening."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Security Camera Review",
+      "content": "The lobby camera shows Wendy leaving at 9:05 PM. After that, one person entered the building at 9:40 PM using a badge and left at 9:55 PM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Badge Entry Log",
+      "content": "The 9:40 PM badge entry belongs to Craig Nolan. The utility hallway where the thermostat is located is just fifteen feet from the lobby entrance.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Restaurant Closing Time",
+      "content": "Harborview Grill's posted hours show they close at 9 PM on Wednesdays. Craig claimed dinner lasted until 9:30 PM, but the restaurant would have been closed by then.",
+      "order": 3
+    }
+  ]
+}

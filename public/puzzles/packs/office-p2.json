@@ -1,0 +1,62 @@
+{
+  "id": "office-p2",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Fake Meeting Invite",
+  "setting": "Summit Solutions, conference room, Tuesday 2 PM",
+  "premise": "Someone created a fake calendar invite titled 'Mandatory All-Hands: Layoff Discussion' for 2 PM Tuesday, causing a company-wide panic. The invite was created from an unattended computer in the open workspace at 12:35 PM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Nora Fischer",
+      "role": "HR Business Partner",
+      "motive": "Frustrated that management ignores her warnings about employee morale",
+      "alibi": "I was in a closed-door meeting with the VP of Operations from 12:00 to 1:30 PM. His assistant booked it last week and it's on both our calendars."
+    },
+    {
+      "id": "s2",
+      "name": "Trent Nakamura",
+      "role": "Software Developer",
+      "motive": "Angry about mandatory return-to-office policy and wanted to cause chaos",
+      "alibi": "I was working from home Tuesday. I logged into the VPN at 8 AM and was online all day. My commit history shows code pushes at 12:15, 12:40, and 1:10 PM."
+    },
+    {
+      "id": "s3",
+      "name": "Bianca Torres",
+      "role": "Sales Director",
+      "motive": "Wanted to sabotage the 3 PM client presentation her rival was leading",
+      "alibi": "I was at lunch at the Thai place on Fifth Street with two clients from 12:00 to 1:15 PM. We split the bill and I have the credit card charge to prove it."
+    },
+    {
+      "id": "s4",
+      "name": "Lucas Webb",
+      "role": "Marketing Analyst",
+      "motive": "Recently received a poor performance review and resents management",
+      "alibi": "I was in the open workspace area all morning working on campaign reports. At noon I walked to the deli on Third Street for a sandwich and got back around 12:50."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Workspace Occupancy",
+      "content": "A colleague says the open workspace was nearly empty during lunch. She left at 12:10 PM and when she returned at 1 PM only Lucas was at his desk.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Network Login Records",
+      "content": "IT pulled the login timestamps for the workstation used to create the invite. Someone logged in with guest credentials at 12:30 PM and logged out at 12:38 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Deli Timestamp",
+      "content": "The deli on Third Street is a fifteen-minute walk each way. Lucas's debit card was charged there at 12:03 PM, meaning he would have been back at the office well before 12:30 -- not at 12:50 as he claimed.",
+      "order": 3
+    }
+  ]
+}

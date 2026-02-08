@@ -1,0 +1,62 @@
+{
+  "id": "office-018",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Leaked Salary Spreadsheet",
+  "setting": "Vanguard Consulting, open-plan office, Tuesday 11 AM",
+  "premise": "A confidential spreadsheet showing every employee's salary was emailed anonymously to the entire company at 3:17 AM from a spoofed internal address. IT traced the send to an office workstation.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Martin Cole",
+      "role": "Payroll Specialist",
+      "motive": "Discovered he earns less than a newer hire doing the same job",
+      "alibi": "I was at home sleeping. My smart doorbell camera shows I arrived home at 6:30 PM Monday and didn't leave until 7:15 AM Tuesday. The footage is timestamped."
+    },
+    {
+      "id": "s2",
+      "name": "Renee Adler",
+      "role": "HR Business Partner",
+      "motive": "In a dispute with management over pay equity and wanted to force transparency",
+      "alibi": "I worked late until 10 PM finishing reviews. Then I drove to my sister's house in Millbrook and stayed overnight. I came to work from there Tuesday morning."
+    },
+    {
+      "id": "s3",
+      "name": "Hector Fuentes",
+      "role": "Facilities Manager",
+      "motive": "His team's wages were frozen while executives got bonuses",
+      "alibi": "I was on the overnight shift doing floor waxing from 11 PM to 5 AM. I was in the east wing all night with my floor buffer running constantly."
+    },
+    {
+      "id": "s4",
+      "name": "Tara Singh",
+      "role": "Software Developer",
+      "motive": "Recently denied a raise after leading a critical project launch",
+      "alibi": "I left the office at 7 PM and went to a coding meetup at Brewer's Pub downtown. It ran until midnight, then I took a rideshare home and went to bed."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Workstation Location",
+      "content": "IT confirmed the email was sent from a workstation in the west wing, third floor. Badge records show Hector's card accessed the west wing at 2:50 AM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Night Custodian Report",
+      "content": "The night custodian says she passed through the east wing at 3 AM and did not hear any floor buffer running. She found it odd because Hector was scheduled to be there.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Floor Waxing Schedule",
+      "content": "The facilities work order shows the east wing was already waxed last Thursday. Hector's overnight assignment was actually for the south wing stairwells, not the east wing.",
+      "order": 3
+    }
+  ]
+}

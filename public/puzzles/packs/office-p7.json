@@ -1,0 +1,62 @@
+{
+  "id": "office-p7",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Thermostat War",
+  "setting": "DataPulse Analytics, open office, Monday morning",
+  "premise": "Someone changed the office thermostat password and set it to 58 degrees over the weekend. The entire office is freezing and nobody can change it back.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Rita Sharma",
+      "role": "Data Engineer",
+      "motive": "Always complains the office is too hot and brings a personal fan",
+      "alibi": "I was visiting my parents in Boston all weekend. My flight landed Sunday at 9 PM and I came straight to the office Monday at 8 AM. I can show my boarding pass."
+    },
+    {
+      "id": "s2",
+      "name": "Liam O'Donnell",
+      "role": "DevOps Engineer",
+      "motive": "Wants server room temperatures lowered and has complained about office heat affecting nearby equipment",
+      "alibi": "I worked from home all weekend on a deployment. My Git commits are timestamped Saturday and Sunday from my home IP. I didn't leave the house."
+    },
+    {
+      "id": "s3",
+      "name": "Yuki Tanaka",
+      "role": "Product Manager",
+      "motive": "Recently lost the 'thermostat committee' vote and was vocal about it",
+      "alibi": "I came in Sunday afternoon around 2 PM to prep for Monday's sprint planning. I was in the conference room on the third floor for about two hours."
+    },
+    {
+      "id": "s4",
+      "name": "Ben Cooper",
+      "role": "Facilities Coordinator",
+      "motive": "Has been pushing management to upgrade to a smart thermostat system",
+      "alibi": "I was off all weekend for my anniversary trip. My wife and I stayed at a bed and breakfast upstate. We didn't get back until Monday morning."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Thermostat Access Log",
+      "content": "The smart thermostat's app log shows the password was changed and temperature set to 58 degrees at 3:15 PM Sunday from the office Wi-Fi network.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Building Security Log",
+      "content": "Sunday's building entry log shows only one person entered the building: Yuki Tanaka at 1:52 PM. No other entries were recorded until Monday morning.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Conference Room Details",
+      "content": "Yuki says she was in the third-floor conference room for two hours. But the thermostat panel is on the second floor, and the building elevator log shows a trip from floor three to floor two at 3:10 PM Sunday.",
+      "order": 3
+    }
+  ]
+}

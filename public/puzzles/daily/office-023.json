@@ -1,0 +1,62 @@
+{
+  "id": "office-023",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Defaced Portrait",
+  "setting": "Hawthorne & Associates Law Firm, main hallway, Tuesday 7:30 AM",
+  "premise": "The oil portrait of the firm's founder was vandalized with a marker mustache and horns overnight. The portrait hangs in a hallway with no security camera coverage.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Beth Calloway",
+      "role": "Associate Attorney",
+      "motive": "The founder's grandson, a senior partner, just blocked her promotion",
+      "alibi": "I left the office at 6 PM and went to a bar review study group at the downtown library. We studied until 10 PM. There were eight of us and the librarian saw us leave."
+    },
+    {
+      "id": "s2",
+      "name": "Oscar Delgado",
+      "role": "Night Janitor",
+      "motive": "Asked for a raise three times and was denied each time by management",
+      "alibi": "I was cleaning the building from 10 PM to 6 AM like every Monday night. I started on the fourth floor and worked my way down. I cleaned the hallway around 3 AM."
+    },
+    {
+      "id": "s3",
+      "name": "Victor Haines",
+      "role": "Law Clerk",
+      "motive": "Openly despises the firm's old-fashioned culture and calls the portrait 'pretentious'",
+      "alibi": "I was at home all evening watching the football game. It was the Monday night game, Lions versus Packers. The game ended around 11:30 PM and I went to bed right after."
+    },
+    {
+      "id": "s4",
+      "name": "Rita Saunders",
+      "role": "Legal Secretary",
+      "motive": "Blamed the founder's legacy policies for the firm's strict and outdated dress code",
+      "alibi": "I left at 5:30 PM and picked up my kids from daycare. We had dinner at home, bath time, and I was in bed by 9 PM. My husband was home all evening with me."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Marker Evidence",
+      "content": "The marker used was a thick black Sharpie. A matching uncapped Sharpie was found in the janitor's supply cart on the second floor, with ink still wet on the tip.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Cleaning Route Records",
+      "content": "Oscar's electronic check-in system shows he logged the hallway floor as cleaned at 3:05 AM. At that time the portrait would have been right in front of him.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Monday Night Football Schedule",
+      "content": "The NFL schedule confirms there was no Monday night football game this week. The Lions versus Packers game was played on Sunday afternoon, not Monday night.",
+      "order": 3
+    }
+  ]
+}

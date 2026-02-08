@@ -1,0 +1,5 @@
+{
+  "culprit": "s4",
+  "explanation": "Kent claims he fell asleep at his friend's apartment around 2 AM. But Clue 3 reveals his registered laptop connected to the office VPN at 3:12 AM — over an hour after he supposedly crashed on the couch. Clue 1 confirms the email was sent remotely via VPN, not from inside the building. Kent woke up, connected his laptop to the VPN, sent the anonymous email from the shared marketing account, and disconnected nine minutes later.",
+  "funFact": "About 21% of employees have sent an email they immediately regretted, with late-night sends being the most commonly regretted."
+}

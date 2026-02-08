@@ -1,0 +1,5 @@
+{
+  "culprit": "s4",
+  "explanation": "Lucas claims he walked to the deli and returned around 12:50 PM. But Clue 3 shows his debit card was charged at the deli at 12:03 PM. With a fifteen-minute walk each way, he was back at the office by approximately 12:30 PM -- not 12:50. He lied about his return time to create a fake gap in his presence. Clue 2 shows someone used guest credentials on a workstation at 12:30 PM, and Clue 1 confirms Lucas was in the workspace area. He was back early enough to send the fake invite.",
+  "funFact": "A single misleading calendar invite once caused a real publicly traded company's stock to briefly dip when employees leaked it on social media."
+}

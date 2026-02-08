@@ -1,0 +1,62 @@
+{
+  "id": "office-020",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Stolen Award Trophy",
+  "setting": "Pinnacle Advertising, lobby showcase, Wednesday 9 AM",
+  "premise": "The agency's gold Addy Award trophy vanished from the locked lobby display case. It was last verified at Tuesday 5 PM closing and found missing Wednesday at 9 AM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Brock Hartley",
+      "role": "Creative Director",
+      "motive": "Believes the trophy belongs on his desk since he led the winning campaign",
+      "alibi": "I left the office at 5 PM and went to my son's basketball game at Lincoln Middle School. The game started at 5:30 and ended around 7 PM. Other parents saw me."
+    },
+    {
+      "id": "s2",
+      "name": "Mia Castillo",
+      "role": "Receptionist",
+      "motive": "Upset about being excluded from the award celebration despite booking the entire event",
+      "alibi": "I left right at 5 PM and took the bus home. I was online shopping all evening. My browser history and delivery confirmations can prove I was on my laptop at home."
+    },
+    {
+      "id": "s3",
+      "name": "Philip Greer",
+      "role": "Freelance Photographer",
+      "motive": "Took the award-winning photos but received no credit or bonus",
+      "alibi": "I had a photo shoot at the office until 4 PM Tuesday. Then I packed up and went to develop photos at my home darkroom all evening. I live alone, so no witnesses."
+    },
+    {
+      "id": "s4",
+      "name": "Sandra Kim",
+      "role": "Account Executive",
+      "motive": "Has been taking small office items for months and escalating",
+      "alibi": "I had dinner with a client at Marco's Bistro from 6 to 8 PM. Then I drove straight home. My client can vouch for me and I have the restaurant receipt."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Display Case Key Log",
+      "content": "The display case key is kept in a lockbox at reception. The lockbox's electronic log shows it was opened at 4:50 PM Tuesday. Only reception staff know the lockbox code.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Lobby Camera Gap",
+      "content": "The lobby security camera was repositioned Tuesday afternoon to film a client event. Between 4:30 and 5:15 PM, the display case was out of the camera's frame.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Bus Route Timing",
+      "content": "Mia says she left at 5 PM and took the bus. But the Route 12 bus schedule shows the last bus from that stop departs at 4:45 PM on Tuesdays due to a reduced evening schedule.",
+      "order": 3
+    }
+  ]
+}

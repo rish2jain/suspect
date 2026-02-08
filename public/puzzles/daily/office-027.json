@@ -1,0 +1,62 @@
+{
+  "id": "office-027",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Poisoned Plant Collection",
+  "setting": "Evergreen Wellness Co., open office, Thursday 9 AM",
+  "premise": "All twelve of the office's prized indoor plants were doused with bleach overnight, killing them. The plants were the CEO's personal hobby and worth over a thousand dollars total.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Marco Reyes",
+      "role": "Graphic Designer",
+      "motive": "Severely allergic to one of the plants and asked repeatedly to have it moved",
+      "alibi": "I left at 5 PM and went to my graphic design class at the community college. Class runs from 6 to 9 PM every Wednesday. The instructor marks attendance electronically."
+    },
+    {
+      "id": "s2",
+      "name": "Helen Strauss",
+      "role": "Office Manager",
+      "motive": "Tired of being responsible for watering the plants on top of her regular duties",
+      "alibi": "I left at 5:30 PM and had dinner with my boyfriend at Carmela's restaurant. We were there from 6 to 8 PM. Then we walked around the park until about 9:30 and I went home."
+    },
+    {
+      "id": "s3",
+      "name": "Boyd Kendrick",
+      "role": "Sales Associate",
+      "motive": "Got a written warning after knocking over a rare plant, and feels the punishment was excessive",
+      "alibi": "I was at the office until 7 PM finishing cold calls. Then I went home. I ordered takeout at 7:45 PM — I have the delivery app receipt on my phone showing my home address."
+    },
+    {
+      "id": "s4",
+      "name": "Lily Tran",
+      "role": "Marketing Coordinator",
+      "motive": "Proposed replacing the plants with modern art installations and was shut down",
+      "alibi": "I left the office at 5 PM and took the train to visit my friend in Eastdale. I stayed overnight and took the 7 AM train back Thursday morning. My friend can vouch for me."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Bleach Source",
+      "content": "The bleach used matches the brand in the janitor's supply closet. The closet was unlocked. A trail of small bleach drops leads from the closet to the plant area.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Late Worker Account",
+      "content": "A developer who worked late until 11 PM says the plants looked fine at that time. He was the last person to leave. The cleaning crew does not come on Wednesday nights.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Train Schedule Verification",
+      "content": "The Eastdale train line's last departure on Wednesday evenings is at 4:30 PM. Lily claims she left the office at 5 PM, but she could not have caught a train to Eastdale after that time.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-007",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Printer Prank",
+  "setting": "Baxter & Bloom PR Agency, print room, Wednesday 9 AM",
+  "premise": "Someone reprogrammed the main office printer to print 'HUMP DAY' on a watermark across every document. The printer's admin log shows the setting was changed at 6:42 AM Wednesday.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Fiona Drake",
+      "role": "Intern",
+      "motive": "Overheard complaining that 'this office has zero fun'",
+      "alibi": "I don't get in until 9 AM -- interns start at nine. I took the 8:15 crosstown bus from my apartment and arrived at 8:55. The bus driver sees me every day."
+    },
+    {
+      "id": "s2",
+      "name": "Charlie Russo",
+      "role": "PR Strategist",
+      "motive": "Famous in the office for Wednesday 'Hump Day' email blasts",
+      "alibi": "I was at the gym across the street from 5:30 to 7:00 AM. I swiped in and out with my membership card. Then I came straight to the office and made coffee."
+    },
+    {
+      "id": "s3",
+      "name": "Wanda Mitchell",
+      "role": "Print Services Manager",
+      "motive": "Upset that management approved a new printer to replace her beloved old one",
+      "alibi": "I arrived at 7:15 AM like always. I went directly to my office at the far end of the hall and started processing yesterday's print queue. I didn't touch the main printer until 8:30."
+    },
+    {
+      "id": "s4",
+      "name": "Harris Gill",
+      "role": "Senior Copywriter",
+      "motive": "Has a running joke about making Wednesdays more entertaining",
+      "alibi": "I came in early at 6:15 AM to finish a client draft before the morning rush. I was in the fourth-floor writing room with my laptop. The door was shut the whole time."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Early Bird Sighting",
+      "content": "The cleaning crew, who leave at 6:30 AM, saw only one employee in the building before they left. That person was on the fourth floor.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Printer Access Requirement",
+      "content": "The printer admin panel requires a six-digit code that only three people know: Wanda, the IT director (who is on vacation), and Charlie (the designated print services backup).",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Gym Swipe Records",
+      "content": "The gym confirms Charlie swiped in at 5:30 AM but has no record of a swipe-out. The gym's policy requires swiping out, and their system logs every exit without exception.",
+      "order": 3
+    }
+  ]
+}

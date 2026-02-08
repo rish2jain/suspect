@@ -1,0 +1,62 @@
+{
+  "id": "office-001",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Missing Lunch Thief",
+  "setting": "Brightside Marketing, break room, Monday noon",
+  "premise": "Someone ate Karen's clearly-labeled leftover lasagna from the office fridge between 11:30 AM and 12:15 PM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Tom Blake",
+      "role": "Sales Lead",
+      "motive": "Always complains about the cafeteria food",
+      "alibi": "I was on a client call at my desk from 11:00 to 12:30. My colleague Derek sat across from me the whole time and can confirm."
+    },
+    {
+      "id": "s2",
+      "name": "Priya Sharma",
+      "role": "Junior Designer",
+      "motive": "Forgot her lunch at home today",
+      "alibi": "I was in the second-floor design lab working on mockups. I had my headphones on and didn't leave until 12:30 when the lunch alarm went off."
+    },
+    {
+      "id": "s3",
+      "name": "Greg Hollister",
+      "role": "IT Support",
+      "motive": "Has been seen eyeing Karen's food before",
+      "alibi": "I was fixing a printer jam in Conference Room B from 11:15 to 12:00. Then I went straight to the lobby to meet a vendor."
+    },
+    {
+      "id": "s4",
+      "name": "Nina Reeves",
+      "role": "Office Manager",
+      "motive": "Was on a strict diet and craving comfort food",
+      "alibi": "I spent the whole morning in the supply closet doing inventory. I didn't step out until 12:20 when I went directly to my desk."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Receptionist's Observation",
+      "content": "The receptionist says no outside vendors visited the office today. All scheduled vendor meetings were cancelled yesterday.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Security Badge Log",
+      "content": "Badge swipe records show only Greg and Nina accessed the break room floor between 11:30 and 12:15.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Tomato Sauce Evidence",
+      "content": "A fresh tomato sauce stain was found on the supply closet door handle. Nina claims she never left the supply closet during that time.",
+      "order": 3
+    }
+  ]
+}

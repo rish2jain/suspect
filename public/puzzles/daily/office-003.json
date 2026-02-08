@@ -1,0 +1,62 @@
+{
+  "id": "office-003",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Phantom Slack Message",
+  "setting": "Crestline Consulting, open-plan office, Wednesday 9 AM",
+  "premise": "A bizarre message reading 'Free pizza in the parking lot' was sent from CEO Margaret's unlocked laptop to the #general Slack channel at 3:12 PM Tuesday, while Margaret was in a board meeting.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Raj Patel",
+      "role": "Marketing Coordinator",
+      "motive": "Known office prankster with a history of Slack jokes",
+      "alibi": "I was in the third-floor conference room rehearsing my quarterly presentation with Amy from 2:45 to 3:30 PM. She was timing each of my practice runs."
+    },
+    {
+      "id": "s2",
+      "name": "Lena Kowalski",
+      "role": "Executive Assistant",
+      "motive": "Frustrated that Margaret never locks her laptop despite repeated reminders",
+      "alibi": "I was at my desk outside Margaret's office sorting mail the entire afternoon. I stepped away only once at 3:00 to refill my water bottle on the second floor."
+    },
+    {
+      "id": "s3",
+      "name": "Derek Chang",
+      "role": "Finance Analyst",
+      "motive": "Wanted to embarrass Margaret after she criticized his budget report",
+      "alibi": "I was working at my desk on the second floor all afternoon. I had a video call with our London office from 2:30 to 3:45 that was recorded."
+    },
+    {
+      "id": "s4",
+      "name": "Sophie Brennan",
+      "role": "HR Specialist",
+      "motive": "Wanted to prove a point about cybersecurity during Security Awareness Week",
+      "alibi": "I was conducting new-hire orientation in the first-floor training room from 2:00 to 4:00 PM. Six new employees were with me in the room the whole time."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "contradiction",
+      "title": "Amy's Account",
+      "content": "Amy confirms she practiced presentations with Raj, but says they started at 3:15 PM, not 2:45 PM. She remembers because she was late and apologized.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Elevator Records",
+      "content": "The elevator log shows no trips to the third floor between 2:50 and 3:20 PM. The only way up is the elevator or the stairwell next to Margaret's office.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "witness",
+      "title": "Floor Layout Note",
+      "content": "Margaret's office is on the third floor. The CEO's laptop was on her desk inside her private office, door left open while she was in the adjacent boardroom.",
+      "order": 3
+    }
+  ]
+}

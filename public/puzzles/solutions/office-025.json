@@ -1,0 +1,5 @@
+{
+  "culprit": "s4",
+  "explanation": "Derek claims he was gaming and in voice chat from 11 PM to 4 AM. But Clue 3 reveals his gaming platform and voice chat logs both show he went offline at 12:30 AM — over three hours earlier than he claimed. He lied about his alibi to cover the 2-4 AM window when the fake surveys were submitted. Clue 1 shows the entries came from Anita's badge-locked workstation, but Clue 2 confirms Anita left at 1:05 AM. As IT support, Derek would know how to bypass badge authentication or had access to spare credentials to use Anita's workstation.",
+  "funFact": "Anonymous employee surveys are often not truly anonymous — IT departments can usually trace submissions back to specific devices, which is why most tampering gets caught."
+}

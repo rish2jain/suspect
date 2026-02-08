@@ -1,0 +1,62 @@
+{
+  "id": "office-011",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Sticky Note Confession",
+  "setting": "Birchwood Legal Associates, partner offices, Friday 8 AM",
+  "premise": "A sticky note reading 'I know what you did with the Henderson file' appeared on Senior Partner Wallace's desk overnight. Wallace is convinced someone is blackmailing him.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Diane Okafor",
+      "role": "Paralegal",
+      "motive": "Was reassigned off the Henderson case without explanation",
+      "alibi": "I left the office at 6 PM Thursday and went to my evening law class downtown. Class ran from 7 to 9 PM. I took the bus home after."
+    },
+    {
+      "id": "s2",
+      "name": "Marcus Webb",
+      "role": "Junior Associate",
+      "motive": "Overheard Wallace discussing shredding Henderson documents",
+      "alibi": "I worked late until 10 PM Thursday in the associate bullpen on the second floor. I ordered takeout delivery at 8 PM and ate at my desk. Then I went home."
+    },
+    {
+      "id": "s3",
+      "name": "Patricia Lynne",
+      "role": "Office Administrator",
+      "motive": "Wallace denied her request for a raise last month",
+      "alibi": "I left at 5 PM on the dot Thursday. I had my book club meeting at the library from 6 to 8 PM. Several members can confirm I was there."
+    },
+    {
+      "id": "s4",
+      "name": "Hugo Strand",
+      "role": "IT Consultant",
+      "motive": "Found suspicious file deletions on the server while doing routine maintenance",
+      "alibi": "I was doing remote server maintenance from home Thursday evening. My VPN session ran from 8 PM to midnight. I never came into the office."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Sticky Note Analysis",
+      "content": "The sticky note was written in blue ballpoint pen. Wallace's office only stocks black pens. The blue pen brand matches the ones supplied to the second-floor associate bullpen.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Cleaning Crew Timeline",
+      "content": "The cleaning crew vacuumed Wallace's office at 9:15 PM Thursday and confirmed the desk was clear. The note was placed after 9:15 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Delivery App Receipt",
+      "content": "Marcus's takeout order was delivered at 8:04 PM to the office lobby. But the delivery driver's GPS log shows he waited in the lobby for twelve minutes because no one came to collect it until 8:16 PM.",
+      "order": 3
+    }
+  ]
+}

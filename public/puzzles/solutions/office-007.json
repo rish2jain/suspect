@@ -1,0 +1,5 @@
+{
+  "culprit": "s2",
+  "explanation": "Charlie claims he was at the gym from 5:30 to 7:00 AM and swiped in and out. But Clue 3 reveals the gym has no record of Charlie swiping out -- and their system logs every exit without exception. Charlie lied about staying at the gym until 7:00. He swiped in at 5:30, left without swiping out, went to the office, and changed the printer settings at 6:42 AM. Clue 2 confirms Charlie is one of only three people who know the printer admin code, giving him both the means and the unaccounted-for time.",
+  "funFact": "Printer pranks are the second most common office prank after lunch theft. One famous case involved a printer that printed cat facts on every tenth page for three months before anyone found the culprit."
+}

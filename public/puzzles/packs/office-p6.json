@@ -1,0 +1,62 @@
+{
+  "id": "office-p6",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Birthday Cake Catastrophe",
+  "setting": "Hartley & Moore Accounting, break room, Thursday 3 PM",
+  "premise": "Someone took a slice from the surprise birthday cake for Janet before the party started. The cake was delivered to the break room fridge at noon and the party was at 3 PM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Walt Brennan",
+      "role": "Tax Preparer",
+      "motive": "Has a notorious sweet tooth and was caught eating office treats before",
+      "alibi": "I was in back-to-back client meetings from 11 AM to 2:30 PM in the conference wing. My assistant booked all four meetings and sat in on two of them."
+    },
+    {
+      "id": "s2",
+      "name": "Donna Reeves",
+      "role": "Accounts Payable",
+      "motive": "Didn't know about the party and assumed the cake was up for grabs",
+      "alibi": "I was at my desk all afternoon processing invoices. I did go to the break room at 1 PM to heat up my lunch, but the fridge was full so I used the microwave quickly and left."
+    },
+    {
+      "id": "s3",
+      "name": "Frankie Lau",
+      "role": "Mailroom Clerk",
+      "motive": "Janet rejected his idea for the office holiday party and he's still sore about it",
+      "alibi": "I was sorting and delivering mail from noon to 2 PM. I hit every floor including the break room floor, but I only dropped off packages at the supply closet next door."
+    },
+    {
+      "id": "s4",
+      "name": "Irene Stokes",
+      "role": "Office Manager",
+      "motive": "Ordered the cake and wanted to 'quality check' it before the party",
+      "alibi": "I was decorating the large conference room for Janet's party from 1 PM to 2:45 PM. Two colleagues helped me hang streamers and they were with me the whole time."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Fridge Fingerprint",
+      "content": "A chocolate frosting smudge was found on the inside of the fridge door handle. The cake is a chocolate fudge cake with distinctive dark frosting.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Colleague's Observation",
+      "content": "A colleague who microwaved lunch at 12:30 PM saw the cake fully intact with all slices. Another colleague opened the fridge at 2 PM and noticed a slice was missing.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Break Room Visit",
+      "content": "Donna says she only used the microwave at 1 PM and didn't open the fridge because it was too full. But she would have needed to open the fridge to know it was full in the first place.",
+      "order": 3
+    }
+  ]
+}

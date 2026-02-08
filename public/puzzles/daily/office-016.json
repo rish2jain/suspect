@@ -1,0 +1,62 @@
+{
+  "id": "office-016",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Sabotaged Presentation",
+  "setting": "Crestline Financial, boardroom, Thursday 10 AM",
+  "premise": "The quarterly earnings presentation was corrupted with embarrassing memes right before the board meeting. The file was modified at 7:12 AM from a computer in the office.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Owen Marsh",
+      "role": "Financial Analyst",
+      "motive": "His projections were wrong and he feared being blamed during the presentation",
+      "alibi": "I arrived at the office at 8 AM as usual. Before that I was at the gym on Fifth Street. I swim laps every morning from 6 to 7:30 AM."
+    },
+    {
+      "id": "s2",
+      "name": "Diane Cho",
+      "role": "Executive Assistant",
+      "motive": "Being transferred to another department against her wishes starting next week",
+      "alibi": "I got to the office early at 6:45 AM to prepare coffee and materials for the board meeting. I was setting up the boardroom from 6:50 until 8 AM."
+    },
+    {
+      "id": "s3",
+      "name": "Liam Beckett",
+      "role": "Junior Accountant",
+      "motive": "Passed over for a raise he was promised three months ago",
+      "alibi": "I was running late and didn't arrive until 8:30 AM. I overslept because my apartment building had a fire alarm at 3 AM that kept everyone up."
+    },
+    {
+      "id": "s4",
+      "name": "Yuki Tanaka",
+      "role": "IT Administrator",
+      "motive": "Wants to prove the company needs better cybersecurity and a bigger IT budget",
+      "alibi": "I came in at 7 AM to run server backups. I was in the server room the entire time until 8:15 AM. The server room has no access to shared network drives."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Computer Login Records",
+      "content": "The file was modified from a workstation on the third floor. Login records show only Diane's credentials were used on that floor between 6:30 and 7:30 AM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Janitor's Account",
+      "content": "The night janitor, who left at 7 AM, says he saw Diane carrying coffee supplies into the boardroom on the second floor at 6:55 AM, not on the third floor.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Gym Membership Records",
+      "content": "Fifth Street Gym confirms Owen checked in at 6:05 AM and checked out at 7:05 AM. The gym is a twenty-minute drive from the office, making a 7:12 AM file edit impossible.",
+      "order": 3
+    }
+  ]
+}

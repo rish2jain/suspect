@@ -1,0 +1,2461 @@
+/* ============================================================
+   SUSPECT - Daily Mystery Game
+   Design System: "Cozy Noir"
+
+   Warm, paper-like, inviting — like a case file on a
+   detective's desk. NOT dark noir. NOT cartoon.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CUSTOM PROPERTIES (Design Tokens)
+   ------------------------------------------------------------ */
+
+:root {
+  /* --- Colors --- */
+  --color-bg: #FAF8F5;
+  --color-bg-alt: #E8E4DF;
+  --color-bg-card: #F5F2ED;
+  --color-text: #2C2420;
+  --color-text-muted: #635A54;
+  --color-action: #1A6B5A;
+  --color-action-hover: #15574A;
+  --color-evidence: #9E6E1E;
+  --color-danger: #9B3B3B;
+  --color-success: #5B8C5A;
+  --color-border: #D4CFC8;
+  --color-cleared: #B8B0A8;
+
+  /* Clue accent colors */
+  --color-clue-witness: #516370;
+  --color-clue-physical: #C4882B;
+  --color-clue-contradiction: #9B3B3B;
+
+  /* --- Typography --- */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+
+  --leading-tight: 1.3;
+  --leading-normal: 1.5;
+
+  /* --- Spacing --- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* --- Shadows (warm-toned) --- */
+  --shadow-sm: 0 1px 3px rgba(44, 36, 32, 0.08);
+  --shadow-md: 0 4px 12px rgba(44, 36, 32, 0.12);
+  --shadow-lg: 0 8px 24px rgba(44, 36, 32, 0.16);
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease-out;
+  --transition-base: 200ms ease-out;
+  --transition-slow: 300ms ease-out;
+
+  /* --- Layout --- */
+  --container-max: 640px;
+  --line-length: 65ch;
+  --tap-target: 44px;
+}
+
+
+/* ------------------------------------------------------------
+   2. CSS RESET
+   ------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  /* Subtle paper texture via repeating gradient noise */
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(212, 207, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(196, 136, 43, 0.04) 0%, transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 36, 32, 0.008) 2px,
+      rgba(44, 36, 32, 0.008) 4px
+    );
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--color-action);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-action-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+p {
+  max-width: var(--line-length);
+}
+
+
+/* ------------------------------------------------------------
+   3. BASE TYPOGRAPHY
+   ------------------------------------------------------------ */
+
+h1 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+small,
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-evidence {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-evidence);
+}
+
+.text-center {
+  text-align: center;
+}
+
+strong {
+  font-weight: 600;
+}
+
+::selection {
+  background-color: rgba(26, 107, 90, 0.15);
+  color: var(--color-text);
+}
+
+
+/* ------------------------------------------------------------
+   4. LAYOUT: CONTAINER
+   ------------------------------------------------------------ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+  padding-block: var(--space-md);
+}
+
+
+/* ------------------------------------------------------------
+   5. BUTTONS
+   ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-fast);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary action - deep teal */
+.btn-action {
+  background-color: var(--color-action);
+  color: #FFFFFF;
+  border-color: var(--color-action);
+}
+
+.btn-action:hover {
+  background-color: var(--color-action-hover);
+  border-color: var(--color-action-hover);
+}
+
+.btn-action:focus-visible {
+  outline-color: var(--color-action);
+  box-shadow: 0 0 0 4px rgba(26, 107, 90, 0.2);
+}
+
+/* Danger - muted crimson (accusation) */
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #FFFFFF;
+  border-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: #882F2F;
+  border-color: #882F2F;
+}
+
+.btn-danger:focus-visible {
+  outline-color: var(--color-danger);
+  box-shadow: 0 0 0 4px rgba(155, 59, 59, 0.2);
+}
+
+/* Ghost - transparent with border */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-text-muted);
+}
+
+.btn-ghost:focus-visible {
+  outline-color: var(--color-text);
+}
+
+/* Full-width button variant */
+.btn-full {
+  width: 100%;
+}
+
+
+/* ------------------------------------------------------------
+   6. CARDS
+   ------------------------------------------------------------ */
+
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ------------------------------------------------------------
+   7. SUSPECT CARDS
+   ------------------------------------------------------------ */
+
+.suspect-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  min-height: var(--tap-target);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base),
+    max-height var(--transition-slow),
+    padding var(--transition-slow);
+  overflow: hidden;
+  max-height: 80px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.suspect-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.suspect-card__header:disabled {
+  cursor: default;
+}
+
+.suspect-card:hover {
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-sm);
+}
+
+.suspect-card__header:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+/* Remove outline from the card wrapper itself -- focus belongs on the header button */
+.suspect-card:focus-visible {
+  outline: none;
+}
+
+.suspect-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.suspect-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+  min-width: 0;
+}
+
+.suspect-card__role {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.suspect-card__alibi {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-sm);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.suspect-card__chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+}
+
+/* Expanded state */
+.suspect-card.expanded {
+  max-height: 500px;
+  padding-bottom: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.suspect-card.expanded .suspect-card__alibi {
+  opacity: 1;
+}
+
+.suspect-card.expanded .suspect-card__chevron {
+  transform: rotate(180deg);
+}
+
+/* Cleared state */
+.suspect-card.cleared {
+  opacity: 0.55;
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-cleared);
+  cursor: default;
+  filter: grayscale(40%);
+}
+
+.suspect-card.cleared::after {
+  content: "\2715";
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: var(--color-cleared);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.suspect-card.cleared:hover {
+  border-color: var(--color-cleared);
+  box-shadow: none;
+}
+
+/* Selected state */
+.suspect-card.selected {
+  border-color: var(--color-action);
+  border-left-width: 4px;
+  border-left-color: var(--color-action);
+  box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.15);
+  background-color: rgba(26, 107, 90, 0.06);
+}
+
+.suspect-card.selected .suspect-card__name {
+  color: var(--color-action);
+}
+
+
+/* ------------------------------------------------------------
+   8. CLUE CARDS
+   ------------------------------------------------------------ */
+
+.clue-card {
+  position: relative;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-evidence);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.clue-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.clue-card__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+.clue-card__text {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  max-width: var(--line-length);
+}
+
+.clue-card__type {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Witness clue - blue-grey accent */
+.clue-card[data-type="witness"] {
+  border-left-color: var(--color-clue-witness);
+}
+
+.clue-card[data-type="witness"] .clue-card__type {
+  color: var(--color-clue-witness);
+}
+
+.clue-card[data-type="witness"] .clue-card__number {
+  color: var(--color-clue-witness);
+}
+
+/* Physical clue - amber accent */
+.clue-card[data-type="physical"] {
+  border-left-color: var(--color-clue-physical);
+}
+
+.clue-card[data-type="physical"] .clue-card__type {
+  color: var(--color-clue-physical);
+}
+
+.clue-card[data-type="physical"] .clue-card__number {
+  color: var(--color-clue-physical);
+}
+
+/* Contradiction clue - red accent */
+.clue-card[data-type="contradiction"] {
+  border-left-color: var(--color-clue-contradiction);
+}
+
+.clue-card[data-type="contradiction"] .clue-card__type {
+  color: var(--color-clue-contradiction);
+}
+
+.clue-card[data-type="contradiction"] .clue-card__number {
+  color: var(--color-clue-contradiction);
+}
+
+
+/* ------------------------------------------------------------
+   9. STARS DISPLAY
+   ------------------------------------------------------------ */
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.stars__star {
+  width: 20px;
+  height: 20px;
+  color: var(--color-border);
+  transition: color var(--transition-base);
+}
+
+.stars__star--filled {
+  color: var(--color-evidence);
+}
+
+.stars__star--losing {
+  color: var(--color-evidence);
+  animation: star-lose 400ms ease-out forwards;
+}
+
+/* Larger variant for result screen */
+.stars--lg .stars__star {
+  width: 28px;
+  height: 28px;
+}
+
+/* Accessible label for screen readers */
+.stars[aria-label] {
+  position: relative;
+}
+
+@keyframes star-lose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0.8) rotate(15deg);
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.5) rotate(30deg);
+    color: var(--color-border);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   10. SHARE CARD
+   ------------------------------------------------------------ */
+
+.share-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.share-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.share-card__subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.share-card__grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-2xl);
+  letter-spacing: 0.1em;
+}
+
+.share-card__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-buttons-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.share-buttons-row .btn {
+  flex: 1;
+}
+
+
+/* ------------------------------------------------------------
+   11. BADGES
+   ------------------------------------------------------------ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 2px var(--space-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  white-space: nowrap;
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.badge--evidence {
+  background-color: rgba(196, 136, 43, 0.12);
+  color: var(--color-evidence);
+  border-color: rgba(196, 136, 43, 0.3);
+}
+
+.badge--danger {
+  background-color: rgba(155, 59, 59, 0.1);
+  color: var(--color-danger);
+  border-color: rgba(155, 59, 59, 0.25);
+}
+
+.badge--success {
+  background-color: rgba(91, 140, 90, 0.1);
+  color: var(--color-success);
+  border-color: rgba(91, 140, 90, 0.25);
+}
+
+.badge--action {
+  background-color: rgba(26, 107, 90, 0.1);
+  color: var(--color-action);
+  border-color: rgba(26, 107, 90, 0.25);
+}
+
+
+/* ------------------------------------------------------------
+   12. GAME HEADER
+   ------------------------------------------------------------ */
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Paper texture continuation */
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-bg),
+    rgba(250, 248, 245, 0.95)
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.game-header__logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.game-header__logo span {
+  color: var(--color-danger);
+  font-size: 1.15em;
+  letter-spacing: 0;
+  margin-right: -0.02em;
+}
+
+.game-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.game-header__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.game-header__icon-btn:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.game-header__icon-btn:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+
+/* ------------------------------------------------------------
+   13. SCENARIO BANNER
+   ------------------------------------------------------------ */
+
+.scenario-banner {
+  position: sticky;
+  top: var(--header-height, 65px);
+  z-index: 90;
+  background-color: rgba(245, 242, 237, 0.95);
+  border-bottom: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-evidence);
+  padding: var(--space-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 -1px 0 var(--color-border), 0 2px 8px rgba(44, 36, 32, 0.06);
+}
+
+.scenario-banner__case-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-xs);
+}
+
+.scenario-banner__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.scenario-banner__description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  max-width: var(--line-length);
+}
+
+
+/* ------------------------------------------------------------
+   14. COUNTDOWN TIMER
+   ------------------------------------------------------------ */
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.countdown-timer__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.countdown-timer__digits {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.countdown-timer__segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+}
+
+.countdown-timer__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.countdown-timer__separator {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding-inline: 2px;
+  opacity: 0.5;
+}
+
+.countdown-timer__unit {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+
+/* ------------------------------------------------------------
+   15. RESULT SCREEN
+   ------------------------------------------------------------ */
+
+.result-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  gap: var(--space-lg);
+}
+
+.result-screen__verdict {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.result-screen__verdict--correct {
+  color: var(--color-success);
+  animation: verdict-entrance 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  text-shadow: 0 0 40px rgba(91, 140, 90, 0.3);
+}
+
+.result-screen__verdict--wrong {
+  color: var(--color-danger);
+  animation: verdict-entrance 600ms ease-out both;
+}
+
+/* Stagger result screen sections */
+.result-screen > *:nth-child(2) { animation: slide-up 400ms ease-out 200ms both; }
+.result-screen > *:nth-child(3) { animation: slide-up 400ms ease-out 350ms both; }
+.result-screen > *:nth-child(4) { animation: slide-up 400ms ease-out 500ms both; }
+.result-screen > *:nth-child(5) { animation: slide-up 400ms ease-out 600ms both; }
+.result-screen > *:nth-child(6) { animation: slide-up 400ms ease-out 700ms both; }
+.result-screen > *:nth-child(7) { animation: slide-up 400ms ease-out 800ms both; }
+.result-screen > *:nth-child(8) { animation: slide-up 400ms ease-out 900ms both; }
+.result-screen > *:nth-child(9) { animation: slide-up 400ms ease-out 1000ms both; }
+
+/* Star arrival animation on result screen */
+.result-screen .stars__star--filled {
+  animation: star-arrive 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.result-screen .stars__star--filled:nth-child(1) { animation-delay: 400ms; }
+.result-screen .stars__star--filled:nth-child(2) { animation-delay: 550ms; }
+.result-screen .stars__star--filled:nth-child(3) { animation-delay: 700ms; }
+.result-screen .stars__star--filled:nth-child(4) { animation-delay: 850ms; }
+
+.result-screen__case-summary {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: var(--line-length);
+  line-height: var(--leading-normal);
+}
+
+.result-screen__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 360px;
+}
+
+.result-screen__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.result-screen__stat-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.result-screen__stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.result-screen__divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.result-screen__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 320px;
+}
+
+
+/* ------------------------------------------------------------
+   16. ACCUSATION OVERLAY
+   ------------------------------------------------------------ */
+
+.accusation-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(44, 36, 32, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: var(--space-lg);
+  animation: overlay-fade-in 300ms ease-out;
+}
+
+.accusation-overlay__content {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+  animation: overlay-scale-up 300ms ease-out;
+}
+
+.accusation-overlay__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-danger);
+}
+
+.accusation-overlay__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.accusation-overlay__suspect-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-danger);
+  margin-bottom: var(--space-lg);
+}
+
+.accusation-overlay__warning {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: var(--leading-normal);
+}
+
+.accusation-overlay__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   17. ANIMATIONS
+   ------------------------------------------------------------ */
+
+.fade-in {
+  animation: fade-in 300ms ease-out both;
+}
+
+.slide-up {
+  animation: slide-up 300ms ease-out both;
+}
+
+.shake {
+  animation: shake 500ms ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 50%, 90% {
+    transform: translateX(-4px);
+  }
+  30%, 70% {
+    transform: translateX(4px);
+  }
+}
+
+/* Staggered animation delays for lists */
+.slide-up:nth-child(1) { animation-delay: 0ms; }
+.slide-up:nth-child(2) { animation-delay: 50ms; }
+.slide-up:nth-child(3) { animation-delay: 100ms; }
+.slide-up:nth-child(4) { animation-delay: 150ms; }
+.slide-up:nth-child(5) { animation-delay: 200ms; }
+.slide-up:nth-child(6) { animation-delay: 250ms; }
+
+
+/* ------------------------------------------------------------
+   18. MICRO-INTERACTIONS & ENTRANCE ANIMATIONS
+   ------------------------------------------------------------ */
+
+/* --- Suspect card hover lift --- */
+.suspect-card:hover:not(.cleared):not([aria-disabled="true"]) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.suspect-card:active:not(.cleared):not([aria-disabled="true"]) {
+  transform: translateY(0);
+}
+
+/* --- Suspect card selection glow pulse --- */
+.suspect-card.selected {
+  animation: selection-glow 600ms ease-out;
+}
+
+@keyframes selection-glow {
+  0% { box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(26, 107, 90, 0.25); }
+  100% { box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.15); }
+}
+
+/* --- Suspect card cleared transition --- */
+.suspect-card.cleared {
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base),
+    max-height var(--transition-slow),
+    padding var(--transition-slow),
+    opacity var(--transition-slow),
+    filter var(--transition-slow);
+}
+
+/* --- Clue card reveal shimmer --- */
+@keyframes clue-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.clue-card:not(.clue-card--locked) {
+  animation: clue-reveal 400ms ease-out;
+}
+
+@keyframes clue-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-card) 0%,
+      rgba(196, 136, 43, 0.08) 50%,
+      var(--color-bg-card) 100%
+    );
+    background-size: 200% 100%;
+  }
+  50% {
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-card) 0%,
+      rgba(196, 136, 43, 0.12) 50%,
+      var(--color-bg-card) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 200% 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    background: var(--color-bg-card);
+  }
+}
+
+/* --- Locked clue dashed border (already exists, enhance) --- */
+.clue-card--locked {
+  transition: border-color var(--transition-base), opacity var(--transition-base);
+}
+
+/* --- Accuse button attention pulse when suspect is selected --- */
+.btn-accuse:not(:disabled) {
+  animation: accuse-pulse 2s ease-in-out infinite;
+}
+
+@keyframes accuse-pulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(155, 59, 59, 0.25); }
+  50% { box-shadow: 0 4px 20px rgba(155, 59, 59, 0.4); }
+}
+
+/* --- Enhanced button press feedback --- */
+.btn:active:not(:disabled) {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* --- Scenario banner entrance --- */
+.scenario-banner {
+  animation: banner-enter 500ms ease-out;
+}
+
+@keyframes banner-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Suspect card staggered entrance --- */
+.suspect-list .suspect-card {
+  animation: card-enter 400ms ease-out both;
+}
+
+.suspect-list .suspect-card:nth-child(1) { animation-delay: 100ms; }
+.suspect-list .suspect-card:nth-child(2) { animation-delay: 180ms; }
+.suspect-list .suspect-card:nth-child(3) { animation-delay: 260ms; }
+.suspect-list .suspect-card:nth-child(4) { animation-delay: 340ms; }
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Deliberation screen enhanced dots --- */
+@keyframes deliberation-dot-bounce {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.7) translateY(0); }
+  40% { opacity: 1; transform: scale(1.2) translateY(-4px); }
+}
+
+/* --- Result screen verdict glow (correct) --- */
+.result-screen__verdict--correct {
+  text-shadow: 0 0 30px rgba(91, 140, 90, 0.3), 0 0 60px rgba(91, 140, 90, 0.15);
+}
+
+/* --- Result screen stats scale-in --- */
+.result-screen__stat {
+  animation: stat-scale-in 350ms ease-out both;
+}
+
+.result-screen__stat:nth-child(1) { animation-delay: 600ms; }
+.result-screen__stat:nth-child(2) { animation-delay: 700ms; }
+.result-screen__stat:nth-child(3) { animation-delay: 800ms; }
+
+@keyframes stat-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   19. REDUCED MOTION
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-in,
+  .slide-up,
+  .shake {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .accusation-overlay {
+    animation: none;
+  }
+
+  .accusation-overlay__content {
+    animation: none;
+  }
+
+  .tutorial-overlay__content {
+    animation: none;
+  }
+
+  .stars__star--losing {
+    animation: none;
+    opacity: 0.3;
+    color: var(--color-border);
+  }
+
+  .suspect-card__press-ring-fill {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .skeleton-line,
+  .skeleton-avatar,
+  .skeleton-circle {
+    animation: none;
+  }
+
+  .result-screen__verdict--correct,
+  .result-screen__verdict--wrong {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    text-shadow: none;
+  }
+
+  .result-screen > * {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  .result-screen .stars__star--filled {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn-evidence--armed {
+    animation: none;
+  }
+
+  .deliberation-screen__icon,
+  .deliberation-screen__dot {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .streak-milestone {
+    animation: none;
+    opacity: 1;
+  }
+
+  .btn-action--copied {
+    animation: none;
+  }
+
+  .tutorial-overlay__step {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* New animation overrides */
+  .suspect-card:hover:not(.cleared) {
+    transform: none;
+  }
+
+  .suspect-card.selected {
+    animation: none;
+  }
+
+  .clue-card:not(.clue-card--locked) {
+    animation: none;
+    opacity: 1;
+  }
+
+  .btn-accuse:not(:disabled) {
+    animation: none;
+  }
+
+  .scenario-banner {
+    animation: none;
+    opacity: 1;
+  }
+
+  .suspect-list .suspect-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .result-screen__stat {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .suspect-list--clue-pulse .suspect-card {
+    animation: none;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   20. UTILITY CLASSES
+   ------------------------------------------------------------ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-action);
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) 0;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.stack--sm {
+  gap: var(--space-sm);
+}
+
+.stack--lg {
+  gap: var(--space-lg);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.row--between {
+  justify-content: space-between;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border);
+  border: none;
+  margin-block: var(--space-md);
+}
+
+
+/* ------------------------------------------------------------
+   20. RESPONSIVE: TABLET (600px+)
+   ------------------------------------------------------------ */
+
+@media (min-width: 600px) {
+  :root {
+    --text-3xl: 2.25rem;
+    --text-2xl: 1.75rem;
+  }
+
+  .container {
+    padding-inline: var(--space-lg);
+    padding-block: var(--space-lg);
+  }
+
+  .game-header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .scenario-banner {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .suspect-card {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .result-screen {
+    padding: var(--space-2xl);
+  }
+
+  .result-screen__actions {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .accusation-overlay__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .share-card {
+    padding: var(--space-xl);
+  }
+
+  .countdown-timer {
+    gap: var(--space-lg);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   21. RESPONSIVE: DESKTOP (1024px+)
+   ------------------------------------------------------------ */
+
+@media (min-width: 1024px) {
+  .container {
+    padding-block: var(--space-xl);
+  }
+
+  .game-header {
+    padding: var(--space-md) var(--space-xl);
+  }
+
+  /* Slightly larger suspect card avatar on desktop */
+  .suspect-card__avatar {
+    width: 48px;
+    height: 48px;
+    font-size: var(--text-xl);
+  }
+
+  .result-screen {
+    padding: var(--space-2xl) var(--space-xl);
+    gap: var(--space-xl);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   22. FOCUS STYLES (Global)
+   ------------------------------------------------------------ */
+
+:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+/* Remove outline on mouse click for non-keyboard users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   23. LONG-PRESS RING
+   ------------------------------------------------------------ */
+
+.suspect-card__press-ring {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 28px;
+  height: 28px;
+  color: var(--color-cleared);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.suspect-card__press-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.suspect-card__press-ring-fill {
+  animation: press-ring-fill 500ms linear forwards;
+}
+
+@keyframes press-ring-fill {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   24. TUTORIAL OVERLAY
+   ------------------------------------------------------------ */
+
+.tutorial-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(44, 36, 32, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: var(--space-lg);
+}
+
+.tutorial-overlay__content {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+  text-align: center;
+  outline: none;
+}
+
+.tutorial-overlay__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  line-height: 1;
+}
+
+.tutorial-overlay__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.tutorial-overlay__body {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-lg);
+  max-width: none;
+}
+
+.tutorial-overlay__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.tutorial-overlay__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  transition: background-color var(--transition-base);
+}
+
+.tutorial-overlay__dot--active {
+  background-color: var(--color-action);
+}
+
+.tutorial-overlay__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+
+/* ------------------------------------------------------------
+   25. PUZZLE SKELETON (Loading State)
+   ------------------------------------------------------------ */
+
+.puzzle-skeleton {
+  padding: var(--space-lg) 0;
+}
+
+.puzzle-skeleton__banner {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.puzzle-skeleton__card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  min-height: 68px;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: linear-gradient(90deg, var(--color-bg-alt) 25%, var(--color-border) 50%, var(--color-bg-alt) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton-line--xs {
+  height: 10px;
+}
+
+.skeleton-line--lg {
+  height: 20px;
+}
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--color-bg-alt) 25%, var(--color-border) 50%, var(--color-bg-alt) 75%);
+  background-size: 200% 100%;
+  flex-shrink: 0;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--color-bg-alt) 25%, var(--color-border) 50%, var(--color-bg-alt) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   26. PROGRESS BAR (Practice Packs)
+   ------------------------------------------------------------ */
+
+.progress-bar {
+  height: 6px;
+  background-color: var(--color-bg-alt);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: var(--color-action);
+  border-radius: 3px;
+  transition: width var(--transition-slow);
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   27. VERDICT & RESULT ANIMATIONS
+   ------------------------------------------------------------ */
+
+@keyframes verdict-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes star-arrive {
+  0% { opacity: 0; transform: scale(0) rotate(-30deg); }
+  60% { transform: scale(1.3) rotate(5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+
+/* ------------------------------------------------------------
+   28. BUTTON VARIANTS: Evidence & Accuse
+   ------------------------------------------------------------ */
+
+/* Evidence reveal button -- amber dashed for risk/reward */
+.btn-evidence {
+  background-color: transparent;
+  color: var(--color-evidence);
+  border: 2px dashed var(--color-evidence);
+}
+
+.btn-evidence:hover {
+  background-color: rgba(196, 136, 43, 0.08);
+  border-style: solid;
+}
+
+.btn-evidence:focus-visible {
+  outline-color: var(--color-evidence);
+  box-shadow: 0 0 0 4px rgba(196, 136, 43, 0.2);
+}
+
+/* Armed state -- pulsing glow when about to reveal */
+.btn-evidence--armed {
+  border-style: solid;
+  background-color: rgba(196, 136, 43, 0.12);
+  animation: evidence-pulse 1s ease-in-out infinite;
+}
+
+@keyframes evidence-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 136, 43, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(196, 136, 43, 0.1); }
+}
+
+/* Accuse button -- elevated danger style */
+.btn-accuse {
+  background-color: var(--color-danger);
+  color: #FFFFFF;
+  border: 2px solid var(--color-danger);
+  box-shadow: 0 4px 12px rgba(155, 59, 59, 0.25);
+  font-size: var(--text-lg);
+  padding: var(--space-md) var(--space-lg);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
+.btn-accuse:hover {
+  background-color: #882F2F;
+  border-color: #882F2F;
+  box-shadow: 0 6px 16px rgba(155, 59, 59, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-accuse:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(155, 59, 59, 0.2);
+}
+
+.btn-accuse:disabled {
+  box-shadow: none;
+}
+
+
+/* ------------------------------------------------------------
+   29. SUSPECT AVATAR COLOR CODING
+   ------------------------------------------------------------ */
+
+.suspect-card__avatar--0 {
+  background-color: rgba(26, 107, 90, 0.12);
+  color: var(--color-action);
+  border-color: rgba(26, 107, 90, 0.3);
+}
+
+.suspect-card__avatar--1 {
+  background-color: rgba(196, 136, 43, 0.12);
+  color: var(--color-evidence);
+  border-color: rgba(196, 136, 43, 0.3);
+}
+
+.suspect-card__avatar--2 {
+  background-color: rgba(155, 59, 59, 0.12);
+  color: var(--color-danger);
+  border-color: rgba(155, 59, 59, 0.3);
+}
+
+.suspect-card__avatar--3 {
+  background-color: rgba(107, 125, 141, 0.12);
+  color: var(--color-clue-witness);
+  border-color: rgba(107, 125, 141, 0.3);
+}
+
+
+/* ------------------------------------------------------------
+   30. LOCKED CLUE REDESIGN
+   ------------------------------------------------------------ */
+
+.clue-card--locked {
+  opacity: 1;
+  background-color: var(--color-bg-alt);
+  border-left-color: var(--color-border);
+  border-style: dashed;
+  border-left-style: solid;
+}
+
+.clue-card--locked .clue-card__text {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.clue-card--locked .clue-card__number {
+  color: var(--color-text-muted);
+}
+
+
+/* ------------------------------------------------------------
+   31. STREAK BANNER
+   ------------------------------------------------------------ */
+
+.streak-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: rgba(196, 136, 43, 0.08);
+  border: 1px solid rgba(196, 136, 43, 0.2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-evidence);
+}
+
+.streak-banner__icon {
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+
+/* ------------------------------------------------------------
+   32. DELIBERATION SCREEN (Verdict Delay)
+   ------------------------------------------------------------ */
+
+.deliberation-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  gap: var(--space-lg);
+  min-height: 300px;
+  text-align: center;
+}
+
+.deliberation-screen__icon {
+  font-size: 3rem;
+  animation: deliberation-pulse 1.2s ease-in-out infinite;
+}
+
+.deliberation-screen__text {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.deliberation-screen__dots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.deliberation-screen__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-text-muted);
+  animation: deliberation-dot-bounce 1.4s ease-in-out infinite;
+}
+
+.deliberation-screen__dot:nth-child(2) { animation-delay: 0.2s; }
+.deliberation-screen__dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes deliberation-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes deliberation-dot {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+
+/* ------------------------------------------------------------
+   33. RATING BADGE (Result Screen)
+   ------------------------------------------------------------ */
+
+.badge--rating {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: var(--space-xs) var(--space-lg);
+  letter-spacing: 0.1em;
+  border-width: 2px;
+}
+
+.badge--rating-correct {
+  background-color: rgba(196, 136, 43, 0.12);
+  color: var(--color-evidence);
+  border-color: rgba(196, 136, 43, 0.4);
+}
+
+.badge--rating-wrong {
+  background-color: rgba(155, 59, 59, 0.1);
+  color: var(--color-danger);
+  border-color: rgba(155, 59, 59, 0.35);
+}
+
+
+/* ------------------------------------------------------------
+   34. STREAK MILESTONE
+   ------------------------------------------------------------ */
+
+.streak-milestone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: rgba(196, 136, 43, 0.1);
+  border: 1px solid rgba(196, 136, 43, 0.3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-evidence);
+  animation: milestone-entrance 500ms ease-out both;
+  animation-delay: 1200ms;
+}
+
+@keyframes milestone-entrance {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+/* ------------------------------------------------------------
+   35. WRONG-ANSWER CULPRIT REVEAL
+   ------------------------------------------------------------ */
+
+.result-screen__culprit-reveal {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+.result-screen__culprit-name {
+  display: block;
+  font-size: var(--text-2xl);
+  margin-top: var(--space-xs);
+}
+
+
+/* ------------------------------------------------------------
+   36. SHARE BUTTON COPY FEEDBACK
+   ------------------------------------------------------------ */
+
+@keyframes copy-flash {
+  0% { background-color: var(--color-action); }
+  50% { background-color: var(--color-success); box-shadow: 0 0 0 4px rgba(91, 140, 90, 0.2); }
+  100% { background-color: var(--color-success); }
+}
+
+.btn-action--copied {
+  animation: copy-flash 400ms ease-out forwards;
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+
+/* ------------------------------------------------------------
+   37. TUTORIAL STEP TRANSITION
+   ------------------------------------------------------------ */
+
+@keyframes step-transition {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes step-transition-out {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-20px); }
+}
+
+.tutorial-overlay__step {
+  animation: step-transition 250ms ease-out both;
+}
+
+.tutorial-overlay__dot {
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.tutorial-overlay__dot--active {
+  animation: dot-pulse 300ms ease-out both;
+}
+
+@keyframes dot-pulse {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+
+/* ------------------------------------------------------------
+   38. GAME LAYOUT UTILITIES (extracted inline styles)
+   ------------------------------------------------------------ */
+
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.suspect-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.section-heading {
+  margin-bottom: var(--space-sm);
+}
+
+.share-container {
+  width: 100%;
+  max-width: 320px;
+}
+
+.fun-fact-card {
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+}
+
+
+/* ------------------------------------------------------------
+   39. RESPONSIVE: SMALL SCREENS (380px-)
+   ------------------------------------------------------------ */
+
+@media (max-width: 380px) {
+  .container {
+    padding-inline: var(--space-sm);
+  }
+
+  .suspect-card {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .suspect-card__avatar {
+    width: 36px;
+    height: 36px;
+    font-size: var(--text-base);
+  }
+
+  .scenario-banner {
+    padding: var(--space-sm);
+  }
+
+  .divider {
+    margin-block: var(--space-sm);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   40. RESPONSIVE: DESKTOP DESK-TEXTURE (1024px+)
+   ------------------------------------------------------------ */
+
+@media (min-width: 1024px) {
+  body {
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(212, 207, 200, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(196, 136, 43, 0.06) 0%, transparent 40%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(44, 36, 32, 0.012) 2px,
+        rgba(44, 36, 32, 0.012) 4px
+      );
+  }
+
+  .container {
+    background-color: var(--color-bg);
+    box-shadow: 0 0 60px rgba(44, 36, 32, 0.06);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-lg);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   41. CLUE-TO-SUSPECT PULSE
+   ------------------------------------------------------------ */
+
+@keyframes suspect-clue-pulse {
+  0%   { border-color: var(--color-border); box-shadow: var(--shadow-sm); }
+  15%  { border-color: var(--color-evidence); box-shadow: 0 0 0 3px rgba(196, 136, 43, 0.2); }
+  40%  { border-color: var(--color-evidence); box-shadow: 0 0 0 3px rgba(196, 136, 43, 0.15); }
+  100% { border-color: var(--color-border); box-shadow: var(--shadow-sm); }
+}
+
+.suspect-list--clue-pulse .suspect-card:not(.cleared) {
+  animation: suspect-clue-pulse 3s ease-out;
+}
+
+.suspect-list--clue-pulse .suspect-card.selected:not(.cleared) {
+  animation: suspect-clue-pulse 3s ease-out;
+  /* Re-apply selected border after animation ends */
+}
+
+
+/* ------------------------------------------------------------
+   42. DARK MODE ("Noir Noir")
+   ------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1A1614;
+    --color-bg-alt: #252120;
+    --color-bg-card: #2A2523;
+    --color-text: #E8E2DC;
+    --color-text-muted: #AEA59E;
+    --color-action: #3BB69A;
+    --color-action-hover: #35B899;
+    --color-evidence: #D9A03E;
+    --color-danger: #C25555;
+    --color-success: #6FA86E;
+    --color-border: #3D3632;
+    --color-cleared: #5A524C;
+
+    --color-clue-witness: #8A9DAD;
+    --color-clue-physical: #D9A03E;
+    --color-clue-contradiction: #C25555;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(45, 158, 132, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(217, 160, 62, 0.03) 0%, transparent 40%);
+  }
+
+  .game-header {
+    background-color: rgba(26, 22, 20, 0.95);
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-bg),
+      rgba(26, 22, 20, 0.9)
+    );
+  }
+
+  .scenario-banner {
+    background-color: rgba(42, 37, 35, 0.95);
+  }
+
+  .accusation-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .accusation-overlay__content {
+    background-color: var(--color-bg);
+  }
+
+  .tutorial-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .tutorial-overlay__content {
+    background-color: var(--color-bg);
+  }
+
+  .skeleton-line,
+  .skeleton-avatar,
+  .skeleton-circle {
+    background: linear-gradient(90deg, var(--color-bg-alt) 25%, var(--color-border) 50%, var(--color-bg-alt) 75%);
+    background-size: 200% 100%;
+  }
+
+  .btn-action {
+    background-color: var(--color-action);
+    border-color: var(--color-action);
+  }
+
+  .btn-accuse {
+    background-color: var(--color-danger);
+    border-color: var(--color-danger);
+  }
+
+  .suspect-card__avatar--0 {
+    background-color: rgba(45, 158, 132, 0.15);
+    color: var(--color-action);
+    border-color: rgba(45, 158, 132, 0.3);
+  }
+
+  .suspect-card__avatar--1 {
+    background-color: rgba(217, 160, 62, 0.15);
+    color: var(--color-evidence);
+    border-color: rgba(217, 160, 62, 0.3);
+  }
+
+  .suspect-card__avatar--2 {
+    background-color: rgba(194, 85, 85, 0.15);
+    color: var(--color-danger);
+    border-color: rgba(194, 85, 85, 0.3);
+  }
+
+  .suspect-card__avatar--3 {
+    background-color: rgba(138, 157, 173, 0.15);
+    color: var(--color-clue-witness);
+    border-color: rgba(138, 157, 173, 0.3);
+  }
+
+  /* Desktop card shadow in dark mode */
+  @media (min-width: 1024px) {
+    .container {
+      background-color: var(--color-bg);
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(45, 158, 132, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(217, 160, 62, 0.04) 0%, transparent 40%);
+    }
+  }
+}
+
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .btn {
+    border: 2px solid ButtonText;
+  }
+
+  .suspect-card {
+    border: 2px solid ButtonText;
+  }
+
+  .suspect-card.selected {
+    border: 3px solid Highlight;
+  }
+
+  .suspect-card.cleared::after {
+    forced-color-adjust: none;
+  }
+
+  .clue-card {
+    border-left: 4px solid Highlight;
+  }
+
+  .stars__star--filled {
+    color: Highlight;
+  }
+}

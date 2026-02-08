@@ -1,0 +1,62 @@
+{
+  "id": "office-p5",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Mystery Sticky Notes",
+  "setting": "Oakridge Financial Group, open office, Wednesday 8 AM",
+  "premise": "Someone covered every surface of the CEO's glass-walled office with hundreds of bright pink sticky notes overnight, spelling out 'CASUAL FRIDAY OR ELSE.' The CEO's office requires a keycard only four employees possess.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Reggie Thornton",
+      "role": "Compliance Officer",
+      "motive": "Has been the most vocal advocate for casual dress code for over a year",
+      "alibi": "I was at a compliance conference in the Hilton downtown from Tuesday through Wednesday morning. I checked in Tuesday at 3 PM and the first session Wednesday was at 8 AM."
+    },
+    {
+      "id": "s2",
+      "name": "Pam Delgado",
+      "role": "Executive Secretary",
+      "motive": "The CEO rejected her casual Friday proposal without even reading it",
+      "alibi": "I left at 5:30 PM Tuesday. I went to my book club meeting at the downtown library from 7 to 10 PM. Eight members attended and the librarian locked up after us."
+    },
+    {
+      "id": "s3",
+      "name": "Oliver Grant",
+      "role": "Financial Advisor",
+      "motive": "Bet a colleague fifty dollars he could pull off 'the greatest office prank of the year'",
+      "alibi": "I was at the office until 6 PM Tuesday then drove to visit my parents in Millbrook, which is two hours north. I stayed overnight and drove back Wednesday morning."
+    },
+    {
+      "id": "s4",
+      "name": "Simone Watts",
+      "role": "CFO",
+      "motive": "Privately supports casual Friday and wants to pressure the CEO with a harmless stunt",
+      "alibi": "I worked late Tuesday until about 9 PM reviewing quarterly figures. Then I drove straight to my house in the suburbs. My home security camera shows me arriving at 9:35 PM."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Sticky Note Supply",
+      "content": "The office supply room is missing twelve packs of pink sticky notes. The supply room log shows someone accessed it at 10:45 PM Tuesday using a keycard.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Keycard Holders",
+      "content": "Only four people have keycards that open both the CEO's office and the supply room: Pam (executive secretary), Simone (CFO), the CEO himself, and the head of security (who was on a flight to Denver Tuesday night).",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Library Closure Records",
+      "content": "The downtown library was closed all day Tuesday for emergency plumbing repairs. Their social media posted the closure notice Monday afternoon. No book club meeting could have taken place there.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-028",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Plagiarized Proposal",
+  "setting": "Whitmore Consulting, client services floor, Tuesday 11 AM",
+  "premise": "A winning client proposal was discovered to be plagiarized word-for-word from a competitor's publicly available case study. Someone deliberately replaced the original proposal file on the shared drive at 8:55 PM Monday.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Naomi Fletcher",
+      "role": "Senior Consultant",
+      "motive": "Wrote the original proposal and recently learned she's being removed from the account",
+      "alibi": "I was at a networking event at the Grand Hotel from 6 PM to 9 PM Monday. I spoke with dozens of people. The event organizer has a sign-in sheet with my name on it."
+    },
+    {
+      "id": "s2",
+      "name": "Rohan Malik",
+      "role": "Business Analyst",
+      "motive": "Wanted Naomi's proposal to fail so his alternative approach would be chosen instead",
+      "alibi": "I stayed at the office until about 8 PM working on financial models. Then I drove to the airport to pick up my brother whose flight landed at 9:30 PM from Denver."
+    },
+    {
+      "id": "s3",
+      "name": "Christine Bauer",
+      "role": "Proposal Coordinator",
+      "motive": "Blamed for a previous proposal loss and wants to discredit the team lead",
+      "alibi": "I left the office at 5:30 PM and went to my pottery class at the Clay Studio downtown. Class runs from 6 to 8:30 PM every Monday. I have a piece I glazed that night."
+    },
+    {
+      "id": "s4",
+      "name": "James Okafor",
+      "role": "IT Support Specialist",
+      "motive": "Passed over for a client-facing role and resents the consulting team",
+      "alibi": "I left the office at 6 PM and went grocery shopping at FreshMart. I was there for about an hour, then cooked dinner at home. I have the grocery receipt from 6:20 PM."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "File Modification Log",
+      "content": "The shared drive audit log shows the proposal was replaced at 8:55 PM Monday from a workstation on the client services floor. The change was made using Rohan's login credentials.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Cleaning Staff Observation",
+      "content": "The cleaning crew member who vacuumed the client services floor at 8:30 PM Monday says she saw one person still at a desk, typing on a computer. She described a man in a blue sweater.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Airport Arrival Board",
+      "content": "The Denver flight that Rohan claims arrived at 9:30 PM was actually delayed and didn't land until 11:15 PM Monday. The delay was posted by the airline at 3 PM that afternoon.",
+      "order": 3
+    }
+  ]
+}

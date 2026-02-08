@@ -1,0 +1,62 @@
+{
+  "id": "office-002",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The WiFi Password Caper",
+  "setting": "Pinnacle Tech Solutions, server room, Tuesday 8 AM",
+  "premise": "Someone changed the office WiFi password overnight, locking everyone out. The router log shows the change was made at 11:47 PM Monday from a hardwired terminal in the server room.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Marcus Webb",
+      "role": "Network Engineer",
+      "motive": "Angry about being passed over for promotion last week",
+      "alibi": "I left the office at 6 PM sharp. I was at a bowling league at Sunset Lanes from 7 to 11 PM. My teammates can vouch for me."
+    },
+    {
+      "id": "s2",
+      "name": "Dana Ortiz",
+      "role": "QA Tester",
+      "motive": "Complained the WiFi name was offensive and wanted it changed",
+      "alibi": "I worked late debugging until about 10 PM, then drove straight home. I live forty-five minutes away in Riverside and was home by 10:50."
+    },
+    {
+      "id": "s3",
+      "name": "Kyle Finnegan",
+      "role": "DevOps Lead",
+      "motive": "Wanted to prove the network security was weak",
+      "alibi": "I was at home all evening. My wife and I watched a movie starting at 9 PM. I never came back to the office after leaving at 5:30."
+    },
+    {
+      "id": "s4",
+      "name": "Jess Nakamura",
+      "role": "Product Manager",
+      "motive": "Joked about 'resetting everything' after a frustrating sprint review",
+      "alibi": "I stayed late finishing a report until around 11 PM. Then I took the elevator down to the parking garage and drove home."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Night Security Log",
+      "content": "The security guard notes only two badge-ins after 9 PM on Monday: Jess at 6:15 PM (never badged out until 11:10 PM) and one re-entry at 11:30 PM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Parking Garage Footage",
+      "content": "Garage camera shows Dana's car leaving at 10:05 PM and not returning. Jess's car left at 11:12 PM. One car entered the garage at 11:25 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Bowling Alley Closing Time",
+      "content": "Sunset Lanes posts on their website that Monday leagues end at 10 PM and the building closes at 10:30 PM. Marcus claimed he was bowling until 11 PM.",
+      "order": 3
+    }
+  ]
+}

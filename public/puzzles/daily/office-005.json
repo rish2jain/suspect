@@ -1,0 +1,62 @@
+{
+  "id": "office-005",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Thermostat War Escalation",
+  "setting": "Greenfield Accounting, main office, Friday 8 AM",
+  "premise": "Someone put a lockbox over the office thermostat overnight, trapping it at 60 degrees. The lockbox was installed sometime between 6 PM Thursday and 7 AM Friday. Only someone with a hex wrench could have mounted it.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Victor Huang",
+      "role": "Senior Accountant",
+      "motive": "Keeps a personal space heater that was just banned by the office manager",
+      "alibi": "I left at 5:30 PM Thursday and went to my son's school play at Lincoln Elementary. The show started at 7 PM and ran until 9. I drove straight home after."
+    },
+    {
+      "id": "s2",
+      "name": "Martha Gibbs",
+      "role": "Office Manager",
+      "motive": "Has been vocal about keeping the office cooler to save on energy costs",
+      "alibi": "I worked until 6 PM, then went to dinner with my sister at Romano's downtown. We were there from 6:30 to about 8:30. I have the receipt."
+    },
+    {
+      "id": "s3",
+      "name": "Kevin Torres",
+      "role": "Facilities Coordinator",
+      "motive": "Tired of getting complaints about the temperature every single day",
+      "alibi": "I left at 4 PM for a doctor's appointment. After that, I picked up my daughter from daycare. We were home all evening. I never came back to the office."
+    },
+    {
+      "id": "s4",
+      "name": "Diane Park",
+      "role": "Tax Preparer",
+      "motive": "Constantly cold and wanted to prove the thermostat needed a permanent setting",
+      "alibi": "I stayed late working on tax returns until about 7:30 PM. Then I packed up my laptop, walked out the front door, and drove straight home."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "contradiction",
+      "title": "Wi-Fi Connection Log",
+      "content": "The office network log shows Diane's personal phone connected to the office Wi-Fi from 5:10 PM to 10:47 PM Thursday. Her phone never disconnected during that entire window.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Maintenance Supply Check",
+      "content": "The lockbox is a commercial-grade unit sold only at specialty hardware stores. Kevin confirmed a hex wrench set is kept in the facilities closet on the second floor.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "physical",
+      "title": "Building Access Log",
+      "content": "The key-card log shows four exits after 4 PM Thursday but only one re-entry at 9:15 PM. The building's front door auto-locks at 6 PM.",
+      "order": 3
+    }
+  ]
+}

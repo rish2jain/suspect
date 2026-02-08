@@ -1,0 +1,62 @@
+{
+  "id": "office-021",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Prank War Escalation",
+  "setting": "Redwood Software, engineering floor, Monday 8 AM",
+  "premise": "Someone filled the CEO's office with hundreds of balloons over the weekend, blocking the door completely. The CEO is not amused and wants the culprit found immediately.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Zach Brennan",
+      "role": "QA Engineer",
+      "motive": "Known office prankster who recently had his own desk wrapped in foil",
+      "alibi": "I was at a music festival in Clearwater all weekend. It was a two-hour drive away. I have my wristband and photos with timestamps from both Saturday and Sunday."
+    },
+    {
+      "id": "s2",
+      "name": "Kelly Ortega",
+      "role": "UX Designer",
+      "motive": "Wanted revenge after the CEO publicly criticized her design in a meeting",
+      "alibi": "I spent all weekend at home painting my apartment. I had drop cloths everywhere and my roommate helped me. She can confirm I was home both days."
+    },
+    {
+      "id": "s3",
+      "name": "Todd Nguyen",
+      "role": "DevOps Engineer",
+      "motive": "Lost a prank bet with Zach and owed him a 'legendary prank' as payment",
+      "alibi": "I was at my parents' house in Riverside for Sunday dinner. I drove there Saturday afternoon and came back Sunday evening. My mom can confirm I was there."
+    },
+    {
+      "id": "s4",
+      "name": "Jenna Walsh",
+      "role": "Product Manager",
+      "motive": "The CEO rejected her project proposal and gave the budget to another team",
+      "alibi": "I came into the office Saturday morning around 10 AM to catch up on emails. I was at my desk for about three hours and left around 1 PM. I didn't go near the CEO's office."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Balloon Receipt",
+      "content": "A receipt from Party Planet for 300 balloons and a helium tank was found in the office recycling bin. It was purchased Saturday at 9:15 AM and paid for in cash.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Weekend Badge Records",
+      "content": "Building badge records show Jenna entered at 10:05 AM Saturday and left at 1:12 PM. Todd entered at 2:30 PM Saturday and left at 5:45 PM. No Sunday entries were logged.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Riverside Drive Time",
+      "content": "Todd claims he drove to Riverside on Saturday afternoon. But Riverside is a four-hour drive away, and Clue 2 shows he didn't leave the office until 5:45 PM Saturday — arriving impossibly late for Saturday dinner.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "daily": [
+    "office-001",
+    "office-002",
+    "office-003",
+    "office-004",
+    "office-005",
+    "office-006",
+    "office-007",
+    "office-008",
+    "office-009",
+    "office-010",
+    "office-011",
+    "office-012",
+    "office-013",
+    "office-014",
+    "office-015",
+    "office-016",
+    "office-017",
+    "office-018",
+    "office-019",
+    "office-020",
+    "office-021",
+    "office-022",
+    "office-023",
+    "office-024",
+    "office-025",
+    "office-026",
+    "office-027",
+    "office-028",
+    "office-029",
+    "office-030"
+  ],
+  "packs": [
+    {
+      "id": "office-vol-1",
+      "name": "Office Shenanigans Vol. 1",
+      "genre": "office",
+      "emoji": "\ud83c\udfe2",
+      "puzzles": [
+        "office-p1",
+        "office-p2",
+        "office-p3",
+        "office-p4",
+        "office-p5"
+      ]
+    },
+    {
+      "id": "office-vol-2",
+      "name": "Office Shenanigans Vol. 2",
+      "genre": "office",
+      "emoji": "\ud83d\udcbc",
+      "puzzles": [
+        "office-p6",
+        "office-p7",
+        "office-p8",
+        "office-p9",
+        "office-p10"
+      ]
+    },
+    {
+      "id": "history-vol-1",
+      "name": "History's Liars Vol. 1",
+      "genre": "history",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "puzzles": [
+        "history-p1",
+        "history-p2",
+        "history-p3",
+        "history-p4",
+        "history-p5"
+      ]
+    }
+  ]
+}

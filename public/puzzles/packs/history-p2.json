@@ -1,0 +1,62 @@
+{
+  "id": "history-p2",
+  "version": 1,
+  "genre": "history",
+  "difficulty": 1,
+  "title": "The Planted Relic",
+  "setting": "Thornfield University archaeological dig site, Sector 7, Friday morning",
+  "premise": "A supposedly Bronze Age gold pendant was found in Sector 7 on Thursday, but lab analysis revealed it was planted -- the soil layers around it were disturbed within the past week. Someone is faking a major discovery.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Professor Ruth Ellison",
+      "role": "Lead Archaeologist",
+      "motive": "Needs a headline discovery to secure renewed grant funding before the deadline next month",
+      "alibi": "I was in the field office reviewing stratigraphic maps all day Thursday. My graduate assistant was with me from 9 AM to 4 PM going over documentation."
+    },
+    {
+      "id": "s2",
+      "name": "Craig Holden",
+      "role": "Field Technician",
+      "motive": "Wants to impress Professor Ellison to get a recommendation letter for doctoral programs",
+      "alibi": "I spent all day Thursday working in Sector 3 on the opposite side of the dig. I was logging pottery fragments with my field partner until we broke for lunch at noon."
+    },
+    {
+      "id": "s3",
+      "name": "Dana Ortiz",
+      "role": "Graduate Research Assistant",
+      "motive": "Dissertation depends on significant finds from this dig and her funding expires in three months",
+      "alibi": "I was in the university lab Thursday running carbon dating samples from last week's finds. I signed into the lab at 8 AM and did not leave until 5 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Liam Jeffries",
+      "role": "Dig Volunteer",
+      "motive": "An amateur metal detectorist who has been caught planting finds at other sites for social media fame",
+      "alibi": "I was assigned to Sector 7 all day Thursday. I was the one who actually found the pendant around 2 PM while troweling near the eastern trench wall."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Soil Composition Report",
+      "content": "The soil packed around the pendant contained traces of modern fertilizer consistent with garden topsoil, not the clay subsoil native to Sector 7. Someone brought outside soil to rebury the object.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Night Guard's Observation",
+      "content": "The overnight security guard reported seeing a flashlight moving near Sector 7 around 3 AM Thursday morning, hours before the dig crew arrived at 7 AM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Lab Swipe Records",
+      "content": "The university lab's electronic door log shows Dana's keycard swiped in at 8:03 AM Thursday, but also shows a swipe-out at 2:47 AM that same morning. She was at the university in the middle of the night.",
+      "order": 3
+    }
+  ]
+}

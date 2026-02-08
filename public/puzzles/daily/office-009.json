@@ -1,0 +1,62 @@
+{
+  "id": "office-009",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Coffee Machine Saboteur",
+  "setting": "Pinnacle Financial, fifth-floor kitchen, Monday 7:30 AM",
+  "premise": "Someone switched the premium coffee beans with decaf in the espresso machine over the weekend. Half the office is furious and nobody can focus.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Gina Torres",
+      "role": "Wellness Coordinator",
+      "motive": "Has been campaigning to reduce office caffeine consumption",
+      "alibi": "I was at a wellness retreat in Vermont all weekend. I just got back Sunday night and came in Monday at my usual 8 AM."
+    },
+    {
+      "id": "s2",
+      "name": "Phil Morton",
+      "role": "Facilities Manager",
+      "motive": "Budget cuts mean he must reduce kitchen supply costs by 20%",
+      "alibi": "I came in Saturday at noon to check the HVAC system. I was in the basement mechanical room the entire time and left by 2 PM."
+    },
+    {
+      "id": "s3",
+      "name": "Lucia Hernandez",
+      "role": "Portfolio Manager",
+      "motive": "Lost a bet to a colleague that she could make the whole floor switch to decaf",
+      "alibi": "I was home all weekend with my kids. We went to the zoo on Saturday and had a movie marathon on Sunday. I didn't come near the office."
+    },
+    {
+      "id": "s4",
+      "name": "Owen Pratt",
+      "role": "IT Administrator",
+      "motive": "Complained that the espresso machine's smart features kept crashing his network",
+      "alibi": "I was in the server room Saturday evening from 5 PM to 10 PM running updates. The server room is in the basement, nowhere near the kitchen."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Weekend Receptionist Note",
+      "content": "The weekend receptionist only logged two people entering the building on Saturday: Phil at 12:03 PM and Owen at 4:55 PM. Nobody came in on Sunday.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Elevator Camera",
+      "content": "The elevator security camera shows someone riding from the basement to the fifth floor at 6:12 PM Saturday and back down at 6:18 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Server Room Access Log",
+      "content": "The server room's electronic lock shows Owen's badge exiting at 6:08 PM and re-entering at 6:22 PM. Owen claims he never left the server room during his shift.",
+      "order": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "office-p8",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Mystery Memo",
+  "setting": "Greenfield Biotech, executive floor, Tuesday 11 AM",
+  "premise": "A confidential memo about upcoming layoffs was leaked to the press. The memo was emailed only to four people Monday evening, and the news article was published Tuesday at 8 AM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Sandra Liu",
+      "role": "VP of Operations",
+      "motive": "Opposes the layoffs and has been fighting to save positions in her department",
+      "alibi": "I read the memo at 6 PM Monday and went home. I turned off my work phone for the night. I found out about the leak Tuesday when I arrived at 8:30 AM."
+    },
+    {
+      "id": "s2",
+      "name": "Roger Finch",
+      "role": "Chief Financial Officer",
+      "motive": "Has been in contact with a rival firm and wants to destabilize leadership",
+      "alibi": "I was at a board dinner Monday from 7 PM to 10 PM at The Grand Hotel. Eight board members can confirm I was there. I went straight home after."
+    },
+    {
+      "id": "s3",
+      "name": "Monica Page",
+      "role": "General Counsel",
+      "motive": "Believes transparency about layoffs is ethically required",
+      "alibi": "I reviewed the memo Monday at 5:30 PM and left by 6 PM. I spent the evening at home reviewing case files. My home alarm system confirms I was home by 6:30."
+    },
+    {
+      "id": "s4",
+      "name": "Alan Chu",
+      "role": "Executive Assistant",
+      "motive": "His position is among those being eliminated in the layoff plan",
+      "alibi": "I sent the memo to all four recipients at 5 PM Monday as instructed by the CEO. After that I filed it and left the office at 5:15 PM. I didn't read the memo's contents."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Reporter's Source Clue",
+      "content": "The newspaper reporter confirms the leak came via a personal email sent at 10:47 PM Monday night. The source included a screenshot of the memo, not a forwarded copy.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Home Network Evidence",
+      "content": "IT traced the screenshot metadata showing it was taken on a phone at 6:02 PM Monday. The phone's Wi-Fi was connected to Greenfield's office network at that time.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Alan's Email Access",
+      "content": "Alan claims he didn't read the memo's contents. But the screenshot metadata matches his phone model, and the email server log shows he opened the memo attachment at 5:58 PM — 43 minutes after he claims to have left at 5:15 PM.",
+      "order": 3
+    }
+  ]
+}

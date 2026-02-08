@@ -1,0 +1,62 @@
+{
+  "id": "office-008",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Vanishing Whiteboard Notes",
+  "setting": "Summit Consulting Group, strategy room, Tuesday 8 AM",
+  "premise": "The entire Q3 strategy brainstorm was erased from the main whiteboard overnight. The room has no cameras, but badge access is logged after 6 PM.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Derek Fong",
+      "role": "Strategy Analyst",
+      "motive": "His idea was publicly shot down during the brainstorm session",
+      "alibi": "I left at 5:30 PM and went straight home. I was on a video call with my brother from 7 PM to 9 PM. I never came back to the office."
+    },
+    {
+      "id": "s2",
+      "name": "Marissa Cole",
+      "role": "Senior Consultant",
+      "motive": "Wanted to redo the strategy after the client changed scope",
+      "alibi": "I stayed until 7 PM finishing a client deck at my desk on the second floor. Then I walked to the parking garage and drove home."
+    },
+    {
+      "id": "s3",
+      "name": "Raj Patel",
+      "role": "Office Coordinator",
+      "motive": "Overheard saying the whiteboard was 'an eyesore that needed cleaning'",
+      "alibi": "I left at 5 PM sharp like always. I had dinner reservations at Gio's at 6:30 across town. My wife and I were there until 8 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Tanya Brooks",
+      "role": "Managing Director",
+      "motive": "Disagreed with the strategy direction and wanted a full reset",
+      "alibi": "I was in the building until 8 PM for a board call in my corner office. After the call I went directly to the elevator and left."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Security Guard's Log",
+      "content": "The overnight security guard confirms only two badge swipes into the building after 6 PM: one at 6:45 PM and one at 7:52 PM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Whiteboard Cleaner Residue",
+      "content": "The board was wiped with the industrial cleaning spray kept in the strategy room's supply cabinet. The spray bottle has fresh fingerprints on it.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Badge Access Detail",
+      "content": "The 7:52 PM badge swipe was Tanya's card. But her corner office is on the fifth floor, and the badge log shows her card also accessed the third-floor strategy room at 8:10 PM.",
+      "order": 3
+    }
+  ]
+}

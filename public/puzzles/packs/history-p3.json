@@ -1,0 +1,62 @@
+{
+  "id": "history-p3",
+  "version": 1,
+  "genre": "history",
+  "difficulty": 2,
+  "title": "The Forged Letter",
+  "setting": "Bancroft Rare Documents Library, authentication room, Monday afternoon",
+  "premise": "A letter allegedly written by Abraham Lincoln was donated to the library last month. The head authenticator just discovered it is a modern forgery using artificially aged paper. Someone on staff switched the real letter for a fake and kept the original.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Arthur Pemberton",
+      "role": "Head Authenticator",
+      "motive": "Collects Civil War memorabilia privately and covets rare Lincoln documents",
+      "alibi": "I was the one who discovered the forgery during routine testing Monday morning. I would not expose the switch if I had done it myself. I immediately reported it to the director."
+    },
+    {
+      "id": "s2",
+      "name": "Meredith Lane",
+      "role": "Cataloging Librarian",
+      "motive": "Recently divorced and struggling financially, could sell a genuine Lincoln letter for a fortune",
+      "alibi": "I processed the donation intake when it arrived four weeks ago. Since then I have had no access to the vault. Only authentication staff have vault keycards."
+    },
+    {
+      "id": "s3",
+      "name": "Dr. Yusuf Hassan",
+      "role": "Visiting Historian",
+      "motive": "Writing a book on Lincoln forgeries and possessing the real letter would make a sensational reveal",
+      "alibi": "I examined the letter two weeks ago for my research. I was supervised the entire time by a staff member and wore gloves. I never touched the letter unsupervised."
+    },
+    {
+      "id": "s4",
+      "name": "Claudia Stein",
+      "role": "Assistant Authenticator",
+      "motive": "Resents Arthur for taking credit on their joint authentication papers and wants to undermine him",
+      "alibi": "I was on vacation in Portland all last week and only returned yesterday. The forgery could have been swapped at any point in the past month so my absence last week is irrelevant."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Vault Access Records",
+      "content": "The vault door logs show only three keycards accessed the vault in the past month: Arthur's (12 times), Claudia's (8 times), and a master key used once by the director for an inspection.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Shipping Room Clerk",
+      "content": "The mail room clerk remembers Claudia sending a heavily insured personal package via express courier last Wednesday from the library's shipping room. She said it was a birthday gift.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Travel Booking Confirmation",
+      "content": "Claudia's Portland hotel reservation shows check-in on Thursday afternoon. Her vault keycard was used Wednesday at 6:45 PM -- the evening before she claims her vacation started.",
+      "order": 3
+    }
+  ]
+}

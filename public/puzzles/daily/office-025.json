@@ -1,0 +1,62 @@
+{
+  "id": "office-025",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Rigged Employee Vote",
+  "setting": "Oakmont Media Group, HR office, Wednesday 4 PM",
+  "premise": "The anonymous employee satisfaction survey was tampered with — fifty fake negative responses were submitted to make the CEO look bad. The fake entries were all submitted between 2 AM and 4 AM Tuesday from an office computer.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Chloe Bergman",
+      "role": "Communications Director",
+      "motive": "Wants the CEO replaced so she can push her candidate for the position",
+      "alibi": "I was at home Tuesday night. I took a sleeping pill at 10 PM because I had an early flight Wednesday. My flight was at 6 AM and I set three alarms. I slept right through."
+    },
+    {
+      "id": "s2",
+      "name": "Russ Whitfield",
+      "role": "Disgruntled Editor",
+      "motive": "The CEO cut his department's budget by forty percent last quarter",
+      "alibi": "I was working a freelance editing job from home all night. I had a midnight deadline for an article. I submitted it at 11:52 PM and then went straight to sleep."
+    },
+    {
+      "id": "s3",
+      "name": "Anita Kapoor",
+      "role": "Data Analyst",
+      "motive": "Discovered the CEO was cooking metrics and wants him removed before an audit",
+      "alibi": "I was at the office late running quarterly reports. I left around 1 AM Tuesday. The parking garage attendant saw me leave. I drove home and didn't come back."
+    },
+    {
+      "id": "s4",
+      "name": "Derek Fontaine",
+      "role": "IT Support Technician",
+      "motive": "Being laid off at the end of the month as part of restructuring",
+      "alibi": "I was home playing online games with friends all night. We were in a voice chat from 11 PM to 4 AM. My friends in the chat can all confirm I was talking the entire time."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Network Access Log",
+      "content": "The fake survey entries were submitted from a workstation that requires a staff ID badge to log in. The badge used belonged to Anita's account.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Parking Garage Attendant",
+      "content": "The garage attendant confirms Anita left at 1:05 AM Tuesday. He also noted one car entered the garage at 1:45 AM — a red sedan. Anita drives a blue SUV.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Gaming Platform Records",
+      "content": "Derek's gaming platform shows his last activity was at 12:30 AM Tuesday. The voice chat server logs show he disconnected at 12:32 AM — not 4 AM as he claimed.",
+      "order": 3
+    }
+  ]
+}

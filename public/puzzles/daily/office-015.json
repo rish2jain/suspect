@@ -1,0 +1,62 @@
+{
+  "id": "office-015",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Vanishing Prototype",
+  "setting": "Oriole Product Labs, design workshop, Wednesday 9 AM",
+  "premise": "A working prototype for the company's flagship product launch disappeared from the locked display case overnight. The case was intact with no signs of forced entry.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Raj Anand",
+      "role": "Lead Product Designer",
+      "motive": "Worried the prototype would expose a design flaw he missed",
+      "alibi": "I left the office at 5:30 PM and went straight to my daughter's school recital. It started at 6 PM and ran until 8 PM. Then I drove home."
+    },
+    {
+      "id": "s2",
+      "name": "Leah Garner",
+      "role": "Marketing Director",
+      "motive": "Wanted to delay the launch to align with her revised campaign timeline",
+      "alibi": "I was at a dinner with our PR agency at The Olive Branch restaurant from 7 PM until around 10 PM. I paid with my corporate card and have the receipt."
+    },
+    {
+      "id": "s3",
+      "name": "Felix Dunn",
+      "role": "Lab Technician",
+      "motive": "Believes a competitor offered him a job if he could deliver insider product details",
+      "alibi": "I stayed late to clean the lab and left at 8 PM. Then I took the subway home to Greenfield, which is a forty-minute ride. I was home by 9."
+    },
+    {
+      "id": "s4",
+      "name": "Carmen Vega",
+      "role": "Operations Coordinator",
+      "motive": "Furious about budget cuts that slashed her department's resources",
+      "alibi": "I left at 5 PM and went to my evening yoga class at Harmony Studio. Class runs from 6 to 7:30 PM every Wednesday. The instructor knows me well."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Night Guard's Rounds",
+      "content": "The security guard did a sweep at 11 PM and confirmed the prototype was still in the display case. His next sweep at 6 AM found it missing.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Keycard Access Records",
+      "content": "Only three people have keycards to the display case: Raj, Felix, and the CEO. Building entry logs show Felix re-entered the building at 11:45 PM.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Subway Schedule Check",
+      "content": "The Greenfield subway line shuts down for maintenance every Wednesday at 7 PM. There is no Wednesday evening service on that route.",
+      "order": 3
+    }
+  ]
+}

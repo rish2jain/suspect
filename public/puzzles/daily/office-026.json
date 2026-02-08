@@ -1,0 +1,62 @@
+{
+  "id": "office-026",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 2,
+  "title": "The Swapped Name Plates",
+  "setting": "Meridian Architecture Firm, executive floor, Monday 8 AM",
+  "premise": "Every name plate on the executive floor was swapped around over the weekend, causing chaos Monday morning. The custom brass plates are bolted on and require a specific hex wrench to remove.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Lloyd Patterson",
+      "role": "Junior Architect",
+      "motive": "Was publicly humiliated by a partner for a drafting mistake at Friday's review",
+      "alibi": "I spent the whole weekend at a design competition at the university. Registration was at 8 AM Saturday and the awards ceremony was Sunday at 5 PM. My team placed second."
+    },
+    {
+      "id": "s2",
+      "name": "Vera Costa",
+      "role": "Office Administrator",
+      "motive": "Denied a transfer to the creative team despite applying four times",
+      "alibi": "I was at my cousin's wedding Saturday afternoon and the reception went until midnight. Sunday I recovered at home all day. I didn't go anywhere near the office."
+    },
+    {
+      "id": "s3",
+      "name": "Neil Chambers",
+      "role": "Maintenance Supervisor",
+      "motive": "His overtime was cut and he blames the executive partners for being cheap",
+      "alibi": "I came in Sunday morning at 8 AM to fix a leaking pipe in the basement. I was in the basement from 8 AM to noon. I left after that and went home."
+    },
+    {
+      "id": "s4",
+      "name": "Irene Walsh",
+      "role": "Drafting Technician",
+      "motive": "Passed over for a promotion in favor of an external hire with less experience",
+      "alibi": "I worked from home all weekend on a deadline project. I submitted my drawings electronically at 3 PM Sunday. My file timestamps will show I was working consistently."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Tool Check",
+      "content": "The specific hex wrench needed for the name plates is kept in the maintenance closet. The closet's sign-out sheet shows Neil checked out tools Sunday at 8:10 AM and returned them at 11:50 AM.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Building Security Footage",
+      "content": "Security footage shows Neil entering the basement at 8:15 AM Sunday and not exiting until 11:45 AM. The executive floor camera shows someone at the name plates at 10 PM Saturday night.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Wedding Venue Check",
+      "content": "The wedding venue confirms Vera's cousin's reception ended at 10 PM Saturday, not midnight as Vera claimed. Guests were cleared out by 10:15 PM per the venue's strict policy.",
+      "order": 3
+    }
+  ]
+}

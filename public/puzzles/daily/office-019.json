@@ -1,0 +1,62 @@
+{
+  "id": "office-019",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 1,
+  "title": "The Deleted Client Database",
+  "setting": "Summit Legal Associates, IT office, Friday 8 AM",
+  "premise": "The firm's entire client contact database was deleted from the shared server at 9:42 PM Thursday. Backups exist, but restoring them will take two days and cost thousands.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Nora Briggs",
+      "role": "Paralegal",
+      "motive": "Being let go at the end of the month and bitter about it",
+      "alibi": "I left the office at 6 PM and went to my book club meeting at the Cedar Park Library. We discussed our book from 7 to 9 PM. Six other members were there."
+    },
+    {
+      "id": "s2",
+      "name": "Dev Kapoor",
+      "role": "IT Consultant",
+      "motive": "In a contract dispute with the firm over unpaid invoices",
+      "alibi": "I was at home working on another client's project all evening. I had a video call with that client from 8 PM to 9:30 PM. The call log is on my account."
+    },
+    {
+      "id": "s3",
+      "name": "Paula Richter",
+      "role": "Senior Partner",
+      "motive": "Wanted to destroy records of a client she improperly billed",
+      "alibi": "I was at a charity gala at the Riverside Hotel from 7 PM until midnight. I gave a speech at 8:30 PM. There are photos and a program listing me."
+    },
+    {
+      "id": "s4",
+      "name": "Eli Thornton",
+      "role": "Records Clerk",
+      "motive": "Passed over for a promotion to office manager that he applied for twice",
+      "alibi": "I stayed late to organize case files until about 9 PM. Then I walked to Sal's Diner next door and had dinner until around 10 PM. The waitress knows me."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "physical",
+      "title": "Server Access Log",
+      "content": "The deletion was executed using admin credentials that only Dev and the IT director have access to. The IT director has been on vacation in Europe all week.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "witness",
+      "title": "Video Call Verification",
+      "content": "Dev's client confirmed the video call happened from 8 to 9:30 PM, but noted Dev appeared to be at an office, not at home — there were fluorescent lights and a whiteboard behind him.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "VPN Connection Records",
+      "content": "The deletion was done from inside the office network, not remotely. The server does not allow remote admin access — it must be done from a terminal on-site.",
+      "order": 3
+    }
+  ]
+}

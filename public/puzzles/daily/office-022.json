@@ -1,0 +1,62 @@
+{
+  "id": "office-022",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Forged Expense Report",
+  "setting": "Atlas Ventures, finance department, Thursday 3 PM",
+  "premise": "A fraudulent expense report for $8,500 was submitted and approved using a forged manager signature. The report was dropped in the finance inbox sometime between 9 AM and noon on Wednesday.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Warren Burke",
+      "role": "Regional Sales Manager",
+      "motive": "Deep in personal debt and recently denied a salary advance",
+      "alibi": "I was in client meetings off-site all Wednesday morning. I visited three clients in the industrial district between 8 AM and 1 PM. Each meeting lasted about an hour."
+    },
+    {
+      "id": "s2",
+      "name": "Gina Marchetti",
+      "role": "Finance Coordinator",
+      "motive": "Handles expense approvals and knows exactly how to bypass safeguards",
+      "alibi": "I was at my desk processing reports all Wednesday morning. My coworker Lisa sat next to me the entire time. We even had lunch together at noon."
+    },
+    {
+      "id": "s3",
+      "name": "Roger Yates",
+      "role": "VP of Operations",
+      "motive": "Used company funds for personal travel before and was warned about it",
+      "alibi": "I was in the executive boardroom from 9 AM to 11:30 AM for a strategy session with the CEO. Then I had a phone call in my office until 12:15 PM."
+    },
+    {
+      "id": "s4",
+      "name": "Diana Cross",
+      "role": "Administrative Coordinator",
+      "motive": "Responsible for printing and distributing forms, with access to blank expense templates",
+      "alibi": "I was running errands for the office all morning. I went to the post office at 9 AM, then the supply store, and got back around 11:30 AM. I have receipts for both stops."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Finance Inbox Timestamp",
+      "content": "The mail clerk says the finance inbox was empty when he delivered the morning mail at 9:45 AM. The forged report was found in the inbox at 11:15 AM by Gina.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Printer Log Analysis",
+      "content": "The office printer log shows an expense report template was printed at 10:22 AM Wednesday from the workstation in the copy room. That workstation has no assigned user.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Client Visit Verification",
+      "content": "Warren's first two client meetings are confirmed. But his third client says their meeting was rescheduled to Thursday — Warren was not at their office Wednesday morning.",
+      "order": 3
+    }
+  ]
+}

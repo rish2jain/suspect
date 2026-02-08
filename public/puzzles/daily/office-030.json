@@ -1,0 +1,62 @@
+{
+  "id": "office-030",
+  "version": 1,
+  "genre": "office",
+  "difficulty": 3,
+  "title": "The Framed Intern",
+  "setting": "Sterling & Associates, law office, Friday 10 AM",
+  "premise": "A vulgar email was sent from the intern's unattended computer to the entire firm at 12:35 PM Thursday. The intern swears he didn't send it and someone is trying to frame him.",
+  "suspects": [
+    {
+      "id": "s1",
+      "name": "Bridget Lawson",
+      "role": "Senior Associate",
+      "motive": "The intern accidentally found and reported her billing irregularities to the partner",
+      "alibi": "I was in a deposition across town at the Hartfield Building from 11 AM to 2 PM Thursday. The court reporter and opposing counsel can confirm I was there the entire time."
+    },
+    {
+      "id": "s2",
+      "name": "Jasper Thorne",
+      "role": "Paralegal",
+      "motive": "Jealous that the intern was being fast-tracked for a full-time offer over him",
+      "alibi": "I was at my desk doing case research all afternoon Thursday. I ate lunch at my desk around 12:30 PM. My cubicle neighbor can confirm she saw me eating a sandwich."
+    },
+    {
+      "id": "s3",
+      "name": "Katherine Ng",
+      "role": "Office Receptionist",
+      "motive": "The intern complained about her attitude to management, leading to a written warning",
+      "alibi": "I was at the front desk from 8 AM to 1 PM Thursday. A courier arrived at 12:30 PM and I signed for three packages. The courier's delivery log has my signature and timestamp."
+    },
+    {
+      "id": "s4",
+      "name": "Martin Hale",
+      "role": "IT Administrator",
+      "motive": "Wants to demonstrate security vulnerabilities to justify his budget request for new software",
+      "alibi": "I was at a cybersecurity seminar at the Grandview Conference Center from 10 AM to 3 PM Thursday. I have my badge and the printed program with my name in the attendee list."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "type": "witness",
+      "title": "Intern's Location",
+      "content": "The intern confirms he stepped away from his unlocked computer at 12:25 PM to use the restroom. He returned at 12:40 PM and saw the sent email. His desk is in an open area near the paralegal cubicles.",
+      "order": 1
+    },
+    {
+      "id": "c2",
+      "type": "physical",
+      "title": "Email Header Analysis",
+      "content": "IT reviewed the email headers. The message was composed and sent directly from the intern's physical workstation, not remotely. It took approximately five minutes to type based on the draft timestamps.",
+      "order": 2
+    },
+    {
+      "id": "c3",
+      "type": "contradiction",
+      "title": "Conference Center Verification",
+      "content": "The Grandview Conference Center confirms the cybersecurity seminar was held on Wednesday, not Thursday. No events were scheduled at the center on Thursday at all.",
+      "order": 3
+    }
+  ]
+}
