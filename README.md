@@ -1,6 +1,6 @@
 # SUSPECT
 
-A daily micro-mystery deduction game. One case per day, plus weekly genre packs. Read suspects' alibis, reveal clues, and identify the liar.
+A daily micro-mystery deduction game. One case per day, plus weekly genre packs. Read suspects' alibis, reveal clues, and identify the liar. Built for the browser — no login, no install, ~2 minutes per puzzle.
 
 ## Quick Start
 
@@ -22,9 +22,18 @@ Each puzzle presents 4 suspects with alibis. One suspect is lying — their alib
 
 Each puzzle also includes 2 free hints that guide the player's thinking without costing stars. Puzzles are tagged with difficulty levels (Easy, Medium, Hard).
 
-**Daily mode**: Same puzzle for everyone, UTC midnight reset.
-**Practice mode**: 5-puzzle genre packs, self-paced.
-**Achievements**: 10 badges earned through play milestones (streaks, speed, difficulty, completionism).
+## Features
+
+- **Daily Mystery**: Same puzzle for everyone, UTC midnight reset
+- **Practice Packs**: 3 genre packs (15 puzzles), self-paced with progress tracking
+- **Free Hints**: 2 strategic hints per puzzle at no star cost — teaches deduction skills
+- **Difficulty Ratings**: Easy, Medium, Hard labels on every puzzle
+- **Share Cards**: Text and image share with star rating, time, and deduction grid
+- **Streaks**: Daily streak tracking with milestone badges at 7/14/30 days
+- **Achievements**: 10 badges (Mastermind, Speed Demon, Hard Boiled, Completionist, etc.)
+- **Detective Record**: Stats overlay with win rate, best time, difficulty breakdown, achievements
+- **Tutorial**: First-time player onboarding with interactive walkthrough
+- **Accessibility**: WCAG AA contrast, keyboard navigation, screen reader support, reduce-motion toggle
 
 ## Stack
 
@@ -62,6 +71,7 @@ src/
     layout/               Header, ModeSelector, StatsOverlay
     share/                ShareButton, ResultScreen
     ui/                   AchievementToast, PuzzleSkeleton
+    onboarding/           TutorialOverlay (first-time walkthrough)
   styles/global.css       Complete design system (~1900 lines)
 ```
 
