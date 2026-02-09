@@ -80,7 +80,10 @@ function CluePanelInner({
     <section aria-label="Clues" className="stack">
       <div className="row row--between">
         <h3>Evidence</h3>
-        <StarsDisplay filled={currentStars} total={4} size="sm" />
+        <span className="stars-label">
+          <span className="stars-label__text">{canReveal ? 'if you guess now' : 'your score'}</span>
+          <StarsDisplay filled={currentStars} total={4} size="sm" />
+        </span>
       </div>
 
       <div className="stack--sm">

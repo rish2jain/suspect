@@ -2,27 +2,28 @@ import { memo, useState, useCallback, useEffect, useRef } from 'react';
 
 interface TutorialOverlayProps {
   onDismiss: () => void;
+  variant?: 'stepped' | 'summary';
 }
 
 const STEPS = [
   {
     icon: '\u{1F50D}',
     title: 'Read the Alibis',
-    body: 'Four suspects. One is lying. Tap each suspect to read their alibi and look for something that doesn\'t add up.',
+    body: 'Four suspects. Exactly one is lying \u2014 their alibi contains a claim that can be proven false. Tap each suspect to read what they say.',
   },
   {
     icon: '\u2B50',
     title: 'Clues Cost Stars',
-    body: 'You start with 4 stars. Each clue you reveal costs one star. Solve with fewer clues for a higher score.',
+    body: 'You start with 4 stars. Each clue costs one star. You only get one guess, so use clues wisely before you accuse.',
   },
   {
     icon: '\u2715',
-    title: 'Clear Suspects',
-    body: 'Long-press (or double-click, or press C on keyboard) a suspect to mark them as cleared. Press S to select a suspect for accusation.',
+    title: 'Mark & Eliminate',
+    body: 'Tap a suspect to read their alibi. Long-press or double-click to mark them as cleared. When you\u2019re ready, select your suspect and accuse.',
   },
 ];
 
-function TutorialOverlayInner({ onDismiss }: TutorialOverlayProps) {
+function TutorialOverlayInner({ onDismiss, variant = 'stepped' }: TutorialOverlayProps) {
   const [step, setStep] = useState(0);
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<Element | null>(null);
@@ -90,6 +91,36 @@ function TutorialOverlayInner({ onDismiss }: TutorialOverlayProps) {
     onDismiss();
   }, [onDismiss]);
 
+  // --- Summary mode: all tips on one page ---
+  if (variant === 'summary') {
+    return (
+      <div className="tutorial-overlay" role="dialog" aria-modal="true" aria-label="How to play" onKeyDown={handleKeyDown}>
+        <div className="tutorial-overlay__content" ref={dialogRef} tabIndex={-1}>
+          <h2 className="tutorial-overlay__title">How to Play</h2>
+
+          <div className="tutorial-overlay__summary">
+            {STEPS.map((s, i) => (
+              <div key={i} className="tutorial-overlay__summary-item">
+                <span className="tutorial-overlay__summary-icon" aria-hidden="true">{s.icon}</span>
+                <div>
+                  <strong>{s.title}</strong>
+                  <p className="tutorial-overlay__body">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="tutorial-overlay__actions">
+            <button type="button" className="btn btn-action btn-full" onClick={onDismiss}>
+              Got it
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --- Stepped mode: paginated walkthrough (first visit) ---
   const current = STEPS[step];
   const isLast = step === STEPS.length - 1;
 

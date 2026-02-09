@@ -11,6 +11,7 @@ interface SuspectCardProps {
   onClear: () => void;
   disabled: boolean;
   suspectIndex: number;
+  instructionsId?: string;
 }
 
 const LONG_PRESS_MS = 500;
@@ -25,6 +26,7 @@ function SuspectCardInner({
   onClear,
   disabled,
   suspectIndex,
+  instructionsId,
 }: SuspectCardProps) {
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const didLongPress = useRef(false);
@@ -69,6 +71,11 @@ function SuspectCardInner({
   const handlePointerLeave = useCallback(() => {
     clearLongPressTimer();
   }, [clearLongPressTimer]);
+
+  // Suppress native context menu during long-press
+  const handleContextMenu = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+  }, []);
 
   // --- Click handling ---
 
@@ -115,12 +122,13 @@ function SuspectCardInner({
     [disabled, onExpand, onSelect, onClear, isCleared],
   );
 
-  const ariaLabel = `${suspect.name}, ${suspect.role}${isCleared ? ', cleared' : ''}${isSelected ? ', selected for accusation' : ''}. Press Enter to read alibi, S to select, C to clear.`;
+  const ariaLabel = `${suspect.name}, ${suspect.role}${isCleared ? ', cleared' : ''}${isSelected ? ', selected for accusation' : ''}`;
 
   return (
     <div
       className={classNames}
       aria-disabled={disabled || undefined}
+      onContextMenu={handleContextMenu}
     >
       {/* Long-press progress indicator */}
       {pressing && !disabled && (
@@ -143,6 +151,7 @@ function SuspectCardInner({
         tabIndex={disabled ? -1 : 0}
         aria-expanded={isExpanded}
         aria-label={ariaLabel}
+        aria-describedby={instructionsId}
         onClick={handleHeaderClick}
         onDoubleClick={handleDoubleClick}
         onPointerDown={handlePointerDown}
@@ -176,22 +185,35 @@ function SuspectCardInner({
         </svg>
       </button>
 
-      {/* Expandable alibi section -- sibling of the button, not nested inside it */}
-      {isExpanded && (
-        <div className="suspect-card__alibi">
-          <p>{suspect.alibi}</p>
-          {!isCleared && !disabled && (
-            <button
-              className="btn btn-action"
-              style={{ marginTop: 'var(--space-sm)', width: '100%' }}
-              onClick={onSelect}
-              type="button"
-            >
-              {isSelected ? 'Selected' : 'Select Suspect'}
-            </button>
-          )}
-        </div>
-      )}
+      {/* Expandable alibi section -- grid-based animation */}
+      <div className="suspect-card__body">
+        {isExpanded && (
+          <div className="suspect-card__alibi">
+            <p>{suspect.alibi}</p>
+            {!disabled && (
+              <div className="suspect-card__alibi-actions">
+                {!isCleared && (
+                  <button
+                    className="btn btn-action"
+                    onClick={onSelect}
+                    type="button"
+                  >
+                    {isSelected ? 'Selected' : 'Select Suspect'}
+                  </button>
+                )}
+                <button
+                  className={`btn btn-ghost${isCleared ? ' btn-action' : ''}`}
+                  onClick={onClear}
+                  type="button"
+                  style={isCleared ? { backgroundColor: 'transparent', color: 'var(--color-action)' } : undefined}
+                >
+                  {isCleared ? 'Unclear' : 'Clear'}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -48,7 +48,9 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
   const [isFetchingSolution, setIsFetchingSolution] = useState(false);
   const [verdictPending, setVerdictPending] = useState(false);
   const [cluePulse, setCluePulse] = useState(false);
+  const [showOnboardingHint, setShowOnboardingHint] = useState(false);
   const cluePulseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasExpandedRef = useRef(false);
 
   const streak = playerState.streak.current;
 
@@ -61,7 +63,12 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
     setFetchError(null);
     setVerdictPending(false);
     setCluePulse(false);
+    hasExpandedRef.current = false;
     if (cluePulseTimer.current) clearTimeout(cluePulseTimer.current);
+
+    // Show onboarding hint for first-time players (haven't expanded a card yet)
+    const completedCount = Object.keys(playerState.completedPuzzles).length;
+    setShowOnboardingHint(completedCount === 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [puzzle.id]);
 
@@ -77,6 +84,11 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
   const handleExpandSuspect = useCallback(
     (suspectId: string) => {
       expandSuspect(suspectId);
+      // Dismiss onboarding hint after first expand
+      if (!hasExpandedRef.current) {
+        hasExpandedRef.current = true;
+        setShowOnboardingHint(false);
+      }
     },
     [expandSuspect],
   );
@@ -195,8 +207,10 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
   // Focus management: move focus to verdict heading when result appears
   useEffect(() => {
     if (isGameOver && !verdictPending) {
-      const heading = document.getElementById('result-verdict');
-      if (heading) heading.focus();
+      requestAnimationFrame(() => {
+        const heading = document.getElementById('result-verdict');
+        if (heading) heading.focus();
+      });
     }
   }, [isGameOver, verdictPending]);
 
@@ -218,6 +232,9 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           : 'untouched' as const,
     }));
   }, [puzzle.suspects, state.selectedSuspect, clearedSuspects]);
+
+  // Streak intensity for visual scaling
+  const streakIntensity = streak >= 14 ? 'max' : streak >= 7 ? 'high' : undefined;
 
   // --- Render: Deliberation screen (verdict delay) ---
 
@@ -281,7 +298,7 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
       <div className="game-layout">
         {/* Streak-at-risk banner for daily mode */}
         {mode === 'daily' && streak >= 3 && (
-          <div className="streak-banner">
+          <div className="streak-banner" data-intensity={streakIntensity}>
             <span className="streak-banner__icon" aria-hidden="true">{'\u{1F525}'}</span>
             Day {streak} streak on the line
           </div>
@@ -298,6 +315,32 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
         {/* Suspects section */}
         <section aria-label="Suspects">
           <h3 className="section-heading">Suspects</h3>
+
+          {/* Shared keyboard instructions for screen readers */}
+          <p id="suspect-instructions" className="visually-hidden">
+            Press Enter to read alibi, S to select suspect, C to toggle cleared.
+          </p>
+
+          <p className="keyboard-hint" aria-hidden="true">
+            <kbd>Enter</kbd> read &middot; <kbd>S</kbd> select &middot; <kbd>C</kbd> clear
+          </p>
+
+          {/* Onboarding hint for first-time players */}
+          {showOnboardingHint && (
+            <div className="onboarding-hint">
+              <span aria-hidden="true">{'\u{1F449}'}</span>
+              Tap a suspect to read their alibi
+              <button
+                className="onboarding-hint__dismiss"
+                onClick={() => setShowOnboardingHint(false)}
+                type="button"
+                aria-label="Dismiss hint"
+              >
+                {'\u2715'}
+              </button>
+            </div>
+          )}
+
           <div className={`suspect-list${cluePulse ? ' suspect-list--clue-pulse' : ''}`}>
             {puzzle.suspects.map((suspect, idx) => (
               <SuspectCard
@@ -311,6 +354,7 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
                 onSelect={() => handleSelectSuspect(suspect.id)}
                 onClear={() => handleClearSuspect(suspect.id)}
                 disabled={isGameOver}
+                instructionsId="suspect-instructions"
               />
             ))}
           </div>
@@ -330,6 +374,11 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
         <hr className="divider" />
 
         {/* Accuse button */}
+        {canAccuse && (
+          <p className="text-sm text-muted text-center" style={{ marginBottom: 'var(--space-sm)' }}>
+            You get one guess per puzzle. Choose carefully.
+          </p>
+        )}
         <button
           className="btn btn-accuse btn-full"
           disabled={!canAccuse || isFetchingSolution}

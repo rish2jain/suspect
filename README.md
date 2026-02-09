@@ -56,9 +56,9 @@ src/
   hooks/                  useDaily, useTimer, useCountdown
   components/
     game/                 SuspectCard, ClueCard, CluePanel, PuzzleView, etc.
-    layout/               Header, ModeSelector
+    layout/               Header, ModeSelector, StatsOverlay
     share/                ShareButton, ResultScreen
-  styles/global.css       Complete design system (1300+ lines)
+  styles/global.css       Complete design system (1700+ lines)
 ```
 
 ## Adding Puzzles
@@ -84,4 +84,4 @@ npx vercel
 
 ## Performance
 
-~73KB gzipped total (budget: <80KB). No custom fonts, no CSS framework, puzzle data lazy-loaded on demand.
+~75KB gzipped total (budget: <80KB). No custom fonts, no CSS framework, puzzle data lazy-loaded on demand.

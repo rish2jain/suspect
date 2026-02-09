@@ -64,7 +64,7 @@ Each puzzle has exactly 4 suspects and 3 clues (ordered by `order` field). The l
 
 ### Styling
 
-Vanilla CSS with custom properties in `src/styles/global.css` (1300+ lines). "Cozy Noir" palette:
+Vanilla CSS with custom properties in `src/styles/global.css` (1700+ lines). "Cozy Noir" palette:
 - Background: `#FAF8F5`, Text: `#2C2420`, Action/CTA: `#1A6B5A`, Evidence: `#C4882B`, Danger: `#9B3B3B`
 - System font stack (zero custom fonts)
 - 44px minimum touch targets, WCAG AA contrast
@@ -80,7 +80,7 @@ CSS classes follow BEM-like naming: `.suspect-card__alibi`, `.result-screen__ver
 - **No CSS framework** — vanilla CSS + custom properties
 - **Memo pattern**: Leaf components use `memo(InnerComponent)` with a named export
 - **Context pattern**: Provider + `use*` hook co-located in same file (eslint override in `eslint.config.js` allows this)
-- **Performance budget**: <80KB gzipped total (~73KB currently)
+- **Performance budget**: <80KB gzipped total (~75KB currently)
 - **Star scoring**: 0 clues = 4 stars (MASTERMIND), 1 = 3 (SHARP-EYED), 2 = 2 (PERSISTENT), 3 = 1 (THOROUGH) — all positive ratings
 
 ## Adding Puzzles

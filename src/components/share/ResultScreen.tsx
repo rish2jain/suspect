@@ -3,6 +3,7 @@ import type { GameMode, Solution, Suspect, ShareData, SuspectOutcome } from '../
 import { calculateStars, getRatingLabel, formatTime } from '../../lib/puzzleUtils';
 import { VERDICT_HEADLINES, STREAK_MILESTONES } from '../../lib/constants';
 import { useCountdown } from '../../hooks/useCountdown';
+import { usePlayer } from '../../contexts/PlayerContext';
 import { StarsDisplay } from '../game/StarsDisplay';
 import { ShareButton } from './ShareButton';
 
@@ -23,15 +24,30 @@ interface ResultScreenProps {
 }
 
 function CountdownSection() {
-  const { formatted } = useCountdown();
+  const { hours, minutes, seconds } = useCountdown();
+
+  const pad = (n: number) => n.toString().padStart(2, '0');
 
   return (
-    <div className="countdown-timer" role="timer" aria-label="Countdown to next daily puzzle">
+    <div className="countdown-timer" role="timer" aria-label="Countdown to next daily puzzle" aria-live="off">
       <span className="countdown-timer__label">Next daily puzzle in</span>
-      <span className="countdown-timer__number" aria-hidden="true">
-        {formatted}
-      </span>
-      <span className="visually-hidden">{formatted}</span>
+      <div className="countdown-timer__digits">
+        <div className="countdown-timer__segment">
+          <span className="countdown-timer__number">{pad(hours)}</span>
+          <span className="countdown-timer__unit">hrs</span>
+        </div>
+        <span className="countdown-timer__separator" aria-hidden="true">:</span>
+        <div className="countdown-timer__segment">
+          <span className="countdown-timer__number">{pad(minutes)}</span>
+          <span className="countdown-timer__unit">min</span>
+        </div>
+        <span className="countdown-timer__separator" aria-hidden="true">:</span>
+        <div className="countdown-timer__segment">
+          <span className="countdown-timer__number">{pad(seconds)}</span>
+          <span className="countdown-timer__unit">sec</span>
+        </div>
+      </div>
+      <span className="visually-hidden">{`${pad(hours)} hours ${pad(minutes)} minutes ${pad(seconds)} seconds`}</span>
     </div>
   );
 }
@@ -51,6 +67,7 @@ function ResultScreenInner({
   onPlayAgain,
   onNextPuzzle,
 }: ResultScreenProps) {
+  const { state: playerState } = usePlayer();
   const stars = correct ? calculateStars(cluesUsed) : 0;
   const rating = correct ? getRatingLabel(cluesUsed) : 'UNSOLVED';
   const formattedTime = formatTime(timeSeconds);
@@ -71,6 +88,14 @@ function ResultScreenInner({
     if (!correct || mode !== 'daily') return null;
     return STREAK_MILESTONES.find((m) => streak === m) ?? null;
   }, [correct, mode, streak]);
+
+  // First-solve detection: player had zero completed puzzles before this one
+  const isFirstSolve = useMemo(() => {
+    if (!correct) return false;
+    const completedCount = Object.keys(playerState.completedPuzzles).length;
+    // After completing, there's exactly 1 entry (this one)
+    return completedCount <= 1;
+  }, [correct, playerState.completedPuzzles]);
 
   const shareData: ShareData = {
     puzzleNumber,
@@ -99,11 +124,22 @@ function ResultScreenInner({
         {verdictText}
       </h2>
 
-      {/* Wrong-answer culprit reveal */}
+      {/* Wrong-answer narrative */}
       {!correct && (
-        <div className="result-screen__culprit-reveal">
-          The real culprit was
-          <span className="result-screen__culprit-name">{culpritName}</span>
+        <>
+          <p className="result-screen__cold-trail">The trail goes cold...</p>
+          <div className="result-screen__culprit-reveal">
+            The real culprit was
+            <span className="result-screen__culprit-name">{culpritName}</span>
+          </div>
+        </>
+      )}
+
+      {/* First-solve celebration */}
+      {isFirstSolve && (
+        <div className="first-solve-badge">
+          <span aria-hidden="true">{'\u{1F3AF}'}</span>
+          First case cracked!
         </div>
       )}
 

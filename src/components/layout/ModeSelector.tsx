@@ -19,32 +19,34 @@ function ModeSelectorInner({
   const caseNumber = String(puzzleNumber).padStart(3, '0');
 
   return (
-    <nav className="row" aria-label="Game mode">
-      <button
-        type="button"
-        aria-pressed={currentMode === 'daily'}
-        className={`btn ${currentMode === 'daily' ? 'btn-action' : 'btn-ghost'}`}
-        onClick={onSelectDaily}
-      >
-        Daily Mystery
-        {dailyCompleted && (
-          <span aria-label="Completed" style={{ marginLeft: '4px' }}>
-            &#10003;
-          </span>
-        )}
-      </button>
+    <nav className="row" aria-label="Game mode" style={{ gap: 'var(--space-sm)' }}>
+      <div className="mode-selector">
+        <button
+          type="button"
+          aria-pressed={currentMode === 'daily'}
+          className="mode-selector__btn"
+          onClick={onSelectDaily}
+        >
+          Daily Mystery
+          {dailyCompleted && (
+            <span aria-label="Completed" style={{ marginLeft: '2px' }}>
+              &#10003;
+            </span>
+          )}
+        </button>
 
-      <button
-        type="button"
-        aria-pressed={currentMode === 'practice'}
-        className={`btn ${currentMode === 'practice' ? 'btn-action' : 'btn-ghost'}`}
-        onClick={onSelectPractice}
-      >
-        Practice
-      </button>
+        <button
+          type="button"
+          aria-pressed={currentMode === 'practice'}
+          className="mode-selector__btn"
+          onClick={onSelectPractice}
+        >
+          Practice
+        </button>
+      </div>
 
       {currentMode === 'daily' && puzzleNumber > 0 && (
-        <span className="badge" aria-label={`Case number ${caseNumber}`}>
+        <span className="badge mode-selector__badge" aria-label={`Case number ${caseNumber}`}>
           Case #{caseNumber}
         </span>
       )}

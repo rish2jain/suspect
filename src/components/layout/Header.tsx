@@ -1,7 +1,12 @@
 import { memo, useCallback } from 'react';
 import { usePlayer } from '../../contexts/PlayerContext';
 
-function HeaderInner() {
+interface HeaderProps {
+  onHelpClick?: () => void;
+  onStatsClick?: () => void;
+}
+
+function HeaderInner({ onHelpClick, onStatsClick }: HeaderProps) {
   const { state, toggleReduceMotion } = usePlayer();
   const streak = state.streak.current;
 
@@ -18,8 +23,61 @@ function HeaderInner() {
       <div className="game-header__actions">
         {streak > 0 && (
           <span className="badge badge--evidence" aria-label={`${streak} day streak`}>
+            <span aria-hidden="true">{'\u{1F525}'}</span>
             {streak}
           </span>
+        )}
+
+        {onHelpClick && (
+          <button
+            type="button"
+            className="game-header__icon-btn"
+            onClick={onHelpClick}
+            aria-label="How to play"
+            title="How to play"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="10" r="8.5" />
+              <path d="M7.5 7.5a2.5 2.5 0 0 1 4.7 1.2c0 1.7-2.5 2.3-2.5 2.3" />
+              <circle cx="10" cy="14.5" r="0.5" fill="currentColor" stroke="none" />
+            </svg>
+          </button>
+        )}
+
+        {onStatsClick && (
+          <button
+            type="button"
+            className="game-header__icon-btn"
+            onClick={onStatsClick}
+            aria-label="Your stats"
+            title="Your stats"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="10" width="4" height="8" rx="1" />
+              <rect x="8" y="6" width="4" height="12" rx="1" />
+              <rect x="14" y="2" width="4" height="16" rx="1" />
+            </svg>
+          </button>
         )}
 
         <button

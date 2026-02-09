@@ -7,6 +7,7 @@ import { ModeSelector } from './components/layout/ModeSelector';
 import { PuzzleView } from './components/game/PuzzleView';
 import { PuzzleSkeleton } from './components/ui/PuzzleSkeleton';
 import { TutorialOverlay } from './components/onboarding/TutorialOverlay';
+import { StatsOverlay } from './components/layout/StatsOverlay';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import {
   fetchPuzzle,
@@ -28,12 +29,14 @@ type AppView = 'home' | 'playing' | 'loading' | 'error';
 function AppInner() {
   const { dailyPuzzleId, puzzleNumber, isLoading: isDailyLoading, error: dailyError } = useDaily();
   const { state: gameState, startPuzzle, resetGame } = useGame();
-  const { state: playerState, isCompleted, dismissTutorial } = usePlayer();
+  const { state: playerState, isCompleted, getCompletion, dismissTutorial } = usePlayer();
 
   const [view, setView] = useState<AppView>('home');
   const [currentMode, setCurrentMode] = useState<GameMode>('daily');
   const [loadError, setLoadError] = useState<string | null>(null);
   const [puzzleIndex, setPuzzleIndex] = useState<PuzzleIndex | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
+  const [showStats, setShowStats] = useState(false);
   const initialLoadDone = useRef(false);
 
   // Track whether the daily puzzle is already completed
@@ -189,6 +192,7 @@ function AppInner() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
                 {pack.puzzles.map((pid: string, idx: number) => {
                   const completed = isCompleted(pid);
+                  const completion = completed ? getCompletion(pid) : undefined;
                   return (
                     <button
                       key={pid}
@@ -199,7 +203,14 @@ function AppInner() {
                     >
                       Puzzle {idx + 1}
                       {completed && (
-                        <span style={{ marginLeft: 'auto' }}>{'\u2713'}</span>
+                        <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          {completion?.stars !== undefined && (
+                            <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-evidence)' }}>
+                              {'\u2B50'.repeat(completion.stars)}
+                            </span>
+                          )}
+                          {'\u2713'}
+                        </span>
                       )}
                     </button>
                   );
@@ -249,7 +260,10 @@ function AppInner() {
   return (
     <div data-reduce-motion={playerState.settings.reduceMotion ? 'true' : undefined}>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Header />
+      <Header
+        onHelpClick={() => setShowHelp(true)}
+        onStatsClick={() => setShowStats(true)}
+      />
 
       <main className="container" id="main-content">
         {/* Mode selector */}
@@ -316,8 +330,16 @@ function AppInner() {
         {view === 'playing' && renderGameContent()}
       </main>
 
-      {/* Tutorial overlay for first-time users */}
-      {!playerState.hasSeenTutorial && <TutorialOverlay onDismiss={dismissTutorial} />}
+      {/* Tutorial overlay for first-time users (delayed until puzzle loads) */}
+      {!playerState.hasSeenTutorial && view === 'playing' && <TutorialOverlay onDismiss={dismissTutorial} />}
+
+      {/* Tutorial re-access via help button (single-page summary) */}
+      {showHelp && playerState.hasSeenTutorial && (
+        <TutorialOverlay onDismiss={() => setShowHelp(false)} variant="summary" />
+      )}
+
+      {/* Stats overlay */}
+      {showStats && <StatsOverlay onDismiss={() => setShowStats(false)} />}
     </div>
   );
 }
