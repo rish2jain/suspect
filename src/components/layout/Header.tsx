@@ -22,7 +22,11 @@ function HeaderInner({ onHelpClick, onStatsClick }: HeaderProps) {
 
       <div className="game-header__actions">
         {streak > 0 && (
-          <span className="badge badge--evidence" aria-label={`${streak} day streak`}>
+          <span
+            className="badge badge--streak"
+            data-intensity={streak >= 30 ? 'max' : streak >= 14 ? 'high' : streak >= 7 ? 'mid' : undefined}
+            aria-label={`${streak} day streak`}
+          >
             <span aria-hidden="true">{'\u{1F525}'}</span>
             {streak}
           </span>

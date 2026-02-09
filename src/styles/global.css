@@ -2883,6 +2883,31 @@ strong {
   background: rgba(155, 59, 59, 0.12);
 }
 
+/* Streak badge with intensity tiers */
+.badge--streak {
+  background-color: rgba(196, 136, 43, 0.12);
+  color: var(--color-evidence);
+  border-color: rgba(196, 136, 43, 0.3);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.badge--streak[data-intensity="mid"] {
+  background-color: rgba(196, 136, 43, 0.2);
+  border-color: rgba(196, 136, 43, 0.45);
+}
+
+.badge--streak[data-intensity="high"] {
+  background-color: rgba(196, 136, 43, 0.28);
+  border-color: rgba(196, 136, 43, 0.55);
+  box-shadow: 0 0 6px rgba(196, 136, 43, 0.2);
+}
+
+.badge--streak[data-intensity="max"] {
+  background-color: rgba(196, 136, 43, 0.35);
+  border-color: rgba(196, 136, 43, 0.65);
+  box-shadow: 0 0 10px rgba(196, 136, 43, 0.3);
+}
+
 /* ------------------------------------------------------------
    HINT PANEL
    ------------------------------------------------------------ */
@@ -3031,6 +3056,52 @@ strong {
   font-size: var(--text-lg);
   color: var(--color-text);
   margin: var(--space-lg) 0 var(--space-sm);
+}
+
+/* Difficulty breakdown rows */
+.stats-overlay__difficulty-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.stats-overlay__difficulty-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stats-overlay__difficulty-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.stats-overlay__difficulty-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-bg-alt);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stats-overlay__difficulty-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  transition: width var(--transition-base);
+}
+
+.stats-overlay__difficulty-detail {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  width: 72px;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 .stats-overlay__achievements {

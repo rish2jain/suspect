@@ -2,6 +2,7 @@ import { memo, useEffect, useRef, useCallback, useMemo } from 'react';
 import { usePlayer } from '../../contexts/PlayerContext';
 import { formatTime } from '../../lib/puzzleUtils';
 import { ACHIEVEMENTS } from '../../lib/achievements';
+import { DIFFICULTY_CONFIG } from '../../lib/constants';
 
 interface StatsOverlayProps {
   onDismiss: () => void;
@@ -32,6 +33,16 @@ function StatsOverlayInner({ onDismiss }: StatsOverlayProps) {
         ? Math.min(...wins.map((e) => e.timeSeconds))
         : 0;
 
+    // Difficulty breakdown (only for entries that have difficulty set)
+    const diffBreakdown: Record<number, { played: number; wins: number }> = {};
+    for (const entry of entries) {
+      const d = entry.difficulty;
+      if (d === undefined) continue;
+      if (!diffBreakdown[d]) diffBreakdown[d] = { played: 0, wins: 0 };
+      diffBreakdown[d].played++;
+      if (entry.correct) diffBreakdown[d].wins++;
+    }
+
     return {
       total,
       winRate,
@@ -39,6 +50,7 @@ function StatsOverlayInner({ onDismiss }: StatsOverlayProps) {
       bestTime,
       currentStreak,
       maxStreak,
+      diffBreakdown,
     };
   }, [completedPuzzles, currentStreak, maxStreak]);
 
@@ -144,6 +156,37 @@ function StatsOverlayInner({ onDismiss }: StatsOverlayProps) {
               <span className="stats-overlay__label">Max Streak</span>
             </div>
           </div>
+        )}
+
+        {/* Difficulty breakdown */}
+        {Object.keys(stats.diffBreakdown).length > 0 && (
+          <>
+            <h3 className="stats-overlay__subtitle">By Difficulty</h3>
+            <div className="stats-overlay__difficulty-list">
+              {([1, 2, 3] as const).map((d) => {
+                const cfg = DIFFICULTY_CONFIG[d];
+                const data = stats.diffBreakdown[d];
+                if (!cfg || !data) return null;
+                const rate = data.played > 0 ? Math.round((data.wins / data.played) * 100) : 0;
+                return (
+                  <div key={d} className="stats-overlay__difficulty-row">
+                    <span className="stats-overlay__difficulty-label" style={{ color: cfg.color }}>
+                      {cfg.label}
+                    </span>
+                    <span className="stats-overlay__difficulty-bar-track">
+                      <span
+                        className="stats-overlay__difficulty-bar-fill"
+                        style={{ width: `${rate}%`, backgroundColor: cfg.color }}
+                      />
+                    </span>
+                    <span className="stats-overlay__difficulty-detail">
+                      {data.wins}/{data.played} ({rate}%)
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         )}
 
         {/* Achievements */}
