@@ -20,8 +20,11 @@ Each puzzle presents 4 suspects with alibis. One suspect is lying — their alib
 | 2 | 2 | PERSISTENT |
 | 3 | 1 | THOROUGH |
 
+Each puzzle also includes 2 free hints that guide the player's thinking without costing stars. Puzzles are tagged with difficulty levels (Easy, Medium, Hard).
+
 **Daily mode**: Same puzzle for everyone, UTC midnight reset.
 **Practice mode**: 5-puzzle genre packs, self-paced.
+**Achievements**: 10 badges earned through play milestones (streaks, speed, difficulty, completionism).
 
 ## Stack
 
@@ -45,20 +48,21 @@ npm run preview   # Preview production build
 
 ```
 public/puzzles/
-  index.json              Daily pool + pack metadata
-  daily/*.json            7 daily puzzles
-  packs/*.json            5 practice pack puzzles
-  solutions/*.json        12 solution files (separate for anti-cheat)
+  index.json              Daily pool + pack metadata + difficulty map
+  daily/*.json            30 daily puzzles
+  packs/*.json            15 practice pack puzzles (3 packs)
+  solutions/*.json        45 solution files (separate for anti-cheat)
 
 src/
-  lib/                    Types, constants, utility functions
+  lib/                    Types, constants, utility functions, achievements
   contexts/               GameContext (session) + PlayerContext (persistent)
   hooks/                  useDaily, useTimer, useCountdown
   components/
-    game/                 SuspectCard, ClueCard, CluePanel, PuzzleView, etc.
+    game/                 SuspectCard, ClueCard, CluePanel, HintPanel, PuzzleView
     layout/               Header, ModeSelector, StatsOverlay
     share/                ShareButton, ResultScreen
-  styles/global.css       Complete design system (1700+ lines)
+    ui/                   AchievementToast, PuzzleSkeleton
+  styles/global.css       Complete design system (~1900 lines)
 ```
 
 ## Adding Puzzles
@@ -70,6 +74,8 @@ Each puzzle needs 3 files:
 
 Constraints:
 - Exactly 4 suspects, 3 clues with `order` values 1-3
+- 2 hints per puzzle (`hints` array with `id`, `text`, `order`)
+- `difficulty` value (1=Easy, 2=Medium, 3=Hard) — also mirrored in `index.json` `difficulties` map
 - 40-word max per alibi, standardized lengths across suspects
 - Liar has exactly one objectively falsifiable claim
 - All honest alibis internally consistent
@@ -84,4 +90,4 @@ npx vercel
 
 ## Performance
 
-~75KB gzipped total (budget: <80KB). No custom fonts, no CSS framework, puzzle data lazy-loaded on demand.
+~77KB gzipped JS + ~9KB CSS (budget: <80KB JS gzipped). No custom fonts, no CSS framework, puzzle data lazy-loaded on demand.
