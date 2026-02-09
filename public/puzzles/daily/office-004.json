@@ -58,5 +58,9 @@
       "content": "The lobby camera shows Owen leaving the building at 7:55 PM with a bag. But the garage camera shows him walking back into the parking garage from the stairwell at 8:25 PM, not leaving in his car as he claimed.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about each suspect's movements after they claim to have left the building.", "order": 1 },
+    { "id": "h2", "text": "Does the security footage show anyone doing something different from what they described?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "The Grandview Conference Center confirms the cybersecurity seminar was held on Wednesday, not Thursday. No events were scheduled at the center on Thursday at all.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "The email was sent from the intern's physical desk — who was actually in the building that afternoon?", "order": 1 },
+    { "id": "h2", "text": "Can each suspect's off-site event be verified as happening on the correct day?", "order": 2 }
   ]
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { GameProvider, useGame } from './contexts/GameContext';
 import { PlayerProvider, usePlayer } from './contexts/PlayerContext';
 import { useDaily } from './hooks/useDaily';
@@ -15,6 +15,8 @@ import {
   isDailyCompleted,
 } from './lib/puzzleUtils';
 import type { GameMode, PuzzleIndex, PackMeta } from './lib/types';
+import { DIFFICULTY_CONFIG } from './lib/constants';
+import { getDifficultyLabel } from './lib/puzzleUtils';
 
 // ---------------------------------------------------------------------------
 // View type for simple app-level routing
@@ -193,6 +195,7 @@ function AppInner() {
                 {pack.puzzles.map((pid: string, idx: number) => {
                   const completed = isCompleted(pid);
                   const completion = completed ? getCompletion(pid) : undefined;
+                  const diff = puzzleIndex?.difficulties?.[pid];
                   return (
                     <button
                       key={pid}
@@ -202,6 +205,14 @@ function AppInner() {
                       style={{ justifyContent: 'flex-start' }}
                     >
                       Puzzle {idx + 1}
+                      {diff !== undefined && diff > 0 && (
+                        <span
+                          className={`badge--difficulty badge--difficulty-${diff}`}
+                          style={{ color: DIFFICULTY_CONFIG[diff]?.color, marginLeft: 'var(--space-sm)' }}
+                        >
+                          {getDifficultyLabel(diff)}
+                        </span>
+                      )}
                       {completed && (
                         <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
                           {completion?.stars !== undefined && (
@@ -223,6 +234,11 @@ function AppInner() {
     );
   }
 
+  const packPuzzleLists = useMemo(() => {
+    if (!puzzleIndex) return undefined;
+    return puzzleIndex.packs.map((p) => p.puzzles);
+  }, [puzzleIndex]);
+
   function renderGameContent() {
     if (gameState.puzzle === null) return null;
 
@@ -231,6 +247,7 @@ function AppInner() {
         puzzle={gameState.puzzle}
         mode={gameState.mode}
         puzzleNumber={puzzleNumber}
+        packPuzzleLists={packPuzzleLists}
         onPlayAgain={
           gameState.mode === 'practice'
             ? () => { void loadPuzzle(gameState.puzzleId, 'practice'); }

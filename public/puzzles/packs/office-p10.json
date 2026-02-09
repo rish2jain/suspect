@@ -58,5 +58,9 @@
       "content": "Claudia says she was there for about thirty minutes to water plants. But the building security exit log shows she didn't leave until 11:42 AM — nearly two hours after signing in at 9:55 AM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider how long the prank would have taken and who had enough time in the building to pull it off.", "order": 1 },
+    { "id": "h2", "text": "Does the amount of time one suspect claims to have spent in the office match the actual building exit records?", "order": 2 }
   ]
 }

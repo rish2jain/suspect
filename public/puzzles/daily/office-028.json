@@ -58,5 +58,9 @@
       "content": "The Denver flight that Rohan claims arrived at 9:30 PM was actually delayed and didn't land until 11:15 PM Monday. The delay was posted by the airline at 3 PM that afternoon.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about who was still in or near the office around 8:55 PM Monday.", "order": 1 },
+    { "id": "h2", "text": "Did the airport pickup really require leaving the office when claimed — was the flight on time?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "The Greenfield subway line shuts down for maintenance every Wednesday at 7 PM. There is no Wednesday evening service on that route.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Look carefully at how each suspect claims to have traveled home that evening.", "order": 1 },
+    { "id": "h2", "text": "Does the claimed mode of transportation actually run on Wednesday evenings?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "Marcus's takeout order was delivered at 8:04 PM to the office lobby. But the delivery driver's GPS log shows he waited in the lobby for twelve minutes because no one came to collect it until 8:16 PM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay close attention to the timeline each suspect gives for Thursday evening.", "order": 1 },
+    { "id": "h2", "text": "If someone ordered takeout delivery, were they actually at their desk when it arrived?", "order": 2 }
   ]
 }

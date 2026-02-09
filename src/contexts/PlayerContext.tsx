@@ -24,7 +24,10 @@ type PlayerAction =
       cluesUsed: number;
       timeSeconds: number;
       stars: number;
+      difficulty?: number;
+      hintsUsed?: number;
     }
+  | { type: 'UNLOCK_ACHIEVEMENTS'; ids: string[] }
   | { type: 'UPDATE_STREAK' }
   | { type: 'TOGGLE_REDUCE_MOTION' }
   | { type: 'DISMISS_TUTORIAL' }
@@ -39,6 +42,7 @@ const initialState: PlayerState = {
   streak: { current: 0, max: 0, lastDailyDate: '' },
   settings: { reduceMotion: false },
   hasSeenTutorial: false,
+  achievements: [],
 };
 
 // ---------------------------------------------------------------------------
@@ -54,6 +58,8 @@ function playerReducer(state: PlayerState, action: PlayerAction): PlayerState {
         cluesUsed: action.cluesUsed,
         timeSeconds: action.timeSeconds,
         stars: action.stars,
+        difficulty: action.difficulty,
+        hintsUsed: action.hintsUsed,
       };
       return {
         ...state,
@@ -61,6 +67,15 @@ function playerReducer(state: PlayerState, action: PlayerAction): PlayerState {
           ...state.completedPuzzles,
           [action.id]: completion,
         },
+      };
+    }
+
+    case 'UNLOCK_ACHIEVEMENTS': {
+      const newIds = action.ids.filter((id) => !state.achievements.includes(id));
+      if (newIds.length === 0) return state;
+      return {
+        ...state,
+        achievements: [...state.achievements, ...newIds],
       };
     }
 
@@ -103,7 +118,11 @@ function playerReducer(state: PlayerState, action: PlayerAction): PlayerState {
       return { ...state, hasSeenTutorial: true };
 
     case 'LOAD_STATE':
-      return { ...initialState, ...action.state };
+      return {
+        ...initialState,
+        ...action.state,
+        achievements: action.state.achievements ?? [],
+      };
   }
 }
 
@@ -152,7 +171,10 @@ interface PlayerContextValue {
     cluesUsed: number,
     timeSeconds: number,
     stars: number,
+    difficulty?: number,
+    hintsUsed?: number,
   ) => void;
+  unlockAchievements: (ids: string[]) => void;
   updateStreak: () => void;
   isCompleted: (puzzleId: string) => boolean;
   getCompletion: (puzzleId: string) => PuzzleCompletion | undefined;
@@ -211,8 +233,17 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
       cluesUsed: number,
       timeSeconds: number,
       stars: number,
+      difficulty?: number,
+      hintsUsed?: number,
     ) => {
-      dispatch({ type: 'COMPLETE_PUZZLE', id, correct, cluesUsed, timeSeconds, stars });
+      dispatch({ type: 'COMPLETE_PUZZLE', id, correct, cluesUsed, timeSeconds, stars, difficulty, hintsUsed });
+    },
+    [],
+  );
+
+  const unlockAchievements = useCallback(
+    (ids: string[]) => {
+      if (ids.length > 0) dispatch({ type: 'UNLOCK_ACHIEVEMENTS', ids });
     },
     [],
   );
@@ -247,13 +278,14 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
     () => ({
       state,
       completePuzzle,
+      unlockAchievements,
       updateStreak,
       isCompleted,
       getCompletion,
       toggleReduceMotion,
       dismissTutorial,
     }),
-    [state, completePuzzle, updateStreak, isCompleted, getCompletion, toggleReduceMotion, dismissTutorial],
+    [state, completePuzzle, unlockAchievements, updateStreak, isCompleted, getCompletion, toggleReduceMotion, dismissTutorial],
   );
 
   return <PlayerContext value={value}>{children}</PlayerContext>;

@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react';
 import type { GameState, GameMode, GameStatus, Puzzle, Solution } from '../lib/types';
-import { MAX_CLUES } from '../lib/constants';
+import { MAX_CLUES, MAX_HINTS } from '../lib/constants';
 
 // ---------------------------------------------------------------------------
 // Action types
@@ -16,6 +16,7 @@ import { MAX_CLUES } from '../lib/constants';
 type GameAction =
   | { type: 'START_PUZZLE'; puzzle: Puzzle; mode: GameMode }
   | { type: 'REVEAL_CLUE'; clueId: string }
+  | { type: 'REVEAL_HINT'; hintId: string }
   | { type: 'SELECT_SUSPECT'; suspectId: string }
   | { type: 'EXPAND_SUSPECT'; suspectId: string | null }
   | { type: 'MAKE_ACCUSATION' }
@@ -32,6 +33,7 @@ const initialState: GameState = {
   puzzle: null,
   solution: null,
   revealedClues: [],
+  revealedHints: [],
   selectedSuspect: null,
   status: 'playing',
   startedAt: 0,
@@ -61,6 +63,16 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       return {
         ...state,
         revealedClues: [...state.revealedClues, action.clueId],
+      };
+    }
+
+    case 'REVEAL_HINT': {
+      if (state.status !== 'playing') return state;
+      if (state.revealedHints.length >= MAX_HINTS) return state;
+      if (state.revealedHints.includes(action.hintId)) return state;
+      return {
+        ...state,
+        revealedHints: [...state.revealedHints, action.hintId],
       };
     }
 
@@ -113,6 +125,7 @@ interface GameContextValue {
   state: GameState;
   dispatch: React.Dispatch<GameAction>;
   revealClue: (clueId: string) => void;
+  revealHint: (hintId: string) => void;
   selectSuspect: (suspectId: string) => void;
   expandSuspect: (suspectId: string | null) => void;
   makeAccusation: () => void;
@@ -120,6 +133,7 @@ interface GameContextValue {
   setSolution: (solution: Solution) => void;
   resetGame: () => void;
   canRevealClue: boolean;
+  canRevealHint: boolean;
   canAccuse: boolean;
   currentStars: number;
 }
@@ -139,6 +153,11 @@ export function GameProvider({ children }: GameProviderProps) {
 
   const revealClue = useCallback(
     (clueId: string) => dispatch({ type: 'REVEAL_CLUE', clueId }),
+    [],
+  );
+
+  const revealHint = useCallback(
+    (hintId: string) => dispatch({ type: 'REVEAL_HINT', hintId }),
     [],
   );
 
@@ -173,6 +192,7 @@ export function GameProvider({ children }: GameProviderProps) {
   );
 
   const canRevealClue = state.status === 'playing' && state.revealedClues.length < MAX_CLUES;
+  const canRevealHint = state.status === 'playing' && state.revealedHints.length < MAX_HINTS;
   const canAccuse = state.status === 'playing' && state.selectedSuspect !== null;
   const currentStars = MAX_CLUES + 1 - state.revealedClues.length;
 
@@ -181,6 +201,7 @@ export function GameProvider({ children }: GameProviderProps) {
       state,
       dispatch,
       revealClue,
+      revealHint,
       selectSuspect,
       expandSuspect,
       makeAccusation,
@@ -188,12 +209,14 @@ export function GameProvider({ children }: GameProviderProps) {
       setSolution,
       resetGame,
       canRevealClue,
+      canRevealHint,
       canAccuse,
       currentStars,
     }),
     [
       state,
       revealClue,
+      revealHint,
       selectSuspect,
       expandSuspect,
       makeAccusation,
@@ -201,6 +224,7 @@ export function GameProvider({ children }: GameProviderProps) {
       setSolution,
       resetGame,
       canRevealClue,
+      canRevealHint,
       canAccuse,
       currentStars,
     ],

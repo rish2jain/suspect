@@ -58,5 +58,9 @@
       "content": "The gym confirms Charlie swiped in at 5:30 AM but has no record of a swipe-out. The gym's policy requires swiping out, and their system logs every exit without exception.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider who had both the technical access and the opportunity to be in the building at 6:42 AM.", "order": 1 },
+    { "id": "h2", "text": "If someone claims they were at a venue for a specific window, check whether the venue's records confirm both their arrival and departure.", "order": 2 }
   ]
 }

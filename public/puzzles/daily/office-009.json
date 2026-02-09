@@ -58,5 +58,9 @@
       "content": "The server room's electronic lock shows Owen's badge exiting at 6:08 PM and re-entering at 6:22 PM. Owen claims he never left the server room during his shift.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about who was actually in the building on Saturday and whether they could have reached the fifth-floor kitchen.", "order": 1 },
+    { "id": "h2", "text": "If someone claims they never left a particular room, check whether the room's own access logs agree with that story.", "order": 2 }
   ]
 }

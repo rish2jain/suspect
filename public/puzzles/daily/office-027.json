@@ -58,5 +58,9 @@
       "content": "The Eastdale train line's last departure on Wednesday evenings is at 4:30 PM. Lily claims she left the office at 5 PM, but she could not have caught a train to Eastdale after that time.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider how each suspect traveled and whether the timing of their departure adds up.", "order": 1 },
+    { "id": "h2", "text": "Does the public transit schedule actually support the claimed evening trip?", "order": 2 }
   ]
 }

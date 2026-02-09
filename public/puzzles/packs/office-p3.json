@@ -58,5 +58,9 @@
       "content": "Westfield Park's youth soccer league does not hold practice on Thursday evenings. Their practice schedule is Monday, Wednesday, and Saturday only.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider whether each suspect's after-work plans can actually be verified for the correct day of the week.", "order": 1 },
+    { "id": "h2", "text": "Does the activity one suspect claims to have attended actually happen on Thursdays?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "Fifth Street Gym confirms Owen checked in at 6:05 AM and checked out at 7:05 AM. The gym is a twenty-minute drive from the office, making a 7:12 AM file edit impossible.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on where each suspect claims to have been at exactly 7:12 AM when the file was modified.", "order": 1 },
+    { "id": "h2", "text": "Could someone who claims to have been on one floor actually have been on a different floor?", "order": 2 }
   ]
 }

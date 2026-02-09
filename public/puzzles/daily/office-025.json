@@ -58,5 +58,9 @@
       "content": "Derek's gaming platform shows his last activity was at 12:30 AM Tuesday. The voice chat server logs show he disconnected at 12:32 AM — not 4 AM as he claimed.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on whether each suspect's alibi actually covers the 2 AM to 4 AM window.", "order": 1 },
+    { "id": "h2", "text": "Can online activity logs confirm how long that late-night gaming session really lasted?", "order": 2 }
   ]
 }

@@ -4,15 +4,19 @@ import {
   fetchSolution,
   formatTime,
   calculateStars,
+  getDifficultyLabel,
 } from '../../lib/puzzleUtils';
+import { DIFFICULTY_CONFIG } from '../../lib/constants';
 import { useGame } from '../../contexts/GameContext';
 import { usePlayer } from '../../contexts/PlayerContext';
 import { useTimer } from '../../hooks/useTimer';
 import { fireConfetti } from '../../lib/confetti';
+import { checkAchievements, ACHIEVEMENTS } from '../../lib/achievements';
 import { SuspectCard } from './SuspectCard';
 import { CluePanel } from './CluePanel';
 import { StarsDisplay } from './StarsDisplay';
 import { AccusationOverlay } from './AccusationOverlay';
+import { AchievementToast } from '../ui/AchievementToast';
 import { ResultScreen } from '../share/ResultScreen';
 
 interface PuzzleViewProps {
@@ -21,25 +25,28 @@ interface PuzzleViewProps {
   puzzleNumber: number;
   onPlayAgain?: () => void;
   onNextPuzzle?: () => void;
+  packPuzzleLists?: string[][];
 }
 
 const VERDICT_DELAY_MS = 2200;
 
-export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzzle }: PuzzleViewProps) {
+export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzzle, packPuzzleLists }: PuzzleViewProps) {
   const {
     state,
     startPuzzle,
     expandSuspect,
     selectSuspect,
     revealClue,
+    revealHint,
     setSolution,
     makeAccusation,
     canRevealClue,
+    canRevealHint,
     canAccuse,
     currentStars,
   } = useGame();
 
-  const { state: playerState, completePuzzle, updateStreak } = usePlayer();
+  const { state: playerState, completePuzzle, unlockAchievements, updateStreak } = usePlayer();
   const timer = useTimer();
 
   const [showOverlay, setShowOverlay] = useState(false);
@@ -49,6 +56,7 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
   const [verdictPending, setVerdictPending] = useState(false);
   const [cluePulse, setCluePulse] = useState(false);
   const [showOnboardingHint, setShowOnboardingHint] = useState(false);
+  const [achievementQueue, setAchievementQueue] = useState<string[]>([]);
   const cluePulseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasExpandedRef = useRef(false);
 
@@ -161,8 +169,9 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           const stars = calculateStars(capturedCluesUsed);
           const timeSeconds = timer.seconds;
           const correct = capturedSuspect === solution.culprit;
+          const hintsUsed = state.revealedHints.length;
 
-          completePuzzle(puzzle.id, correct, capturedCluesUsed, timeSeconds, stars);
+          completePuzzle(puzzle.id, correct, capturedCluesUsed, timeSeconds, stars, puzzle.difficulty, hintsUsed);
 
           if (mode === 'daily' && correct) {
             updateStreak();
@@ -171,6 +180,17 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           // Fire confetti on correct guess
           if (correct) {
             fireConfetti();
+          }
+
+          // Check for new achievements
+          const newAchievements = checkAchievements(
+            playerState,
+            { correct, cluesUsed: capturedCluesUsed, timeSeconds, stars, difficulty: puzzle.difficulty, hintsUsed },
+            packPuzzleLists,
+          );
+          if (newAchievements.length > 0) {
+            unlockAchievements(newAchievements);
+            setAchievementQueue(newAchievements);
           }
 
           setVerdictPending(false);
@@ -182,12 +202,17 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
     }
   }, [
     puzzle.id,
+    puzzle.difficulty,
     setSolution,
     makeAccusation,
     timer,
     state.revealedClues.length,
+    state.revealedHints.length,
     state.selectedSuspect,
     completePuzzle,
+    unlockAchievements,
+    playerState,
+    packPuzzleLists,
     mode,
     updateStreak,
   ]);
@@ -278,6 +303,19 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           onPlayAgain={onPlayAgain}
           onNextPuzzle={onNextPuzzle}
         />
+
+        {/* Achievement toast */}
+        {achievementQueue.length > 0 && (() => {
+          const def = ACHIEVEMENTS.find((a) => a.id === achievementQueue[0]);
+          if (!def) return null;
+          return (
+            <AchievementToast
+              key={def.id}
+              achievement={def}
+              onDismiss={() => setAchievementQueue((q) => q.slice(1))}
+            />
+          );
+        })()}
       </div>
     );
   }
@@ -290,6 +328,14 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
       <div className="scenario-banner">
         <div className="scenario-banner__case-number">
           Case #{String(puzzleNumber).padStart(3, '0')} {mode === 'practice' ? '(Practice)' : ''}
+          {puzzle.difficulty > 0 && (
+            <span
+              className={`badge--difficulty badge--difficulty-${puzzle.difficulty}`}
+              style={{ color: DIFFICULTY_CONFIG[puzzle.difficulty]?.color }}
+            >
+              {getDifficultyLabel(puzzle.difficulty)}
+            </span>
+          )}
         </div>
         <h2 className="scenario-banner__title">{puzzle.title}</h2>
         <p className="scenario-banner__description">{puzzle.premise}</p>
@@ -369,6 +415,10 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           onRevealClue={handleRevealClue}
           canReveal={canRevealClue}
           currentStars={currentStars}
+          hints={puzzle.hints}
+          revealedHints={state.revealedHints}
+          onRevealHint={revealHint}
+          canRevealHint={canRevealHint}
         />
 
         <hr className="divider" />
@@ -412,6 +462,19 @@ export function PuzzleView({ puzzle, mode, puzzleNumber, onPlayAgain, onNextPuzz
           onCancel={handleCancelAccusation}
         />
       )}
+
+      {/* Achievement toast */}
+      {achievementQueue.length > 0 && (() => {
+        const def = ACHIEVEMENTS.find((a) => a.id === achievementQueue[0]);
+        if (!def) return null;
+        return (
+          <AchievementToast
+            key={def.id}
+            achievement={def}
+            onDismiss={() => setAchievementQueue((q) => q.slice(1))}
+          />
+        );
+      })()}
     </div>
   );
 }

@@ -58,5 +58,9 @@
       "content": "Yolanda's neighbor confirms helping her move furniture Saturday from 1 PM to 4 PM. But the neighbor also saw Yolanda leaving her apartment building with car keys at 8 AM Saturday morning.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay close attention to what each suspect claims about their weekend whereabouts and whether anyone could verify the full story.", "order": 1 },
+    { "id": "h2", "text": "One suspect claims they never left home at all. Is there any evidence that contradicts that absolute statement?", "order": 2 }
   ]
 }

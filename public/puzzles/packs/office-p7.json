@@ -58,5 +58,9 @@
       "content": "Yuki says she was in the third-floor conference room for two hours. But the thermostat panel is on the second floor, and the building elevator log shows a trip from floor three to floor two at 3:10 PM Sunday.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "The thermostat was changed on Sunday afternoon. Who was actually in the building at that time?", "order": 1 },
+    { "id": "h2", "text": "If someone claims they stayed on one floor the entire time, is there any evidence they visited another floor?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "Margaret's office is on the third floor. The CEO's laptop was on her desk inside her private office, door left open while she was in the adjacent boardroom.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on the exact times each suspect says they were busy -- do their stories hold up to the minute?", "order": 1 },
+    { "id": "h2", "text": "If someone's scheduled companion remembers a different start time, that leaves a suspicious gap.", "order": 2 }
   ]
 }

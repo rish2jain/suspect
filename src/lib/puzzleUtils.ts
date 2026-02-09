@@ -1,6 +1,7 @@
 import {
   EPOCH,
   STAR_RATINGS,
+  DIFFICULTY_CONFIG,
   PUZZLE_INDEX_URL,
   DAILY_PUZZLE_PATH,
   PACK_PUZZLE_PATH,
@@ -155,6 +156,13 @@ export function generateShareText(data: ShareData): string {
     'play.suspect.game',
   ];
   return lines.join('\n');
+}
+
+/**
+ * Get a human-readable difficulty label from a numeric difficulty value.
+ */
+export function getDifficultyLabel(difficulty: number): string {
+  return DIFFICULTY_CONFIG[difficulty]?.label ?? 'Unknown';
 }
 
 /**

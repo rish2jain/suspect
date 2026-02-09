@@ -58,5 +58,9 @@
       "content": "Claudia's Portland hotel reservation shows check-in on Thursday afternoon. Her vault keycard was used Wednesday at 6:45 PM -- the evening before she claims her vacation started.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider who actually had physical access to the vault and when they last used it.", "order": 1 },
+    { "id": "h2", "text": "Does everyone's stated travel timeline match up with the vault access records?", "order": 2 }
   ]
 }

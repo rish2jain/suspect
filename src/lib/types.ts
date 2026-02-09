@@ -20,6 +20,12 @@ export interface Clue {
   order: number;
 }
 
+export interface Hint {
+  id: string;
+  text: string;
+  order: number;
+}
+
 export interface Puzzle {
   id: string;
   version: number;
@@ -30,6 +36,7 @@ export interface Puzzle {
   premise: string;
   suspects: Suspect[];
   clues: Clue[];
+  hints?: Hint[];
 }
 
 export interface Solution {
@@ -49,6 +56,7 @@ export interface PackMeta {
 export interface PuzzleIndex {
   daily: string[];
   packs: PackMeta[];
+  difficulties?: Record<string, number>;
 }
 
 // ---------------------------------------------------------------------------
@@ -64,6 +72,7 @@ export interface GameState {
   puzzle: Puzzle | null;
   solution: Solution | null;
   revealedClues: string[];
+  revealedHints: string[];
   selectedSuspect: string | null;
   status: GameStatus;
   startedAt: number;
@@ -81,6 +90,8 @@ export interface PuzzleCompletion {
   cluesUsed: number;
   timeSeconds: number;
   stars: number;
+  difficulty?: number;
+  hintsUsed?: number;
 }
 
 export interface Streak {
@@ -96,6 +107,7 @@ export interface PlayerState {
     reduceMotion: boolean;
   };
   hasSeenTutorial: boolean;
+  achievements: string[];
 }
 
 // ---------------------------------------------------------------------------

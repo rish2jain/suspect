@@ -58,5 +58,9 @@
       "content": "Mia says she left at 5 PM and took the bus. But the Route 12 bus schedule shows the last bus from that stop departs at 4:45 PM on Tuesdays due to a reduced evening schedule.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Look at the timing of each suspect's departure and how they left the building.", "order": 1 },
+    { "id": "h2", "text": "Does the claimed method of transportation actually match the available schedule for that day?", "order": 2 }
   ]
 }

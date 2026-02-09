@@ -58,5 +58,9 @@
       "content": "A fresh tomato sauce stain was found on the supply closet door handle. Nina claims she never left the supply closet during that time.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay close attention to where each suspect claims to have gone after leaving their main location.", "order": 1 },
+    { "id": "h2", "text": "Did anyone mention meeting someone who might not have actually been there that day?", "order": 2 }
   ]
 }

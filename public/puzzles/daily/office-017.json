@@ -58,5 +58,9 @@
       "content": "The only road to Lake Marion was closed all weekend for bridge repairs starting Friday at noon. The closure was announced on the county website Thursday.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Verify whether each suspect's weekend alibi is actually possible.", "order": 1 },
+    { "id": "h2", "text": "Could the claimed travel destination have been reachable given road conditions that weekend?", "order": 2 }
   ]
 }

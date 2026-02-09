@@ -1,6 +1,7 @@
 import { memo, useMemo, useState, useCallback, useEffect, useRef } from 'react';
-import type { Clue } from '../../lib/types';
+import type { Clue, Hint } from '../../lib/types';
 import { ClueCard } from './ClueCard';
+import { HintPanel } from './HintPanel';
 import { StarsDisplay } from './StarsDisplay';
 
 interface CluePanelProps {
@@ -9,6 +10,10 @@ interface CluePanelProps {
   onRevealClue: (clueId: string) => void;
   canReveal: boolean;
   currentStars: number;
+  hints?: Hint[];
+  revealedHints?: string[];
+  onRevealHint?: (hintId: string) => void;
+  canRevealHint?: boolean;
 }
 
 const ARMED_DISMISS_MS = 3000;
@@ -19,6 +24,10 @@ function CluePanelInner({
   onRevealClue,
   canReveal,
   currentStars,
+  hints,
+  revealedHints,
+  onRevealHint,
+  canRevealHint,
 }: CluePanelProps) {
   const [pendingRevealId, setPendingRevealId] = useState<string | null>(null);
   const dismissTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -78,6 +87,15 @@ function CluePanelInner({
 
   return (
     <section aria-label="Clues" className="stack">
+      {hints && hints.length > 0 && onRevealHint && (
+        <HintPanel
+          hints={hints}
+          revealedHints={revealedHints ?? []}
+          onRevealHint={onRevealHint}
+          canReveal={canRevealHint ?? false}
+        />
+      )}
+
       <div className="row row--between">
         <h3>Evidence</h3>
         <span className="stars-label">

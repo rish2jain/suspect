@@ -58,5 +58,9 @@
       "content": "IT pulled Pete's meeting records. His first video call Monday actually started at 9:15 AM, not 8:30 AM. There is a forty-five minute gap in his morning schedule.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Look at each suspect's claimed schedule -- is there anyone with unaccounted-for time during the swap window?", "order": 1 },
+    { "id": "h2", "text": "Someone's meeting records might not match the timeline they described. Could that gap be enough to run a quick errand?", "order": 2 }
   ]
 }

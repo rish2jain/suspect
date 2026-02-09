@@ -58,5 +58,9 @@
       "content": "Monica's video platform account shows her call with her mother lasted from 7:00 PM to 8:15 PM — not until 10 PM as she claimed. The call ended nearly two hours earlier.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about who had both physical access to the cabinet and opportunity during the overnight window.", "order": 1 },
+    { "id": "h2", "text": "How long did that video call really last — does the claimed duration hold up?", "order": 2 }
   ]
 }

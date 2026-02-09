@@ -58,5 +58,9 @@
       "content": "The facilities work order shows the east wing was already waxed last Thursday. Hector's overnight assignment was actually for the south wing stairwells, not the east wing.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay attention to where in the building each suspect claims to have been during the overnight hours.", "order": 1 },
+    { "id": "h2", "text": "Is the overnight work assignment someone describes actually consistent with the real work schedule?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "The wedding venue confirms Vera's cousin's reception ended at 10 PM Saturday, not midnight as Vera claimed. Guests were cleared out by 10:15 PM per the venue's strict policy.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "The name plates were swapped Saturday night — consider who was actually free at that time.", "order": 1 },
+    { "id": "h2", "text": "When exactly did that wedding reception end — does the claimed timeline match the venue's rules?", "order": 2 }
   ]
 }

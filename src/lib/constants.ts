@@ -55,3 +55,13 @@ export const VERDICT_HEADLINES: Record<number, string> = {
 
 // Streak milestone thresholds
 export const STREAK_MILESTONES = [7, 14, 30, 50, 100] as const;
+
+// Maximum free hints per puzzle
+export const MAX_HINTS = 2;
+
+// Difficulty display config
+export const DIFFICULTY_CONFIG: Record<number, { label: string; color: string }> = {
+  1: { label: 'Easy', color: 'var(--color-success)' },
+  2: { label: 'Medium', color: 'var(--color-evidence)' },
+  3: { label: 'Hard', color: 'var(--color-danger)' },
+};

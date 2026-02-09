@@ -58,5 +58,9 @@
       "content": "The key-card log shows four exits after 4 PM Thursday but only one re-entry at 9:15 PM. The building's front door auto-locks at 6 PM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider what digital traces someone might leave behind even after they claim to have gone home.", "order": 1 },
+    { "id": "h2", "text": "If a personal device stayed connected to the office network long after its owner supposedly left, what does that tell you?", "order": 2 }
   ]
 }

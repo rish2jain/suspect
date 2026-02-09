@@ -58,5 +58,9 @@
       "content": "The deli on Third Street is a fifteen-minute walk each way. Lucas's debit card was charged there at 12:03 PM, meaning he would have been back at the office well before 12:30 -- not at 12:50 as he claimed.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think carefully about when each suspect could have been near the open workspace around 12:30 PM.", "order": 1 },
+    { "id": "h2", "text": "Does the timing of a certain lunch trip actually match up with when that person claims they returned to the office?", "order": 2 }
   ]
 }

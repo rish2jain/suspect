@@ -58,5 +58,9 @@
       "content": "The office VPN log shows a connection from Kent's registered laptop at 3:12 AM Thursday, lasting nine minutes. Kent claims he was asleep at his friend's apartment by 2 AM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "The email was sent remotely, so focus on who could have accessed the system from outside the office at 3 AM.", "order": 1 },
+    { "id": "h2", "text": "If someone claims they were asleep, but a device registered to them connected to the network shortly after, their alibi has a problem.", "order": 2 }
   ]
 }

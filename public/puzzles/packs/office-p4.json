@@ -58,5 +58,9 @@
       "content": "The Riverside Amphitheater's website shows The Waves concert was originally scheduled for Thursday but was postponed to the following week due to weather. No show took place Thursday night.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on the timeline between 6:30 PM and 8 PM Thursday evening. Who actually had the opportunity?", "order": 1 },
+    { "id": "h2", "text": "Can you verify that a particular evening event actually took place as scheduled on Thursday night?", "order": 2 }
   ]
 }

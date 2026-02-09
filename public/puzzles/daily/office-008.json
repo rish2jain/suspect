@@ -58,5 +58,9 @@
       "content": "The 7:52 PM badge swipe was Tanya's card. But her corner office is on the fifth floor, and the badge log shows her card also accessed the third-floor strategy room at 8:10 PM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay attention to what each suspect claims they did right before leaving the building.", "order": 1 },
+    { "id": "h2", "text": "Badge access logs can reveal if someone made a detour to a floor they had no stated reason to visit.", "order": 2 }
   ]
 }

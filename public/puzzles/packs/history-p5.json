@@ -58,5 +58,9 @@
       "content": "Murphy's Pub is a six-minute drive from the auction house. Philip claimed he was at the pub until midnight, but Clues 1 and 2 show he left at 11 PM and used his alarm code at 11:48 PM. His alibi window has a gap he cannot explain.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on who had the means to re-enter the building after hours on Friday night.", "order": 1 },
+    { "id": "h2", "text": "Someone claims they stayed out all evening, but did they really stay put the entire time?", "order": 2 }
   ]
 }

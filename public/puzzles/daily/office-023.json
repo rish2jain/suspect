@@ -58,5 +58,9 @@
       "content": "The NFL schedule confirms there was no Monday night football game this week. The Lions versus Packers game was played on Sunday afternoon, not Monday night.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Check whether each alibi references an event that can be independently verified.", "order": 1 },
+    { "id": "h2", "text": "Was there really a football game scheduled for Monday night this week?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "The deletion was done from inside the office network, not remotely. The server does not allow remote admin access — it must be done from a terminal on-site.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about where each suspect was physically located around 9:42 PM Thursday.", "order": 1 },
+    { "id": "h2", "text": "If someone was on a video call, what does their background reveal about their actual location?", "order": 2 }
   ]
 }

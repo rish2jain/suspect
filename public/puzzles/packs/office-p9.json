@@ -58,5 +58,9 @@
       "content": "The service door keycard log shows Meg's card was used at 8:35 PM Tuesday to enter and again at 8:55 PM to exit. Meg claims she stayed home all Tuesday night and only handled a maintenance call by phone.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "The playlist was changed between 8:42 and 8:51 PM. Think about how someone could have entered the building without using the main entrance.", "order": 1 },
+    { "id": "h2", "text": "One suspect claims they stayed home all evening. Does the keycard log support that claim?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "The spare display case key is kept in June's locked desk drawer. Security footage from Friday at 5:55 PM shows Elliot lingering at the reception desk after June had already left.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about who had the opportunity to access the display case key over the weekend.", "order": 1 },
+    { "id": "h2", "text": "Was anyone lingering near the reception area after the key holder had already left for the day?", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "Todd claims he drove to Riverside on Saturday afternoon. But Riverside is a four-hour drive away, and Clue 2 shows he didn't leave the office until 5:45 PM Saturday — arriving impossibly late for Saturday dinner.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay close attention to where each suspect claims they were on Saturday afternoon.", "order": 1 },
+    { "id": "h2", "text": "How long does the drive to Riverside actually take, and when did someone leave the office?", "order": 2 }
   ]
 }

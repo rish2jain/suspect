@@ -58,5 +58,9 @@
       "content": "Sunset Lanes posts on their website that Monday leagues end at 10 PM and the building closes at 10:30 PM. Marcus claimed he was bowling until 11 PM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Check the timelines carefully -- do the hours each suspect claims actually add up?", "order": 1 },
+    { "id": "h2", "text": "Are there any venues mentioned whose operating hours might not match what someone claimed?", "order": 2 }
   ]
 }

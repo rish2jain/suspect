@@ -1,6 +1,7 @@
 import { memo, useEffect, useRef, useCallback, useMemo } from 'react';
 import { usePlayer } from '../../contexts/PlayerContext';
 import { formatTime } from '../../lib/puzzleUtils';
+import { ACHIEVEMENTS } from '../../lib/achievements';
 
 interface StatsOverlayProps {
   onDismiss: () => void;
@@ -144,6 +145,26 @@ function StatsOverlayInner({ onDismiss }: StatsOverlayProps) {
             </div>
           </div>
         )}
+
+        {/* Achievements */}
+        <h3 className="stats-overlay__subtitle">Achievements</h3>
+        <div className="stats-overlay__achievements">
+          {ACHIEVEMENTS.map((ach) => {
+            const unlocked = state.achievements.includes(ach.id);
+            return (
+              <div
+                key={ach.id}
+                className={`achievement-badge${unlocked ? ' achievement-badge--unlocked' : ''}`}
+                title={`${ach.name}: ${ach.description}`}
+              >
+                <span className="achievement-badge__icon" aria-hidden="true">
+                  {ach.icon}
+                </span>
+                <span className="achievement-badge__name">{ach.name}</span>
+              </div>
+            );
+          })}
+        </div>
 
         <button
           type="button"

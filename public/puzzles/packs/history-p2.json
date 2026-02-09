@@ -58,5 +58,9 @@
       "content": "The university lab's electronic door log shows Dana's keycard swiped in at 8:03 AM Thursday, but also shows a swipe-out at 2:47 AM that same morning. She was at the university in the middle of the night.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Think about what each suspect was doing in the hours before dawn, not just during the workday.", "order": 1 },
+    { "id": "h2", "text": "Electronic access logs can reveal more than just daytime comings and goings. Check the timestamps carefully.", "order": 2 }
   ]
 }

@@ -58,5 +58,9 @@
       "content": "Jonas's delivery order was placed at 8:02 PM and marked delivered at 8:31 PM. But the driver's GPS log shows the food was left at the door with no answer after three knocks -- Jonas was not home when it arrived.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay close attention to each suspect's account of where they were during the late evening hours.", "order": 1 },
+    { "id": "h2", "text": "If someone ordered food delivery, would they necessarily be there when it arrived?", "order": 2 }
   ]
 }

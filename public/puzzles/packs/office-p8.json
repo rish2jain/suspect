@@ -58,5 +58,9 @@
       "content": "Alan claims he didn't read the memo's contents. But the screenshot metadata matches his phone model, and the email server log shows he opened the memo attachment at 5:58 PM — 43 minutes after he claims to have left at 5:15 PM.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Focus on what time each suspect claims to have left the office and whether that matches the digital evidence.", "order": 1 },
+    { "id": "h2", "text": "If someone says they never read the memo, does the email server log agree with that claim?", "order": 2 }
   ]
 }

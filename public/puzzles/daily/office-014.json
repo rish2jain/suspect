@@ -58,5 +58,9 @@
       "content": "The office photocopier's digital log shows a copy job at 12:52 PM from Tracy's employee code. The original Secret Santa list was a single printed page — and the posted version is clearly a photocopy.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider who had both physical access to the filing cabinet and opportunity during the posting window.", "order": 1 },
+    { "id": "h2", "text": "The posted list is a photocopy, not the original. Who might have used the copier around that time?", "order": 2 }
   ]
 }

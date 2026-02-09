@@ -71,5 +71,16 @@
         "history-p5"
       ]
     }
-  ]
+  ],
+  "difficulties": {
+    "office-001": 1, "office-002": 1, "office-003": 2, "office-004": 2, "office-005": 2,
+    "office-006": 3, "office-007": 3, "office-008": 1, "office-009": 2, "office-010": 2,
+    "office-011": 2, "office-012": 3, "office-013": 2, "office-014": 3, "office-015": 1,
+    "office-016": 2, "office-017": 1, "office-018": 2, "office-019": 1, "office-020": 2,
+    "office-021": 1, "office-022": 3, "office-023": 2, "office-024": 1, "office-025": 3,
+    "office-026": 2, "office-027": 3, "office-028": 2, "office-029": 1, "office-030": 3,
+    "office-p1": 1, "office-p2": 2, "office-p3": 2, "office-p4": 3, "office-p5": 3,
+    "office-p6": 1, "office-p7": 2, "office-p8": 2, "office-p9": 3, "office-p10": 1,
+    "history-p1": 1, "history-p2": 1, "history-p3": 2, "history-p4": 2, "history-p5": 3
+  }
 }

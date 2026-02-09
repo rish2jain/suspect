@@ -58,5 +58,9 @@
       "content": "The downtown library was closed all day Tuesday for emergency plumbing repairs. Their social media posted the closure notice Monday afternoon. No book club meeting could have taken place there.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Consider who has both keycard access and an unverifiable alibi for Tuesday night.", "order": 1 },
+    { "id": "h2", "text": "Could the venue where one suspect claims to have spent the evening actually have been open that day?", "order": 2 }
   ]
 }

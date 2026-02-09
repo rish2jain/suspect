@@ -58,5 +58,9 @@
       "content": "Harborview Grill's posted hours show they close at 9 PM on Wednesdays. Craig claimed dinner lasted until 9:30 PM, but the restaurant would have been closed by then.",
       "order": 3
     }
+  ],
+  "hints": [
+    { "id": "h1", "text": "Pay attention to the timing of each suspect's evening plans on Wednesday.", "order": 1 },
+    { "id": "h2", "text": "Do the claimed dining hours actually match the restaurant's operating schedule that night?", "order": 2 }
   ]
 }
